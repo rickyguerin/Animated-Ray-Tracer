@@ -1,4 +1,4 @@
 # Raytracer
 A ray tracer I'm building to learn C++.
 
-Relies on the [LodePNG NuGet package](https://github.com/lvandeve/lodepng) for writing .png files.
+Relies on the [LodePNG](https://github.com/lvandeve/lodepng) NuGet package for writing .png files.
