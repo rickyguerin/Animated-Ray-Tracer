@@ -1,22 +1,18 @@
-#include <iostream>
 #include <lodepng.h>
-
-void writeImage(const char* filename, std::vector<unsigned char>& image, unsigned width, unsigned height) {
-	lodepng::encode(filename, image, width, height);
-}
+#include "image.cpp"
 
 int main() {
+	Image image(512, 512);
+	
+	image.render("../images/empty.png");
 
-	unsigned width = 512, height = 512;
-	std::vector<unsigned char> image;
-	image.resize(width * height * 4);
-	for (unsigned y = 0; y < height; y++)
-		for (unsigned x = 0; x < width; x++) {
-			image[4 * width * y + 4 * x + 0] = 255 * !(x & y);
-			image[4 * width * y + 4 * x + 1] = x | y;
-			image[4 * width * y + 4 * x + 2] = x | y;
-			image[4 * width * y + 4 * x + 3] = 255;
+	for (unsigned y = 0; y < image.getHeight(); y++) {
+		for (unsigned x = 0; x < image.getWidth(); x++) {
+			image.setPixel(x, y, 255 * !(x & y), x | y, x | y, 255);
 		}
+	}
 
-	writeImage("../images/output.png", image, width, height);
+	image.render("../images/output.png");
+
+	return 0;
 }
