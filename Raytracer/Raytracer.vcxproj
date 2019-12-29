@@ -138,6 +138,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="camera.cpp" />
     <ClCompile Include="driver.cpp" />
     <ClCompile Include="image.cpp" />
     <ClCompile Include="sphere.cpp" />
