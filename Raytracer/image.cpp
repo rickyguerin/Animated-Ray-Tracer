@@ -18,10 +18,6 @@ public:
 	}
 
 	unsigned getHeight() {
-	}
-
-	void render(const char* filename) {
-		lodepng::encode(filename, contents, width, height);
 		return height;
 	}
 
@@ -31,5 +27,9 @@ public:
 		contents[4 * lw * y + 4 * x + 1] = g;
 		contents[4 * lw * y + 4 * x + 2] = b;
 		contents[4 * lw * y + 4 * x + 3] = a;
+	}
+
+	void write(const char* filename) {
+		lodepng::encode(filename, contents, width, height);
 	}
 };
