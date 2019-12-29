@@ -18,11 +18,11 @@ public:
 	}
 
 	unsigned getHeight() {
-		return width;
 	}
 
 	void render(const char* filename) {
 		lodepng::encode(filename, contents, width, height);
+		return height;
 	}
 
 	void setPixel(long long x, long long y, unsigned char r, unsigned char g, unsigned char b, unsigned char a) {
