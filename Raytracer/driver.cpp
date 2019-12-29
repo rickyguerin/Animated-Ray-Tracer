@@ -1,18 +1,12 @@
-#include <lodepng.h>
-#include "image.cpp"
+#include "camera.cpp"
 
 int main() {
-	Image image(512, 512);
-	
-	image.render("../images/empty.png");
+	glm::vec3 pos{ 0, 0, 0 };
+	glm::vec3 lookat{ 0, 0, 1 };
+	glm::vec3 up{ 0, 1, 0 };
 
-	for (unsigned y = 0; y < image.getHeight(); y++) {
-		for (unsigned x = 0; x < image.getWidth(); x++) {
-			image.setPixel(x, y, 255 * !(x & y), x | y, x | y, 255);
-		}
-	}
-
-	image.render("../images/output.png");
+	Camera camera(pos, lookat, up, 960, 540, 1);
+	camera.render("../images/output.png");
 
 	return 0;
 }
