@@ -1,5 +1,6 @@
 #include <glm/vec3.hpp>
 #include "image.cpp"
+#include "ray.cpp"
 
 class Camera {
 private:
@@ -26,6 +27,8 @@ public:
 
 	void render(const char* filename) {
 		Image output(width, height);
+
+		Ray r(pos);
 
 		for (unsigned y = 0; y < output.getHeight(); y++) {
 			for (unsigned x = 0; x < output.getWidth(); x++) {
