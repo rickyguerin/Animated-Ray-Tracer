@@ -1,4 +1,5 @@
 #include <glm/vec3.hpp>
+#include "ray.cpp"
 
 class Sphere {
 private:
@@ -17,5 +18,11 @@ public:
 
 	float getRadius() {
 		return radius;
+	}
+
+	bool collision(Ray r) {
+		glm::vec3 oc = r.getOrigin() - pos;
+
+		return false;
 	}
 };
