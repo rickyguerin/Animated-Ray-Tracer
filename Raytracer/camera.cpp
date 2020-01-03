@@ -11,8 +11,8 @@ private:
 	glm::vec3 up;
 
 	// Film Plane
-	unsigned width{ 256 };
-	unsigned height{ 256 };
+	unsigned width{ 16 };
+	unsigned height{ 9 };
 	float focalLength{ 1 };
 
 public:
