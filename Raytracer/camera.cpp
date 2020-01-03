@@ -29,6 +29,13 @@ public:
 	void render(const char* filename, const unsigned imageWidth, const unsigned imageHeight) {
 
 		Image output(imageWidth, imageHeight);
+
+		const float pixelWidth = width / imageWidth;
+		const float pixelHeight = height / imageHeight;
+
+		const float minX = (pixelWidth - width) / 2;
+		const float minY = (pixelHeight - height) / 2;
+
 		Ray ray(pos);
 
 		for (unsigned y = 0; y < output.getHeight(); y++) {
