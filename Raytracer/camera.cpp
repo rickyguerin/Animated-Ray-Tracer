@@ -26,8 +26,7 @@ public:
 		this->focalLength = focalLength;
 	}
 
-	void render(const char* filename) {
-		Image output(width, height);
+	void render(const char* filename, const unsigned imageWidth, const unsigned imageHeight) {
 
 		Ray r(pos);
 
