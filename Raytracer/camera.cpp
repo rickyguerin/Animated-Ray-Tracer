@@ -1,3 +1,4 @@
+#include <glm/glm.hpp>
 #include <glm/vec3.hpp>
 #include "image.cpp"
 #include "ray.cpp"
