@@ -37,9 +37,17 @@ public:
 		const float minY = (pixelHeight - height) / 2;
 
 		Ray ray(pos);
+		int px, py;
 
 		for (unsigned y = 0; y < output.getHeight(); y++) {
 			for (unsigned x = 0; x < output.getWidth(); x++) {
+
+				px = minX + pixelWidth * x;
+				py = minY + pixelWidth * y;
+
+				glm::vec3 destination(px, py, focalLength);
+				ray.setDirection(glm::normalize(destination));
+
 				output.setPixel(x, y, 255 * !(x & y), x | y, x | y, 255);
 			}
 		}
