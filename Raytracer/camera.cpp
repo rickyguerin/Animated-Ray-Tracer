@@ -28,6 +28,7 @@ public:
 
 	void render(const char* filename, const unsigned imageWidth, const unsigned imageHeight) {
 
+		Image output(imageWidth, imageHeight);
 		Ray ray(pos);
 
 		for (unsigned y = 0; y < output.getHeight(); y++) {
