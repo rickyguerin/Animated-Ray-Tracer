@@ -1,57 +1,64 @@
 #include <glm/glm.hpp>
 #include <glm/vec3.hpp>
-#include "image.cpp"
-#include "ray.cpp"
+#include "camera.h"
+#include "image.h"
+#include "ray.h"
+#include "sphere.h"
 
-class Camera {
-private:
-	// Position
-	glm::vec3 pos;
-	glm::vec3 lookat;
-	glm::vec3 up;
+#include <iostream>
 
-	// Film Plane
-	unsigned width{ 16 };
-	unsigned height{ 9 };
-	float focalLength{ 1 };
+Camera::Camera(glm::vec3 pos, glm::vec3 lookat, glm::vec3 up, float width, float height, float focalLength) {
+	this->pos = pos;
+	this->lookat = lookat;
+	this->up = up;
 
-public:
-	Camera(glm::vec3 pos, glm::vec3 lookat, glm::vec3 up, unsigned width, unsigned height, float focalLength) {
-		this->pos = pos;
-		this->lookat = lookat;
-		this->up = up;
+	this->width = width;
+	this->height = height;
+	this->focalLength = focalLength;
+}
 
-		this->width = width;
-		this->height = height;
-		this->focalLength = focalLength;
-	}
+void Camera::render(const char* filename, const unsigned imageWidth, const unsigned imageHeight) {
 
-	void render(const char* filename, const unsigned imageWidth, const unsigned imageHeight) {
+	Image output(imageWidth, imageHeight);
 
-		Image output(imageWidth, imageHeight);
+	const double pixelWidth = width / double(imageWidth);
+	const double pixelHeight = height / double(imageHeight);
 
-		const float pixelWidth = width / imageWidth;
-		const float pixelHeight = height / imageHeight;
+	const double minX = (pixelWidth - width) / 2;
+	const double minY = (pixelHeight - height) / 2;
 
-		const float minX = (pixelWidth - width) / 2;
-		const float minY = (pixelHeight - height) / 2;
+	Ray ray(pos);
+	double px, py;
 
-		Ray ray(pos);
-		int px, py;
+	glm::vec3 sphereLoc(0, 0, -10);
+	Sphere sphere(sphereLoc, 5);
+	std::string i;
 
-		for (unsigned y = 0; y < output.getHeight(); y++) {
-			for (unsigned x = 0; x < output.getWidth(); x++) {
+	for (unsigned y = 0; y < output.getHeight(); y++) {
+		for (unsigned x = 0; x < output.getWidth(); x++) {
 
-				px = minX + pixelWidth * x;
-				py = minY + pixelWidth * y;
+			px = minX + (pixelWidth * x);
+			py = minY + (pixelHeight * y);
 
-				glm::vec3 destination(px, py, focalLength);
-				ray.setDirection(glm::normalize(destination));
+			glm::vec3 destination(px, py, focalLength);
 
-				output.setPixel(x, y, 255 * !(x & y), x | y, x | y, 255);
+			if (px >= 0 && false) {
+				std::cout << "PX: " << px << '\n';
+				std::cout << "PY: " << py << '\n';
+				std::cout << "DX: " << destination.x << " DY: " << destination.y << " DZ: " << destination.z << "\n\n";
+				std::cin >> i;
+			}
+
+			ray.setDirection(glm::normalize(destination));
+
+			if (sphere.collision(ray)) {
+				output.setPixel(x, y, 255, 0, 0, 255);
+			}
+			else {
+				output.setPixel(x, y, 0, 255, 0, 255);
 			}
 		}
-
-		output.write(filename);
 	}
-};
+
+	output.write(filename);
+}

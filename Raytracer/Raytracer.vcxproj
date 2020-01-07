@@ -147,6 +147,12 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="camera.h" />
+    <ClInclude Include="image.h" />
+    <ClInclude Include="ray.h" />
+    <ClInclude Include="sphere.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
     <Import Project="packages\LodePNG.1.1.0\build\native\lodepng.targets" Condition="Exists('packages\LodePNG.1.1.0\build\native\lodepng.targets')" />
