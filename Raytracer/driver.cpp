@@ -5,7 +5,7 @@
 
 
 int main() {
-	srand(420420);
+	srand(64);
 
 	Sphere leftSphere(glm::vec3(-5, 0, 5), 1);
 	Sphere rightSphere(glm::vec3(5, 0, 5), 2);
