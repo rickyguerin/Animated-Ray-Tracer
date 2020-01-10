@@ -2,6 +2,7 @@
 #ifndef IMAGE_H
 #define IMAGE_H
 
+#include <glm/vec4.hpp>
 #include <vector>
 
 class Image {
@@ -16,6 +17,8 @@ public:
 	unsigned getWidth();
 
 	unsigned getHeight();
+
+	void setPixel(long long x, long long y, glm::ivec4 color);
 
 	void setPixel(long long x, long long y, unsigned char r, unsigned char g, unsigned char b, unsigned char a);
 
