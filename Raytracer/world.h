@@ -3,7 +3,7 @@
 #define WORLD_H
 
 #include <vector>
-#include <glm/vec3.hpp>
+#include <glm/vec4.hpp>
 #include "sphere.h"
 #include "ray.h"
 
@@ -14,7 +14,7 @@ private:
 public:
 	World(std::vector<Sphere> objects);
 
-	glm::vec3 trace(Ray ray);
+	glm::ivec4 trace(Ray ray);
 };
 
 #endif
