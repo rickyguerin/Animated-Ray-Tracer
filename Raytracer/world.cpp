@@ -12,7 +12,7 @@ glm::ivec4 World::trace(Ray ray) {
 		}
 	}
 
-	if (double(rand()) / (double(RAND_MAX) + 1.0) < 0.001) {
+	if (double(rand()) / (double(RAND_MAX) + 1.0) < 0.0005) {
 		return glm::ivec4(255, 255, 255, 255);
 	}
 	else {
