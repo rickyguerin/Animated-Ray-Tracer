@@ -2,6 +2,7 @@
 #ifndef CAMERA_H
 #define CAMERA_H
 
+#include <string>
 #include <glm/vec3.hpp>
 #include "world.h"
 
@@ -20,7 +21,7 @@ private:
 public:
 	Camera(glm::vec3 pos, glm::vec3 lookat, glm::vec3 up, float width, float height, float focalLength);
 
-	void render(World* world, const char* filename, const unsigned imageWidth, const unsigned imageHeight);
+	void render(World* world, std::string filename, const unsigned imageWidth, const unsigned imageHeight);
 };
 
 #endif

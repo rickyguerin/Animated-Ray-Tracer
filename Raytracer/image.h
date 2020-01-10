@@ -2,6 +2,7 @@
 #ifndef IMAGE_H
 #define IMAGE_H
 
+#include <string>
 #include <glm/vec4.hpp>
 #include <vector>
 
@@ -22,7 +23,7 @@ public:
 
 	void setPixel(long long x, long long y, unsigned char r, unsigned char g, unsigned char b, unsigned char a);
 
-	void write(const char* filename);
+	void write(std::string filename);
 };
 
 #endif

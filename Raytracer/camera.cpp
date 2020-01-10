@@ -14,7 +14,7 @@ Camera::Camera(glm::vec3 pos, glm::vec3 lookat, glm::vec3 up, float width, float
 	this->focalLength = focalLength;
 }
 
-void Camera::render(World* world, const char* filename, const unsigned imageWidth, const unsigned imageHeight) {
+void Camera::render(World* world, std::string filename, const unsigned imageWidth, const unsigned imageHeight) {
 
 	Image output(imageWidth, imageHeight);
 

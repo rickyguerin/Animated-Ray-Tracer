@@ -3,6 +3,8 @@
 #include "camera.h"
 #include "sphere.h"
 
+#include <iostream>
+#include <string>
 
 int main() {
 	srand(64);
@@ -16,8 +18,21 @@ int main() {
 	glm::vec3 lookat{ 0, 0, 1 };
 	glm::vec3 up{ 0, 1, 0 };
 
-	Camera camera(pos, lookat, up, 16, 9, 1.0f);
-	camera.render(&world, "../images/output.png", 960, 540);
+	Camera camera(pos, lookat, up, 4, 3, 1.0f);
+
+
+	const unsigned fps = 30;
+	const float duration = 4.0;
+	const unsigned frames = fps * duration;
+
+	std::string baseFilename = "../images/temp/output_";
+	std::string extension = ".png";
+	std::string filename;
+
+	for (int i = 0; i < frames; i++) {
+		filename = baseFilename + std::to_string(i) + extension;
+		camera.render(&world, filename, 400, 300);
+	}
 
 	return 0;
 }

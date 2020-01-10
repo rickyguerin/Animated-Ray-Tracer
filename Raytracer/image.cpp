@@ -31,6 +31,6 @@ void Image::setPixel(long long x, long long y, unsigned char r, unsigned char g,
 	contents[4 * lw * y + 4 * x + 3] = a;
 }
 
-void Image::write(const char* filename) {
+void Image::write(std::string filename) {
 	lodepng::encode(filename, contents, width, height);
 }
