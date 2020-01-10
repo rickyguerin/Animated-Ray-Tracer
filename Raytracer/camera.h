@@ -3,6 +3,7 @@
 #define CAMERA_H
 
 #include <glm/vec3.hpp>
+#include "world.h"
 
 class Camera {
 private:
@@ -19,7 +20,7 @@ private:
 public:
 	Camera(glm::vec3 pos, glm::vec3 lookat, glm::vec3 up, float width, float height, float focalLength);
 
-	void render(const char* filename, const unsigned imageWidth, const unsigned imageHeight);
+	void render(World* world, const char* filename, const unsigned imageWidth, const unsigned imageHeight);
 };
 
 #endif
