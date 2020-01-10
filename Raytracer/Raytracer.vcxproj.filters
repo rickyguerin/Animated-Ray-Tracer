@@ -55,7 +55,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="prog.txt">
+    <Text Include="world\prog.txt">
       <Filter>Resource Files</Filter>
     </Text>
   </ItemGroup>
