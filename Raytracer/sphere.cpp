@@ -19,19 +19,21 @@ bool Sphere::collision(Ray ray) {
 	glm::vec3 rayDir = ray.getDirection();
 	glm::vec3 oc = ray.getOrigin() - pos;
 
-	double t;
-	double a = glm::dot(rayDir, rayDir);
 	double b = glm::dot(rayDir, oc) * 2.0;
 	double c = glm::dot(oc, oc) - (radius * radius);
-	double disc = (b * b) - (4.0 * a * b);
+	double disc = (b * b) - (4.0 * c);
 
 	if (disc < 0.0) {
 		return false;
 	}
 
-	double e = sqrt(disc);
-	double denom = 2.0 * a;
-	t = (-b - e) / denom;
+	double minusRoot = (-b - sqrt(disc)) / 2.0;
+	
+	if (minusRoot > 0) {
+		return true;
+	}
 
-	return t > 0.0001;
+	double plusRoot = (-b + sqrt(disc)) / 2.0;
+	
+	return plusRoot > 0;
 }
