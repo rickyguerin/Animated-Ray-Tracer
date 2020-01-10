@@ -27,9 +27,6 @@ void Camera::render(World* world, const char* filename, const unsigned imageWidt
 	Ray ray(pos);
 	double px, py;
 
-	glm::vec3 sphereLoc(0, 0, 10);
-	Sphere sphere(sphereLoc, 2);
-
 	for (unsigned y = 0; y < output.getHeight(); y++) {
 		for (unsigned x = 0; x < output.getWidth(); x++) {
 
@@ -38,17 +35,7 @@ void Camera::render(World* world, const char* filename, const unsigned imageWidt
 
 			ray.setDirection(glm::normalize(glm::vec3(px, py, focalLength)));
 
-			if (sphere.collision(ray)) {
-				output.setPixel(x, y, 255, 0, 0, 255);
-			}
-			else {
-				if (double(rand()) / (double(RAND_MAX) + 1.0) < 0.001) {
-					output.setPixel(x, y, 255, 255, 255, 255);
-				}
-				else {
-					output.setPixel(x, y, 0, 0, 0, 255);
-				}
-			}
+			output.setPixel(x, y, world->trace(ray));
 		}
 	}
 
