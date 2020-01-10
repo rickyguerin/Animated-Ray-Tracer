@@ -1,8 +1,8 @@
 #include <glm/glm.hpp>
-#include "camera.h"
-#include "image.h"
-#include "ray.h"
-#include "sphere.h"
+#include "../header/camera.h"
+#include "../header/image.h"
+#include "../header/ray.h"
+#include "../header/sphere.h"
 
 Camera::Camera(glm::vec3 pos, glm::vec3 lookat, glm::vec3 up, float width, float height, float focalLength) {
 	this->pos = pos;

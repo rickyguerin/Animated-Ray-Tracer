@@ -1,7 +1,7 @@
 #include <vector>
-#include "world.h"
-#include "camera.h"
-#include "sphere.h"
+#include "../header/world.h"
+#include "../header/camera.h"
+#include "../header/sphere.h"
 
 #include <iostream>
 #include <string>
@@ -12,7 +12,7 @@ int main() {
 	Sphere leftSphere(glm::vec3(-5, 0, 5), 1);
 	Sphere rightSphere(glm::vec3(5, 0, 5), 2);
 
-	World world(std::vector<Sphere>{ leftSphere, rightSphere});
+	World world(std::vector<Sphere>{ leftSphere, rightSphere });
 
 	glm::vec3 pos{ 0, 0, 0 };
 	glm::vec3 lookat{ 0, 0, 1 };
@@ -21,7 +21,7 @@ int main() {
 	Camera camera(pos, lookat, up, 4, 3, 1.0f);
 
 
-	const unsigned fps = 30;
+	const unsigned fps = 1;
 	const float duration = 4.0;
 	const unsigned frames = fps * duration;
 

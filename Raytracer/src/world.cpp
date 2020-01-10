@@ -1,4 +1,4 @@
-#include "world.h"
+#include "../header/world.h"
 
 World::World(std::vector<Sphere> objects) {
 	this->objects = objects;

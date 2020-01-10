@@ -1,5 +1,5 @@
 #include <lodepng.h>
-#include "image.h"
+#include "../header/image.h"
 
 Image::Image(unsigned width = 256, unsigned height = 256) {
 	this->width = width;
