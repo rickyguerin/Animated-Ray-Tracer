@@ -1,6 +1,5 @@
 #include <glm/glm.hpp>
 #include "sphere.h"
-#include "ray.h"
 
 Sphere::Sphere(glm::vec3 pos, float radius) {
 	this->pos = pos;

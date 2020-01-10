@@ -1,4 +1,3 @@
-#include <glm/vec3.hpp>
 #include "ray.h"
 
 Ray::Ray(glm::vec3 origin) {

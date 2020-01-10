@@ -1,5 +1,4 @@
 #include <glm/glm.hpp>
-#include <glm/vec3.hpp>
 #include "camera.h"
 #include "image.h"
 #include "ray.h"
