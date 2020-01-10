@@ -1,4 +1,6 @@
 #include "../header/world.h"
+#include <iostream>
+#include <fstream>
 
 World::World(std::vector<Sphere> objects) {
 	this->objects = objects;
@@ -17,5 +19,15 @@ glm::ivec4 World::trace(Ray ray) {
 	}
 	else {
 		return glm::ivec4(0, 0, 0, 255);
+	}
+}
+
+void World::add(std::string filename) {
+	std::ifstream inf(filename);
+
+	while (inf) {
+		std::string token;
+		inf >> token;
+		std::cout << token << "\n";
 	}
 }
