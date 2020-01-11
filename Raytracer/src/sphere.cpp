@@ -5,15 +5,34 @@ void Sphere::addFrame(SphereFrame frame) {
 	frames.push_back(frame);
 }
 
-glm::vec3 Sphere::getPos() {
-	return pos;
+unsigned Sphere::getCurrentFrame(double time) {
+
+	int i = 0;
+
+	for (i; i < frames.size() - 1; i++) {
+		if (time <= frames[i + 1].timestamp) {
+			return i;
+		}
+	}
+
+	return i;
 }
 
-float Sphere::getRadius() {
-	return radius;
+glm::vec3 Sphere::getPos(unsigned frame, double time) {
+	return frames[frame].position;
+}
+
+double Sphere::getRadius(unsigned frame, double time) {
+	return frames[frame].radius;
 }
 
 bool Sphere::collision(Ray ray, double time) {
+
+	unsigned frame = getCurrentFrame(time);
+
+	glm::vec3 pos = getPos(frame, time);
+	double radius = getRadius(frame, time);
+
 	glm::vec3 rayDir = ray.getDirection();
 	glm::vec3 oc = ray.getOrigin() - pos;
 

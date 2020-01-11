@@ -18,9 +18,11 @@ private:
 public:
 	void addFrame(SphereFrame frame);
 
-	glm::vec3 getPos();
+	unsigned getCurrentFrame(double time);
 
-	float getRadius();
+	glm::vec3 getPos(unsigned frame, double time);
+
+	double getRadius(unsigned frame, double time);
 
 	bool collision(Ray ray, double time);
 };
