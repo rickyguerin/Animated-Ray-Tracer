@@ -15,7 +15,7 @@ private:
 public:
 	World(std::vector<Sphere> objects);
 
-	glm::ivec4 trace(Ray ray);
+	glm::ivec4 trace(Ray ray, double time);
 
 	void add(std::string filename);
 };

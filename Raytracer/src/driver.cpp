@@ -22,8 +22,11 @@ int main() {
 
 
 	const unsigned fps = 1;
-	const float duration = 4.0;
+	double time = 0.0;
+	const double duration = 4.0;
 	const unsigned frames = fps * duration;
+
+	const double spf = duration / frames;
 
 	std::string baseFilename = "../images/temp/output_";
 	std::string extension = ".png";
@@ -31,7 +34,8 @@ int main() {
 
 	for (int i = 0; i < frames; i++) {
 		filename = baseFilename + std::to_string(i) + extension;
-		camera.render(&world, filename, 400, 300);
+		camera.render(&world, filename, 400, 300, time);
+		time += spf;
 	}
 
 	return 0;

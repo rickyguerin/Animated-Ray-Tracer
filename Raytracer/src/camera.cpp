@@ -14,7 +14,7 @@ Camera::Camera(glm::vec3 pos, glm::vec3 lookat, glm::vec3 up, float width, float
 	this->focalLength = focalLength;
 }
 
-void Camera::render(World* world, std::string filename, const unsigned imageWidth, const unsigned imageHeight) {
+void Camera::render(World* world, std::string filename, const unsigned imageWidth, const unsigned imageHeight, double time) {
 
 	Image output(imageWidth, imageHeight);
 
@@ -35,7 +35,7 @@ void Camera::render(World* world, std::string filename, const unsigned imageWidt
 
 			ray.setDirection(glm::normalize(glm::vec3(px, py, focalLength)));
 
-			output.setPixel(x, y, world->trace(ray));
+			output.setPixel(x, y, world->trace(ray, time));
 		}
 	}
 

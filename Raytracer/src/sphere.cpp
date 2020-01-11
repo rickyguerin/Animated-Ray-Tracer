@@ -14,7 +14,7 @@ float Sphere::getRadius() {
 	return radius;
 }
 
-bool Sphere::collision(Ray ray) {
+bool Sphere::collision(Ray ray, double time) {
 	glm::vec3 rayDir = ray.getDirection();
 	glm::vec3 oc = ray.getOrigin() - pos;
 

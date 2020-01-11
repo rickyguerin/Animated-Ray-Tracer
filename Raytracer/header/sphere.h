@@ -22,7 +22,7 @@ public:
 
 	float getRadius();
 
-	bool collision(Ray ray);
+	bool collision(Ray ray, double time);
 };
 
 #endif
