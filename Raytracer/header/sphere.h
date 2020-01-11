@@ -4,6 +4,12 @@
 
 #include "ray.h"
 
+struct SphereFrame {
+	double timestamp;
+	glm::vec3 position;
+	double radius;
+};
+
 class Sphere {
 private:
 	glm::vec3 pos;
