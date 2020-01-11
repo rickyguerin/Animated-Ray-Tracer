@@ -2,10 +2,6 @@
 #include <iostream>
 #include <fstream>
 
-World::World(std::vector<Sphere> objects) {
-	this->objects = objects;
-}
-
 glm::ivec4 World::trace(Ray ray, double time) {
 
 	for (int i = 0; i < objects.size(); i++) {

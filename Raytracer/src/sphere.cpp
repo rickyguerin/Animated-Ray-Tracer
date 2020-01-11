@@ -1,9 +1,8 @@
 #include <glm/glm.hpp>
 #include "../header/sphere.h"
 
-Sphere::Sphere(glm::vec3 pos, float radius) {
-	this->pos = pos;
-	this->radius = radius;
+void Sphere::addFrame(SphereFrame frame) {
+	frames.push_back(frame);
 }
 
 glm::vec3 Sphere::getPos() {

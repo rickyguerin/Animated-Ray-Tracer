@@ -9,10 +9,8 @@
 int main() {
 	srand(64);
 
-	Sphere leftSphere(glm::vec3(-5, 0, 5), 1);
-	Sphere rightSphere(glm::vec3(5, 0, 5), 2);
-
-	World world(std::vector<Sphere>{ leftSphere, rightSphere });
+	World world;
+	world.add("world/prog.txt");
 
 	glm::vec3 pos{ 0, 0, 0 };
 	glm::vec3 lookat{ 0, 0, 1 };

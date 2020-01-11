@@ -2,6 +2,7 @@
 #ifndef SPHERE_H
 #define SPHERE_H
 
+#include <vector>
 #include "ray.h"
 
 struct SphereFrame {
@@ -12,11 +13,10 @@ struct SphereFrame {
 
 class Sphere {
 private:
-	glm::vec3 pos;
-	double radius;
+	std::vector<SphereFrame> frames;
 
 public:
-	Sphere(glm::vec3 pos, float radius);
+	void addFrame(SphereFrame frame);
 
 	glm::vec3 getPos();
 
