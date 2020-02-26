@@ -1,4 +1,4 @@
-#include "ray.h"
+#include "../header/ray.h"
 
 Ray::Ray(glm::vec3 origin) {
 	this->origin = origin;

@@ -21,7 +21,7 @@ private:
 public:
 	Camera(glm::vec3 pos, glm::vec3 lookat, glm::vec3 up, float width, float height, float focalLength);
 
-	void render(World* world, std::string filename, const unsigned imageWidth, const unsigned imageHeight);
+	void render(World* world, std::string filename, const unsigned imageWidth, const unsigned imageHeight, double time);
 };
 
 #endif
