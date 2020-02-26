@@ -10,12 +10,7 @@ glm::ivec4 World::trace(Ray ray, double time) {
 		}
 	}
 
-	if (double(rand()) / (double(RAND_MAX) + 1.0) < 0.0005) {
-		return glm::ivec4(255, 255, 255, 255);
-	}
-	else {
-		return glm::ivec4(0, 0, 0, 255);
-	}
+	return glm::ivec4(0, 0, 0, 255);
 }
 
 void World::add(std::string filename) {

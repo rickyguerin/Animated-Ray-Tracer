@@ -7,8 +7,6 @@
 #include <string>
 
 int main() {
-	srand(64);
-
 	World world;
 	world.add("world/prog.txt");
 
@@ -17,7 +15,6 @@ int main() {
 	glm::vec3 up{ 0, 1, 0 };
 
 	Camera camera(pos, lookat, up, 4, 3, 1.0f);
-
 
 	const unsigned fps = 2;
 	double time = 0.0;
