@@ -19,7 +19,15 @@ unsigned Sphere::getCurrentFrame(double time) {
 }
 
 glm::vec3 Sphere::getPos(unsigned frame, double time) {
-	return frames[frame].position;
+
+	if (frame == frames.size() - 1) {
+		return frames[frame].position;
+	}
+
+	else {
+		double t = (time - frames[frame].timestamp) / (frames[frame + 1].timestamp - frames[frame].timestamp);
+		return glm::mix(frames[frame].position, frames[frame + 1].position, t);
+	}
 }
 
 double Sphere::getRadius(unsigned frame, double time) {
