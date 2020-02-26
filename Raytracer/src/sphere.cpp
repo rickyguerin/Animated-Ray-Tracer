@@ -31,7 +31,15 @@ glm::vec3 Sphere::getPos(unsigned frame, double time) {
 }
 
 double Sphere::getRadius(unsigned frame, double time) {
-	return frames[frame].radius;
+
+	if (frame == frames.size() - 1) {
+		return frames[frame].radius;
+	}
+
+	else {
+		double t = (time - frames[frame].timestamp) / (frames[frame + 1].timestamp - frames[frame].timestamp);
+		return glm::mix(frames[frame].radius, frames[frame + 1].radius, t);
+	}
 }
 
 bool Sphere::collision(Ray ray, double time) {
