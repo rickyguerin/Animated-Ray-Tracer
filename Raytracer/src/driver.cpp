@@ -17,10 +17,10 @@ int main() {
 	Camera camera(pos, lookat, up, 4, 3, 1.0f);
 
 	const unsigned fps = 2;
-	double time = 0.0;
 	const double duration = 4.0;
 	const unsigned frames = fps * duration;
 
+	double time = 0.0;
 	const double spf = duration / frames;
 
 	std::string baseFilename = "../images/temp/output_";
