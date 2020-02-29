@@ -4,6 +4,7 @@
 
 #include <string>
 #include <vector>
+#include <glm/glm.hpp>
 #include <glm/vec4.hpp>
 #include "sphere.h"
 #include "ray.h"
@@ -16,6 +17,8 @@ public:
 	glm::ivec4 trace(Ray ray, double time);
 
 	void add(std::string filename);
+
+	void transformToCameraSpace(glm::mat4 cameraMatrix);
 };
 
 #endif

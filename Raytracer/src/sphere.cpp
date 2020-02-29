@@ -1,4 +1,3 @@
-#include <glm/glm.hpp>
 #include "../header/sphere.h"
 
 void Sphere::addFrame(SphereFrame frame) {
@@ -69,4 +68,10 @@ bool Sphere::collision(Ray ray, double time) {
 	double plusRoot = (-b + sqrt(disc)) / 2.0;
 	
 	return plusRoot > 0;
+}
+
+void Sphere::transformToCameraSpace(glm::mat4 cameraMatrix) {
+	for (int i = 0; i < frames.size(); i++) {
+		frames[i].position = cameraMatrix * glm::vec4(frames[i].position, 1.0f);
+	}
 }

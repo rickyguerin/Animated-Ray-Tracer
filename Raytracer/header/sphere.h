@@ -3,6 +3,7 @@
 #define SPHERE_H
 
 #include <vector>
+#include <glm/glm.hpp>
 #include "ray.h"
 
 struct SphereFrame {
@@ -25,6 +26,8 @@ public:
 	double getRadius(unsigned frame, double time);
 
 	bool collision(Ray ray, double time);
+
+	void transformToCameraSpace(glm::mat4 cameraMatrix);
 };
 
 #endif

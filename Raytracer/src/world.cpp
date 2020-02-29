@@ -51,5 +51,11 @@ void World::add(std::string filename) {
 		}
 
 		objects.push_back(sphere);
+	}	
+}
+
+void World::transformToCameraSpace(glm::mat4 cameraMatrix) {
+	for (int i = 0; i < objects.size(); i++) {
+		objects[i].transformToCameraSpace(cameraMatrix);
 	}
 }
