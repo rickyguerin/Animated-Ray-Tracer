@@ -29,6 +29,18 @@ glm::vec3 Sphere::getPos(unsigned frame, double time) {
 	}
 }
 
+glm::ivec4 Sphere::getColor(unsigned frame, double time) {
+
+	if (frame == frames.size() - 1) {
+		return frames[frame].color;
+	}
+
+	else {
+		double t = (time - frames[frame].timestamp) / (frames[frame + 1].timestamp - frames[frame].timestamp);
+		return glm::mix(frames[frame].color, frames[frame + 1].color, t);
+	}
+}
+
 double Sphere::getRadius(unsigned frame, double time) {
 
 	if (frame == frames.size() - 1) {

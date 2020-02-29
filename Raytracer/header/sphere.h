@@ -9,6 +9,7 @@
 struct SphereFrame {
 	double timestamp;
 	glm::vec3 position;
+	glm::ivec4 color;
 	double radius;
 };
 
@@ -22,6 +23,8 @@ public:
 	unsigned getCurrentFrame(double time);
 
 	glm::vec3 getPos(unsigned frame, double time);
+
+	glm::ivec4 getColor(unsigned frame, double time);
 
 	double getRadius(unsigned frame, double time);
 
