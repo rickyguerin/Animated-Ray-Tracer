@@ -4,7 +4,6 @@
 
 #include <vector>
 #include <glm/glm.hpp>
-#include "ray.h"
 
 // One keyframe from a Sphere input file
 struct SphereFrame {
@@ -39,7 +38,7 @@ public:
 	double getRadius(unsigned frame, double time);
 
 	// Determine if a ray collides with this Sphere
-	bool collision(Ray ray, double time);
+	bool collision(glm::vec3 ray, double time);
 
 	// Determine what color to return if a ray collision occurs
 	glm::ivec4 illuminate(double time);

@@ -53,18 +53,15 @@ double Sphere::getRadius(unsigned frame, double time) {
 	}
 }
 
-bool Sphere::collision(Ray ray, double time) {
+bool Sphere::collision(glm::vec3 ray, double time) {
 
 	unsigned frame = getCurrentFrame(time);
 
 	glm::vec3 pos = getPos(frame, time);
 	double radius = getRadius(frame, time);
 
-	glm::vec3 rayDir = ray.getDirection();
-	glm::vec3 oc = ray.getOrigin() - pos;
-
-	double b = glm::dot(rayDir, oc) * 2.0;
-	double c = glm::dot(oc, oc) - (radius * radius);
+	double b = glm::dot(ray, -pos) * 2.0;
+	double c = glm::dot(-pos, -pos) - (radius * radius);
 	double disc = (b * b) - (4.0 * c);
 
 	if (disc < 0.0) {

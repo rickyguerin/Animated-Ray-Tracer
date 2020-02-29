@@ -142,7 +142,6 @@
     <ClCompile Include="src\camera.cpp" />
     <ClCompile Include="src\driver.cpp" />
     <ClCompile Include="src\image.cpp" />
-    <ClCompile Include="src\ray.cpp" />
     <ClCompile Include="src\sphere.cpp" />
     <ClCompile Include="src\world.cpp" />
   </ItemGroup>
@@ -152,7 +151,6 @@
   <ItemGroup>
     <ClInclude Include="header\camera.h" />
     <ClInclude Include="header\image.h" />
-    <ClInclude Include="header\ray.h" />
     <ClInclude Include="header\sphere.h" />
     <ClInclude Include="header\world.h" />
   </ItemGroup>

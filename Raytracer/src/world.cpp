@@ -6,7 +6,7 @@ World::World(glm::ivec4 color) {
 	backgroundColor = color;
 }
 
-glm::ivec4 World::trace(Ray ray, double time) {
+glm::ivec4 World::trace(glm::vec3 ray, double time) {
 
 	for (int i = 0; i < objects.size(); i++) {
 		if (objects[i].collision(ray, time)) {

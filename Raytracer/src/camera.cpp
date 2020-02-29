@@ -1,6 +1,5 @@
 #include "../header/camera.h"
 #include "../header/image.h"
-#include "../header/ray.h"
 #include "../header/sphere.h"
 
 Camera::Camera(glm::vec3 pos, glm::vec3 lookat, glm::vec3 up, float width, float height, float focalLength) {
@@ -34,7 +33,6 @@ void Camera::render(World* world, std::string filename, const unsigned imageWidt
 	const double minX = (pixelWidth - width) / 2;
 	const double minY = (pixelHeight - height) / 2;
 
-	Ray ray(glm::vec3(0.0f));
 	double px, py;
 
 	for (unsigned y = 0; y < output.getHeight(); y++) {
@@ -43,7 +41,7 @@ void Camera::render(World* world, std::string filename, const unsigned imageWidt
 			px = minX + (pixelWidth * x);
 			py = minY + (pixelHeight * y);
 
-			ray.setDirection(glm::normalize(glm::vec3(px, py, focalLength)));
+			glm::vec3 ray = glm::normalize(glm::vec3(px, py, focalLength));
 
 			output.setPixel(x, imageHeight - y - 1, world->trace(ray, time));
 		}

@@ -7,7 +7,6 @@
 #include <glm/glm.hpp>
 #include <glm/vec4.hpp>
 #include "sphere.h"
-#include "ray.h"
 
 class World {
 private:
@@ -22,7 +21,7 @@ public:
 	World(glm::ivec4 color);
 
 	// Fire a ray into the world and get its color
-	glm::ivec4 trace(Ray ray, double time);
+	glm::ivec4 trace(glm::vec3 ray, double time);
 
 	// Read one object file and add that object to the world
 	void add(std::string filename);
