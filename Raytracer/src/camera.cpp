@@ -41,7 +41,7 @@ void Camera::render(World* world, std::string filename, const unsigned imageWidt
 	const double minX = (pixelWidth - width) / 2;
 	const double minY = (pixelHeight - height) / 2;
 
-	Ray ray(pos);
+	Ray ray(glm::vec3(0.0f));
 	double px, py;
 
 	for (unsigned y = 0; y < output.getHeight(); y++) {
