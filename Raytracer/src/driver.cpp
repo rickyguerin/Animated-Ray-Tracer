@@ -19,12 +19,12 @@ int main() {
 
 	world.transformToCameraSpace(camera.getMatrix());
 
-	const unsigned fps = 4;
-	const double duration = 4.0;
+	const float fps = 1;
+	const float duration = 4.0;
 	const unsigned frames = fps * duration;
 
-	double time = 0.0;
-	const double spf = duration / frames;
+	float time = 0.0;
+	const float spf = duration / frames;
 
 	std::string baseFilename = "../images/temp/output_";
 	std::string extension = ".png";
