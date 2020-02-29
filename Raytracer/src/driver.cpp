@@ -1,10 +1,11 @@
 #include <vector>
+#include <string>
+
 #include "../header/world.h"
 #include "../header/camera.h"
 #include "../header/sphere.h"
 
-#include <iostream>
-#include <string>
+
 
 int main() {
 	World world(glm::ivec4(50, 150, 250, 255));
