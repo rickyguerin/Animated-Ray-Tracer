@@ -56,27 +56,30 @@ double Sphere::getRadius(unsigned frame, double time) {
 bool Sphere::collision(glm::vec3 ray, double time) {
 
 	unsigned frame = getCurrentFrame(time);
-
 	glm::vec3 pos = getPos(frame, time);
 	double radius = getRadius(frame, time);
 
+	double a = glm::dot(ray, ray);
 	double b = glm::dot(ray, -pos) * 2.0;
 	double c = glm::dot(-pos, -pos) - (radius * radius);
-	double disc = (b * b) - (4.0 * c);
+	double disc = (b * b) - (4.0 * a * c);
 
 	if (disc < 0.0) {
 		return false;
 	}
 
-	double minusRoot = (-b - sqrt(disc)) / 2.0;
+	double e = sqrt(disc);
+	double denom = 2.0 * a;
+
+	double minusRoot = (-b - e) / denom;
 	
-	if (minusRoot > 0) {
+	if (minusRoot > EPSILON) {
 		return true;
 	}
 
-	double plusRoot = (-b + sqrt(disc)) / 2.0;
+	double plusRoot = (-b + e) / denom;
 	
-	return plusRoot > 0;
+	return plusRoot > EPSILON;
 }
 
 glm::ivec4 Sphere::illuminate(double time) {
