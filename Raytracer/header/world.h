@@ -18,6 +18,9 @@ private:
 	glm::ivec4 backgroundColor;
 
 public:
+	// Constructor
+	World(glm::ivec4 color);
+
 	// Fire a ray into the world and get its color
 	glm::ivec4 trace(Ray ray, double time);
 

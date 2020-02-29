@@ -2,6 +2,10 @@
 #include <iostream>
 #include <fstream>
 
+World::World(glm::ivec4 color) {
+	backgroundColor = color;
+}
+
 glm::ivec4 World::trace(Ray ray, double time) {
 
 	for (int i = 0; i < objects.size(); i++) {
