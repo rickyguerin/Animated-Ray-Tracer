@@ -5,6 +5,8 @@
 #include <vector>
 #include <glm/glm.hpp>
 
+static const double EPSILON = 0.001;
+
 // One keyframe from a Sphere input file
 struct SphereFrame {
 	// Time when this frame begins

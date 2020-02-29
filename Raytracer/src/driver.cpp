@@ -11,15 +11,15 @@ int main() {
 	world.add("world/prog.txt");
 	world.add("world/vertSphere.txt");
 
-	glm::vec3 pos{ 0, 0, 0 };
-	glm::vec3 lookat{ 0, 0, 1 };
+	glm::vec3 pos{ 0, 0, 2 };
+	glm::vec3 lookat{ 0, 0, 0 };
 	glm::vec3 up{ 0, 1, 0 };
 
-	Camera camera(pos, lookat, up, 4, 3, 1.0f);
+	Camera camera(pos, lookat, up, 4, 3, 2.0f);
 
 	world.transformToCameraSpace(camera.getMatrix());
 
-	const unsigned fps = 2;
+	const unsigned fps = 4;
 	const double duration = 4.0;
 	const unsigned frames = fps * duration;
 

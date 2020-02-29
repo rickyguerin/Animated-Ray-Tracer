@@ -11,7 +11,7 @@ Camera::Camera(glm::vec3 pos, glm::vec3 lookat, glm::vec3 up, float width, float
 	this->height = height;
 	this->focalLength = focalLength;
 
-	glm::vec3 n = glm::normalize(lookat - pos);
+	glm::vec3 n = glm::normalize(pos - lookat);
 	glm::vec3 u = glm::normalize(glm::cross(up, n));
 	glm::vec3 v = glm::normalize(glm::cross(n, u));
 
@@ -19,7 +19,7 @@ Camera::Camera(glm::vec3 pos, glm::vec3 lookat, glm::vec3 up, float width, float
 		u.x, v.x, n.x, 0.0f,
 		u.y, v.y, n.y, 0.0f,
 		u.z, v.z, n.z, 0.0f,
-		-glm::dot(u, pos), -glm::dot(v, pos), -glm::dot(n, pos), 1.0f
+		-glm::dot(pos, u), -glm::dot(pos, v), -glm::dot(pos, n), 1.0f
 	);
 }
 
@@ -41,7 +41,7 @@ void Camera::render(World* world, std::string filename, const unsigned imageWidt
 			px = minX + (pixelWidth * x);
 			py = minY + (pixelHeight * y);
 
-			glm::vec3 ray = glm::normalize(glm::vec3(px, py, focalLength));
+			glm::vec3 ray = glm::normalize(glm::vec3(px, py, -focalLength));
 
 			output.setPixel(x, imageHeight - y - 1, world->trace(ray, time));
 		}
