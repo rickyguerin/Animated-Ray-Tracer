@@ -16,6 +16,8 @@ int main() {
 
 	Camera camera(pos, lookat, up, 4, 3, 1.0f);
 
+	world.transformToCameraSpace(camera.getMatrix());
+
 	const unsigned fps = 2;
 	const double duration = 4.0;
 	const unsigned frames = fps * duration;
