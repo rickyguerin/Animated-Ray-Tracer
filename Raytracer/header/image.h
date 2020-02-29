@@ -21,8 +21,6 @@ public:
 
 	void setPixel(long long x, long long y, glm::ivec4 color);
 
-	void setPixel(long long x, long long y, unsigned char r, unsigned char g, unsigned char b, unsigned char a);
-
 	void write(std::string filename);
 };
 
