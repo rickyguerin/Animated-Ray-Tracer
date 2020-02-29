@@ -52,7 +52,7 @@ void Camera::render(World* world, std::string filename, const unsigned imageWidt
 
 			ray.setDirection(glm::normalize(glm::vec3(px, py, focalLength)));
 
-			output.setPixel(x, y, world->trace(ray, time));
+			output.setPixel(x, imageHeight - y - 1, world->trace(ray, time));
 		}
 	}
 
