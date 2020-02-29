@@ -158,6 +158,7 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="world\prog.txt" />
+    <Text Include="world\vertSphere.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

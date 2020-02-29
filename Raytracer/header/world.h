@@ -12,6 +12,7 @@
 class World {
 private:
 	std::vector<Sphere> objects;
+	glm::ivec4 backgroundColor;
 
 public:
 	glm::ivec4 trace(Ray ray, double time);

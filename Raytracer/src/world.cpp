@@ -6,11 +6,11 @@ glm::ivec4 World::trace(Ray ray, double time) {
 
 	for (int i = 0; i < objects.size(); i++) {
 		if (objects[i].collision(ray, time)) {
-			return glm::ivec4(255, 0, 0, 255);
+			return objects[i].illuminate(time);
 		}
 	}
 
-	return glm::ivec4(0, 0, 0, 255);
+	return backgroundColor;
 }
 
 void World::add(std::string filename) {
@@ -36,6 +36,18 @@ void World::add(std::string filename) {
 				
 				inf >> token;
 				double z = std::stod(token);
+
+				inf >> token;
+				int r = std::stoi(token);
+
+				inf >> token;
+				int g = std::stoi(token);
+
+				inf >> token;
+				int b = std::stoi(token);
+
+				inf >> token;
+				int a = std::stoi(token);
 				
 				inf >> token;
 				double radius = std::stod(token);
@@ -43,6 +55,7 @@ void World::add(std::string filename) {
 				SphereFrame sf {
 					timestamp,
 					glm::vec3(x, y, z),
+					glm::ivec4(r, g, b, a),
 					radius
 				};
 
