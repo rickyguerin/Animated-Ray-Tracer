@@ -29,11 +29,9 @@ int main() {
 
 	std::string baseFilename = "../images/temp/output_";
 	std::string extension = ".png";
-	std::string filename;
 
 	for (int i = 0; i < frames; i++) {
-		filename = baseFilename + std::to_string(i) + extension;
-		camera.render(&world, filename, 400, 300, time);
+		camera.render(&world, baseFilename + std::to_string(i) + extension, 600, 400, time);
 		time += spf;
 	}
 
