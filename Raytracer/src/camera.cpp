@@ -2,13 +2,14 @@
 #include "../header/image.h"
 #include "../header/sphere.h"
 
-Camera::Camera(glm::vec3 pos, glm::vec3 lookat, glm::vec3 up, float width, float height, float focalLength) {
+#include <iostream>
+
+Camera::Camera(glm::vec3 pos, glm::vec3 lookat, glm::vec3 up, float angle, float focalLength) {
 	this->pos = pos;
 	this->lookat = lookat;
 	this->up = up;
 
-	this->width = width;
-	this->height = height;
+	this->angle = angle;
 	this->focalLength = focalLength;
 
 	glm::vec3 n = glm::normalize(pos - lookat);
@@ -23,17 +24,24 @@ Camera::Camera(glm::vec3 pos, glm::vec3 lookat, glm::vec3 up, float width, float
 	);
 }
 
-void Camera::render(World* world, std::string filename, const unsigned imageWidth, const unsigned imageHeight, double time) {
+glm::mat4 Camera::getMatrix() {
+	return matrix;
+}
+
+void Camera::render(World* world, std::string filename, const float imageWidth, const float imageHeight, float time) {
 
 	Image output(imageWidth, imageHeight);
 
-	const double pixelWidth = width / double(imageWidth);
-	const double pixelHeight = height / double(imageHeight);
+	const float canvasHeight = 2 * tan(angle/2) * focalLength;
+	const float canvasWidth = canvasHeight * (imageWidth / imageHeight);
 
-	const double minX = (pixelWidth - width) / 2;
-	const double minY = (pixelHeight - height) / 2;
+	const float pixelWidth = canvasWidth / imageWidth;
+	const float pixelHeight = canvasHeight / imageHeight;
 
-	double px, py;
+	const float minX = (pixelWidth - canvasWidth) / 2;
+	const float minY = (pixelHeight - canvasHeight) / 2;
+
+	float px, py;
 
 	for (unsigned y = 0; y < output.getHeight(); y++) {
 		for (unsigned x = 0; x < output.getWidth(); x++) {
@@ -48,8 +56,4 @@ void Camera::render(World* world, std::string filename, const unsigned imageWidt
 	}
 
 	output.write(filename);
-}
-
-glm::mat4 Camera::getMatrix() {
-	return matrix;
 }

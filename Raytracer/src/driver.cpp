@@ -15,7 +15,7 @@ int main() {
 	glm::vec3 lookat{ 0, 0, 0 };
 	glm::vec3 up{ 0, 1, 0 };
 
-	Camera camera(pos, lookat, up, 4, 3, 2.0f);
+	Camera camera(pos, lookat, up, 45, 2.0f);
 
 	world.transformToCameraSpace(camera.getMatrix());
 
