@@ -9,6 +9,7 @@
 struct SphereFrame {
 	double timestamp;
 	glm::vec3 position;
+	glm::ivec4 color;
 	double radius;
 };
 
@@ -23,9 +24,13 @@ public:
 
 	glm::vec3 getPos(unsigned frame, double time);
 
+	glm::ivec4 getColor(unsigned frame, double time);
+
 	double getRadius(unsigned frame, double time);
 
 	bool collision(Ray ray, double time);
+
+	glm::ivec4 illuminate(double time);
 
 	void transformToCameraSpace(glm::mat4 cameraMatrix);
 };

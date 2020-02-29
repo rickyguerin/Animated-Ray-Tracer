@@ -9,6 +9,7 @@
 int main() {
 	World world;
 	world.add("world/prog.txt");
+	world.add("world/vertSphere.txt");
 
 	glm::vec3 pos{ 0, 0, 0 };
 	glm::vec3 lookat{ 0, 0, 1 };
