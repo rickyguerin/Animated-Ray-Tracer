@@ -10,7 +10,7 @@ glm::ivec4 World::trace(Ray ray, double time) {
 		}
 	}
 
-	return glm::ivec4(0, 0, 0, 255);
+	return backgroundColor;
 }
 
 void World::add(std::string filename) {
