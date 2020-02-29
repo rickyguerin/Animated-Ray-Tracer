@@ -1,4 +1,3 @@
-#include <glm/glm.hpp>
 #include "../header/camera.h"
 #include "../header/image.h"
 #include "../header/ray.h"
@@ -12,6 +11,24 @@ Camera::Camera(glm::vec3 pos, glm::vec3 lookat, glm::vec3 up, float width, float
 	this->width = width;
 	this->height = height;
 	this->focalLength = focalLength;
+
+	glm::vec3 n = glm::normalize(lookat - pos);
+	glm::vec3 u = glm::normalize(glm::cross(up, n));
+	glm::vec3 v = glm::normalize(glm::cross(n, u));
+
+	matrix = glm::mat4(
+		u.x, u.y, u.z, -glm::dot(u, pos),
+		v.x, v.y, v.z, -glm::dot(v, pos),
+		n.x, n.y, n.z, -glm::dot(n, pos),
+		0.0f, 0.0f, 0.0f, 1.0f
+	);
+
+	matrix = glm::mat4(
+		u.x, v.x, n.x, 0.0f,
+		u.y, v.y, n.y, 0.0f,
+		u.z, v.z, n.z, 0.0f,
+		-glm::dot(u, pos), -glm::dot(v, pos), -glm::dot(n, pos), 1.0f
+	);
 }
 
 void Camera::render(World* world, std::string filename, const unsigned imageWidth, const unsigned imageHeight, double time) {
@@ -40,4 +57,8 @@ void Camera::render(World* world, std::string filename, const unsigned imageWidt
 	}
 
 	output.write(filename);
+}
+
+glm::mat4 Camera::getMatrix() {
+	return matrix;
 }
