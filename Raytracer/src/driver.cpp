@@ -7,7 +7,7 @@
 #include <string>
 
 int main() {
-	World world(glm::ivec4(0, 0, 0, 255));
+	World world(glm::ivec4(50, 150, 250, 255));
 	world.add("world/prog.txt");
 	world.add("world/vertSphere.txt");
 
