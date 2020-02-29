@@ -6,7 +6,7 @@ glm::ivec4 World::trace(Ray ray, double time) {
 
 	for (int i = 0; i < objects.size(); i++) {
 		if (objects[i].collision(ray, time)) {
-			return glm::ivec4(255, 0, 0, 255);
+			return objects[i].illuminate(time);
 		}
 	}
 

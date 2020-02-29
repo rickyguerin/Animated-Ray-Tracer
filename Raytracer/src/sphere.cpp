@@ -82,6 +82,11 @@ bool Sphere::collision(Ray ray, double time) {
 	return plusRoot > 0;
 }
 
+glm::ivec4 Sphere::illuminate(double time) {
+	unsigned frame = getCurrentFrame(time);
+	return getColor(frame, time);
+}
+
 void Sphere::transformToCameraSpace(glm::mat4 cameraMatrix) {
 	for (int i = 0; i < frames.size(); i++) {
 		frames[i].position = cameraMatrix * glm::vec4(frames[i].position, 1.0f);

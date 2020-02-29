@@ -30,6 +30,8 @@ public:
 
 	bool collision(Ray ray, double time);
 
+	glm::ivec4 illuminate(double time);
+
 	void transformToCameraSpace(glm::mat4 cameraMatrix);
 };
 
