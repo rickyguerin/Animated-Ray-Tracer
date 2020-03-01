@@ -1,64 +1,66 @@
 #include "../header/camera.h"
 #include "../header/image.h"
-#include "../header/ray.h"
 #include "../header/sphere.h"
 
-Camera::Camera(glm::vec3 pos, glm::vec3 lookat, glm::vec3 up, float width, float height, float focalLength) {
+#include <iostream>
+
+Camera::Camera(const glm::vec3 pos, const glm::vec3 lookat, const glm::vec3 up, const float angle, const float focalLength) {
 	this->pos = pos;
 	this->lookat = lookat;
 	this->up = up;
 
-	this->width = width;
-	this->height = height;
+	this->angle = angle;
 	this->focalLength = focalLength;
 
-	glm::vec3 n = glm::normalize(lookat - pos);
+	// Build World -> Camera matrix
+	glm::vec3 n = glm::normalize(pos - lookat);
 	glm::vec3 u = glm::normalize(glm::cross(up, n));
 	glm::vec3 v = glm::normalize(glm::cross(n, u));
-
-	matrix = glm::mat4(
-		u.x, u.y, u.z, -glm::dot(u, pos),
-		v.x, v.y, v.z, -glm::dot(v, pos),
-		n.x, n.y, n.z, -glm::dot(n, pos),
-		0.0f, 0.0f, 0.0f, 1.0f
-	);
 
 	matrix = glm::mat4(
 		u.x, v.x, n.x, 0.0f,
 		u.y, v.y, n.y, 0.0f,
 		u.z, v.z, n.z, 0.0f,
-		-glm::dot(u, pos), -glm::dot(v, pos), -glm::dot(n, pos), 1.0f
+		-glm::dot(pos, u), -glm::dot(pos, v), -glm::dot(pos, n), 1.0f
 	);
 }
 
-void Camera::render(World* world, std::string filename, const unsigned imageWidth, const unsigned imageHeight, double time) {
+glm::mat4 Camera::getMatrix() {
+	return matrix;
+}
 
+void Camera::render(World* world, const std::string filename, const float imageWidth, const float imageHeight, const float time) {
+
+	// Create output Image
 	Image output(imageWidth, imageHeight);
 
-	const double pixelWidth = width / double(imageWidth);
-	const double pixelHeight = height / double(imageHeight);
+	// World space dimensions of canvas
+	const float canvasHeight = 2 * tan(angle/2) * focalLength;
+	const float canvasWidth = canvasHeight * (imageWidth / imageHeight);
 
-	const double minX = (pixelWidth - width) / 2;
-	const double minY = (pixelHeight - height) / 2;
+	// World space dimensions of one pixel of the Image
+	const float pixelWidth = canvasWidth / imageWidth;
+	const float pixelHeight = canvasHeight / imageHeight;
 
-	Ray ray(glm::vec3(0.0f));
-	double px, py;
+	// Minimum X/Y value of a pixel in the Image
+	const float minX = (pixelWidth - canvasWidth) / 2;
+	const float minY = (pixelHeight - canvasHeight) / 2;
 
-	for (unsigned y = 0; y < output.getHeight(); y++) {
-		for (unsigned x = 0; x < output.getWidth(); x++) {
+	// Fire a ray through each pixel to render the Image
+	float px, py;
+
+	for (unsigned y = 0; y < imageHeight; y++) {
+		for (unsigned x = 0; x < imageWidth; x++) {
 
 			px = minX + (pixelWidth * x);
 			py = minY + (pixelHeight * y);
 
-			ray.setDirection(glm::normalize(glm::vec3(px, py, focalLength)));
+			glm::vec3 ray = glm::normalize(glm::vec3(px, py, -focalLength));
 
 			output.setPixel(x, imageHeight - y - 1, world->trace(ray, time));
 		}
 	}
 
+	// Save Image to file
 	output.write(filename);
-}
-
-glm::mat4 Camera::getMatrix() {
-	return matrix;
 }

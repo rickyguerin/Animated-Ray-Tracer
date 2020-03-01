@@ -7,19 +7,27 @@
 #include <glm/glm.hpp>
 #include <glm/vec4.hpp>
 #include "sphere.h"
-#include "ray.h"
 
 class World {
 private:
+	// All objects in the World
 	std::vector<Sphere> objects;
+
+	// Background color for the World
 	glm::ivec4 backgroundColor;
 
 public:
-	glm::ivec4 trace(Ray ray, double time);
+	// Constructor
+	World(const glm::ivec4 color);
 
-	void add(std::string filename);
+	// Fire a ray into the world and get its color
+	glm::ivec4 trace(const glm::vec3 ray, const float time);
 
-	void transformToCameraSpace(glm::mat4 cameraMatrix);
+	// Read one object file and add that object to the world
+	void add(const std::string filename);
+
+	// Edit every object to move it into camera space
+	void transformToCameraSpace(const glm::mat4 cameraMatrix);
 };
 
 #endif

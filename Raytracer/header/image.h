@@ -8,22 +8,22 @@
 
 class Image {
 private:
+	// Image dimensions
 	unsigned width;
 	unsigned height;
+
+	// Image pixel colors
 	std::vector<unsigned char> contents;
 
 public:
-	Image(unsigned width, unsigned height);
+	// Constructor
+	Image(const unsigned width, const unsigned height);
 
-	unsigned getWidth();
+	// Set the color of one pixel in the Image
+	void setPixel(const unsigned x, const unsigned y, const glm::ivec4 color);
 
-	unsigned getHeight();
-
-	void setPixel(long long x, long long y, glm::ivec4 color);
-
-	void setPixel(long long x, long long y, unsigned char r, unsigned char g, unsigned char b, unsigned char a);
-
-	void write(std::string filename);
+	// Write the contents of this Image to a file
+	void write(const std::string filename);
 };
 
 #endif

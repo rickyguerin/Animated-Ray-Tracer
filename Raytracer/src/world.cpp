@@ -2,7 +2,11 @@
 #include <iostream>
 #include <fstream>
 
-glm::ivec4 World::trace(Ray ray, double time) {
+World::World(const glm::ivec4 color) {
+	backgroundColor = color;
+}
+
+glm::ivec4 World::trace(const glm::vec3 ray, const float time) {
 
 	for (int i = 0; i < objects.size(); i++) {
 		if (objects[i].collision(ray, time)) {
@@ -13,7 +17,7 @@ glm::ivec4 World::trace(Ray ray, double time) {
 	return backgroundColor;
 }
 
-void World::add(std::string filename) {
+void World::add(const std::string filename) {
 	std::ifstream inf(filename);
 
 	std::string token;
@@ -67,7 +71,7 @@ void World::add(std::string filename) {
 	}	
 }
 
-void World::transformToCameraSpace(glm::mat4 cameraMatrix) {
+void World::transformToCameraSpace(const glm::mat4 cameraMatrix) {
 	for (int i = 0; i < objects.size(); i++) {
 		objects[i].transformToCameraSpace(cameraMatrix);
 	}

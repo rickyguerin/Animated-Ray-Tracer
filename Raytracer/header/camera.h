@@ -9,7 +9,7 @@
 
 class Camera {
 private:
-	// Position
+	// Orientation in world space
 	glm::vec3 pos;
 	glm::vec3 lookat;
 	glm::vec3 up;
@@ -17,17 +17,19 @@ private:
 	// World -> Camera transformation matrix
 	glm::mat4 matrix;
 
-	// Film Plane
-	float width{ 16 };
-	float height{ 9 };
-	float focalLength{ 1 };
+	// Field of view parameters
+	float angle;
+	float focalLength;
 
 public:
-	Camera(glm::vec3 pos, glm::vec3 lookat, glm::vec3 up, float width, float height, float focalLength);
+	// Constructor
+	Camera(const glm::vec3 pos, const glm::vec3 lookat, const glm::vec3 up, const float angle, const float focalLength);
 
-	void render(World* world, std::string filename, const unsigned imageWidth, const unsigned imageHeight, double time);
-
+	// Access this Camera's transformation matrix
 	glm::mat4 getMatrix();
+
+	// Use this camera to render an image of the World
+	void render(World* world, const std::string filename, const float imageWidth, const float imageHeight, const float time);
 };
 
 #endif
