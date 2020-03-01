@@ -23,10 +23,10 @@ private:
 
 public:
 	// Constructor
-	Camera(const glm::vec3 pos, const glm::vec3 lookat, const glm::vec3 up, const float angle, const float focalLength);
+	Camera(const glm::vec3 & pos, const glm::vec3 & lookat, const glm::vec3 & up, const float angle, const float focalLength);
 
 	// Use this camera to render an image of the World
-	void render(World* world, const std::string filename, const float imageWidth, const float imageHeight, const float time);
+	const void render(World & world, const std::string & filename, const float imageWidth, const float imageHeight, const float time);
 };
 
 #endif

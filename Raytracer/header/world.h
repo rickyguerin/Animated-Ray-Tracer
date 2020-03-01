@@ -18,13 +18,13 @@ private:
 
 public:
 	// Constructor
-	World(const glm::ivec4 color);
+	World(const glm::ivec4 & color);
 
 	// Add a program to the World
-	void addProgram(const SphereProgram program);
+	void addProgram(const SphereProgram & program);
 
 	// Fire a ray into the world and get its color
-	glm::ivec4 trace(const glm::mat4 cameraMatrix, const glm::vec3 ray, const float time);
+	const glm::ivec4 trace(const glm::mat4 & cameraMatrix, const glm::vec3 & ray, const float time);
 };
 
 #endif

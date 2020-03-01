@@ -29,7 +29,7 @@ int main() {
 
 	// Render frames
 	for (int i = 0; i < frames; i++) {
-		camera.render(&world, "../images/temp/output_" + std::to_string(i) + ".png", 600, 400, time);
+		camera.render(world, "../images/temp/output_" + std::to_string(i) + ".png", 600, 400, time);
 		time += spf;
 	}
 

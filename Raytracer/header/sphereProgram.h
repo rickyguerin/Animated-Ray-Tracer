@@ -30,10 +30,10 @@ private:
 
 public:
 	// Constructor
-	SphereProgram(const std::string filename);
+	SphereProgram(const std::string & filename);
 
 	// Interpolate between frames to get the Sphere at the given time
-	Sphere getSphere(const float time);
+	const Sphere getSphere(const float time);
 };
 
 #endif

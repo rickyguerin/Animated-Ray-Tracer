@@ -20,16 +20,16 @@ private:
 
 public:
 	// Constructor
-	Sphere(const glm::vec3 position, const glm::ivec4 color, const double radius);
+	Sphere(const glm::vec3 & position, const glm::ivec4 & color, const double radius);
 
 	// Transform position to move this Sphere into camera space
-	void transformToCameraSpace(glm::mat4 cameraMatrix);
+	void transformToCameraSpace(const glm::mat4 & cameraMatrix);
 
 	// Determine if a ray collides with this Sphere
-	bool collision(glm::vec3 ray);
+	const bool collision(const glm::vec3 & ray);
 
 	// Determine what color to return if a ray collision occurs
-	glm::ivec4 illuminate();
+	const glm::ivec4 illuminate();
 };
 
 #endif

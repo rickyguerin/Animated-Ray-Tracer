@@ -1,7 +1,7 @@
 #include <lodepng.h>
 #include "../header/image.h"
 
-Image::Image(const unsigned width = 256, const unsigned height = 256) {
+Image::Image(const unsigned width, const unsigned height) {
 	this->width = width;
 	this->height = height;
 	this->contents = std::vector<unsigned char>(width * height * 4);
@@ -14,6 +14,6 @@ void Image::setPixel(const unsigned x, const unsigned y, const glm::ivec4 color)
 	contents[4 * width * y + 4 * x + 3] = color.a;
 }
 
-void Image::write(const std::string filename) {
+const void Image::write(const std::string & filename) {
 	lodepng::encode(filename, contents, width, height);
 }

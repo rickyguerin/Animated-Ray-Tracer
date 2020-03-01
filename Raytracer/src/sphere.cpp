@@ -1,16 +1,16 @@
 #include "../header/sphere.h"
 
-Sphere::Sphere(const glm::vec3 position, const glm::ivec4 color, const double radius) {
+Sphere::Sphere(const glm::vec3 & position, const glm::ivec4 & color, const double radius) {
 	this->position = position;
 	this->color = color;
 	this->radius = radius;
 }
 
-void Sphere::transformToCameraSpace(glm::mat4 cameraMatrix) {
+void Sphere::transformToCameraSpace(const glm::mat4 & cameraMatrix) {
 	position = cameraMatrix * glm::vec4(position, 1.0f);
 }
 
-bool Sphere::collision(glm::vec3 ray) {
+const bool Sphere::collision(const glm::vec3 & ray) {
 	
 	double a = glm::dot(ray, ray);
 	double b = glm::dot(ray, -position) * 2.0;
@@ -35,6 +35,6 @@ bool Sphere::collision(glm::vec3 ray) {
 	return plusRoot > EPSILON;
 }
 
-glm::ivec4 Sphere::illuminate() {
+const glm::ivec4 Sphere::illuminate() {
 	return color;
 }

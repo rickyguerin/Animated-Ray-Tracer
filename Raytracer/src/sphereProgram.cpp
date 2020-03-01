@@ -3,7 +3,7 @@
 
 #include "../header/sphereProgram.h"
 
-SphereProgram::SphereProgram(const std::string filename) {
+SphereProgram::SphereProgram(const std::string & filename) {
 	std::ifstream progFile(filename);
 	std::string token;
 
@@ -59,7 +59,7 @@ SphereProgram::SphereProgram(const std::string filename) {
 	}
 }
 
-Sphere SphereProgram::getSphere(const float time) {
+const Sphere SphereProgram::getSphere(const float time) {
 
 	// Determine what frame of this program occurs at this time
 	int activeFrame = 0;
