@@ -1,15 +1,34 @@
 #include <vector>
 #include <string>
 
+
 #include "../header/world.h"
 #include "../header/camera.h"
 #include "../header/sphere.h"
 
+std::string padInt(int i, int n) {
+
+	int numZeros = n - 1;
+	int copy = i / 10;
+
+	while (copy > 0) {
+		numZeros--;
+		copy /= 10;
+	}
+
+	std::string pad = "";
+	pad.append("0000000000", numZeros);
+
+	return pad + std::to_string(i);
+}
+
 int main() {
 	// Create the World
-	World world(glm::ivec4(50, 150, 250, 255));
-	world.add("world/prog.txt");
-	world.add("world/vertSphere.txt");
+	World world(glm::ivec4(0, 0, 0, 255));
+	world.addProgram(SphereProgram("world/anim1.txt"));
+	world.addProgram(SphereProgram("world/anim2.txt"));
+	world.addProgram(SphereProgram("world/anim3.txt"));
+	world.addProgram(SphereProgram("world/anim4.txt"));
 
 	// Create the Camera
 	glm::vec3 pos{ 0, 0, 2 };
@@ -18,12 +37,9 @@ int main() {
 
 	Camera camera(pos, lookat, up, 45, 2.0f);
 
-	// Put the World in Camera space
-	world.transformToCameraSpace(camera.getMatrix());
-
 	// Animation frame information
 	const float fps = 1;
-	const float duration = 4.0;
+	const float duration = 1.0;
 	const unsigned frames = fps * duration;
 
 	// Animation timer
@@ -32,7 +48,7 @@ int main() {
 
 	// Render frames
 	for (int i = 0; i < frames; i++) {
-		camera.render(&world, "../images/temp/output_" + std::to_string(i) + ".png", 600, 400, time);
+		camera.render(world, "../images/temp/output_" + padInt(i, 4) + ".png", 800, 800, time);
 		time += spf;
 	}
 

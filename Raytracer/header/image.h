@@ -23,7 +23,7 @@ public:
 	void setPixel(const unsigned x, const unsigned y, const glm::ivec4 color);
 
 	// Write the contents of this Image to a file
-	void write(const std::string filename);
+	const void write(const std::string & filename);
 };
 
 #endif

@@ -143,6 +143,7 @@
     <ClCompile Include="src\driver.cpp" />
     <ClCompile Include="src\image.cpp" />
     <ClCompile Include="src\sphere.cpp" />
+    <ClCompile Include="src\sphereProgram.cpp" />
     <ClCompile Include="src\world.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -152,11 +153,8 @@
     <ClInclude Include="header\camera.h" />
     <ClInclude Include="header\image.h" />
     <ClInclude Include="header\sphere.h" />
+    <ClInclude Include="header\sphereProgram.h" />
     <ClInclude Include="header\world.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="world\prog.txt" />
-    <Text Include="world\vertSphere.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
