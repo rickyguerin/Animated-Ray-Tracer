@@ -1,6 +1,7 @@
 #include <vector>
 #include <string>
 
+
 #include "../header/world.h"
 #include "../header/camera.h"
 #include "../header/sphere.h"
@@ -23,9 +24,11 @@ std::string padInt(int i, int n) {
 
 int main() {
 	// Create the World
-	World world(glm::ivec4(50, 150, 250, 255));
-	world.addProgram(SphereProgram("world/prog.txt"));
-	world.addProgram(SphereProgram("world/vertSphere.txt"));
+	World world(glm::ivec4(0, 0, 0, 255));
+	world.addProgram(SphereProgram("world/anim1.txt"));
+	world.addProgram(SphereProgram("world/anim2.txt"));
+	world.addProgram(SphereProgram("world/anim3.txt"));
+	world.addProgram(SphereProgram("world/anim4.txt"));
 
 	// Create the Camera
 	glm::vec3 pos{ 0, 0, 2 };
@@ -36,7 +39,7 @@ int main() {
 
 	// Animation frame information
 	const float fps = 1;
-	const float duration = 4.0;
+	const float duration = 1.0;
 	const unsigned frames = fps * duration;
 
 	// Animation timer
