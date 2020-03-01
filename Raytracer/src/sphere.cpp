@@ -41,7 +41,7 @@ glm::ivec4 Sphere::getColor(unsigned frame, float time) {
 	}
 }
 
-double Sphere::getRadius(unsigned frame, float time) {
+float Sphere::getRadius(unsigned frame, float time) {
 
 	if (frame == frames.size() - 1) {
 		return frames[frame].radius;

@@ -10,7 +10,7 @@ static const double EPSILON = 0.001;
 // One keyframe from a Sphere input file
 struct SphereFrame {
 	// Time when this frame begins
-	double timestamp;
+	float timestamp;
 
 	// Location of Sphere center at this time
 	glm::vec3 position;
@@ -19,7 +19,7 @@ struct SphereFrame {
 	glm::ivec4 color;
 
 	// Radius of Sphere at this time
-	double radius;
+	float radius;
 };
 
 class Sphere {
@@ -37,7 +37,7 @@ public:
 	// Accessors
 	glm::vec3 getPos(unsigned frame, float time);
 	glm::ivec4 getColor(unsigned frame, float time);
-	double getRadius(unsigned frame, float time);
+	float getRadius(unsigned frame, float time);
 
 	// Determine if a ray collides with this Sphere
 	bool collision(glm::vec3 ray, float time);
