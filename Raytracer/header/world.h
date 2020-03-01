@@ -18,16 +18,16 @@ private:
 
 public:
 	// Constructor
-	World(glm::ivec4 color);
+	World(const glm::ivec4 color);
 
 	// Fire a ray into the world and get its color
-	glm::ivec4 trace(glm::vec3 ray, double time);
+	glm::ivec4 trace(const glm::vec3 ray, const float time);
 
 	// Read one object file and add that object to the world
-	void add(std::string filename);
+	void add(const std::string filename);
 
 	// Edit every object to move it into camera space
-	void transformToCameraSpace(glm::mat4 cameraMatrix);
+	void transformToCameraSpace(const glm::mat4 cameraMatrix);
 };
 
 #endif
