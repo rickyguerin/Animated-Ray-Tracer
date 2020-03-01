@@ -12,6 +12,7 @@ Camera::Camera(glm::vec3 pos, glm::vec3 lookat, glm::vec3 up, float angle, float
 	this->angle = angle;
 	this->focalLength = focalLength;
 
+	// Build World -> Camera matrix
 	glm::vec3 n = glm::normalize(pos - lookat);
 	glm::vec3 u = glm::normalize(glm::cross(up, n));
 	glm::vec3 v = glm::normalize(glm::cross(n, u));
@@ -30,17 +31,22 @@ glm::mat4 Camera::getMatrix() {
 
 void Camera::render(World* world, std::string filename, const float imageWidth, const float imageHeight, float time) {
 
+	// Create output Image
 	Image output(imageWidth, imageHeight);
 
+	// World space dimensions of canvas
 	const float canvasHeight = 2 * tan(angle/2) * focalLength;
 	const float canvasWidth = canvasHeight * (imageWidth / imageHeight);
 
+	// World space dimensions of one pixel of the Image
 	const float pixelWidth = canvasWidth / imageWidth;
 	const float pixelHeight = canvasHeight / imageHeight;
 
+	// Minimum X/Y value of a pixel in the Image
 	const float minX = (pixelWidth - canvasWidth) / 2;
 	const float minY = (pixelHeight - canvasHeight) / 2;
 
+	// Fire a ray through each pixel to render the Image
 	float px, py;
 
 	for (unsigned y = 0; y < output.getHeight(); y++) {
@@ -55,5 +61,6 @@ void Camera::render(World* world, std::string filename, const float imageWidth, 
 		}
 	}
 
+	// Save Image to file
 	output.write(filename);
 }
