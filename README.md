@@ -1,4 +1,5 @@
 # Raytracer
+![An example frame with two spheres](images/output.png)
 A ray tracer I'm building to learn C++ and to practice what I learned in CSCI-711 Global Illumination.
 
 ### Current Functionality
