@@ -1,5 +1,6 @@
 # Raytracer
-![An example frame with two spheres](images/output.png)
+<img src="images/output.png" height="400">
+
 A ray tracer I'm building to learn C++ and to practice what I learned in CSCI-711 Global Illumination.
 
 ### Current Functionality
