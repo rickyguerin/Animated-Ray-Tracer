@@ -30,13 +30,9 @@ int main() {
 	float time = 0.0;
 	const float spf = duration / frames;
 
-	// Output filename
-	std::string baseFilename = "../images/temp/output_";
-	std::string extension = ".png";
-
 	// Render frames
 	for (int i = 0; i < frames; i++) {
-		camera.render(&world, baseFilename + std::to_string(i) + extension, 600, 400, time);
+		camera.render(&world, "../images/temp/output_" + std::to_string(i) + ".png", 600, 400, time);
 		time += spf;
 	}
 
