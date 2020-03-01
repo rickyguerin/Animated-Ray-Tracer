@@ -4,7 +4,7 @@ void Sphere::addFrame(SphereFrame frame) {
 	frames.push_back(frame);
 }
 
-unsigned Sphere::getCurrentFrame(double time) {
+unsigned Sphere::getCurrentFrame(float time) {
 
 	int i = 0;
 
@@ -17,7 +17,7 @@ unsigned Sphere::getCurrentFrame(double time) {
 	return i;
 }
 
-glm::vec3 Sphere::getPos(unsigned frame, double time) {
+glm::vec3 Sphere::getPos(unsigned frame, float time) {
 
 	if (frame == frames.size() - 1) {
 		return frames[frame].position;
@@ -29,7 +29,7 @@ glm::vec3 Sphere::getPos(unsigned frame, double time) {
 	}
 }
 
-glm::ivec4 Sphere::getColor(unsigned frame, double time) {
+glm::ivec4 Sphere::getColor(unsigned frame, float time) {
 
 	if (frame == frames.size() - 1) {
 		return frames[frame].color;
@@ -41,7 +41,7 @@ glm::ivec4 Sphere::getColor(unsigned frame, double time) {
 	}
 }
 
-double Sphere::getRadius(unsigned frame, double time) {
+double Sphere::getRadius(unsigned frame, float time) {
 
 	if (frame == frames.size() - 1) {
 		return frames[frame].radius;
@@ -53,7 +53,7 @@ double Sphere::getRadius(unsigned frame, double time) {
 	}
 }
 
-bool Sphere::collision(glm::vec3 ray, double time) {
+bool Sphere::collision(glm::vec3 ray, float time) {
 
 	unsigned frame = getCurrentFrame(time);
 	glm::vec3 pos = getPos(frame, time);
@@ -82,7 +82,7 @@ bool Sphere::collision(glm::vec3 ray, double time) {
 	return plusRoot > EPSILON;
 }
 
-glm::ivec4 Sphere::illuminate(double time) {
+glm::ivec4 Sphere::illuminate(float time) {
 	unsigned frame = getCurrentFrame(time);
 	return getColor(frame, time);
 }

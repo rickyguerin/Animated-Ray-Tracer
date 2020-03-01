@@ -32,18 +32,18 @@ public:
 	void addFrame(SphereFrame frame);
 
 	// Get the index of the active frame at the given time
-	unsigned getCurrentFrame(double time);
+	unsigned getCurrentFrame(float time);
 
 	// Accessors
-	glm::vec3 getPos(unsigned frame, double time);
-	glm::ivec4 getColor(unsigned frame, double time);
-	double getRadius(unsigned frame, double time);
+	glm::vec3 getPos(unsigned frame, float time);
+	glm::ivec4 getColor(unsigned frame, float time);
+	double getRadius(unsigned frame, float time);
 
 	// Determine if a ray collides with this Sphere
-	bool collision(glm::vec3 ray, double time);
+	bool collision(glm::vec3 ray, float time);
 
 	// Determine what color to return if a ray collision occurs
-	glm::ivec4 illuminate(double time);
+	glm::ivec4 illuminate(float time);
 
 	// Edit frames to move this Sphere into camera space
 	void transformToCameraSpace(glm::mat4 cameraMatrix);
