@@ -57,12 +57,4 @@
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
-  <ItemGroup>
-    <Text Include="world\prog.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
-    <Text Include="world\vertSphere.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
-  </ItemGroup>
 </Project>

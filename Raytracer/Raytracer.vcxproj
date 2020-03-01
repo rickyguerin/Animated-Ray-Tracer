@@ -156,10 +156,6 @@
     <ClInclude Include="header\sphereProgram.h" />
     <ClInclude Include="header\world.h" />
   </ItemGroup>
-  <ItemGroup>
-    <Text Include="world\prog.txt" />
-    <Text Include="world\vertSphere.txt" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
     <Import Project="packages\LodePNG.1.1.0\build\native\lodepng.targets" Condition="Exists('packages\LodePNG.1.1.0\build\native\lodepng.targets')" />
