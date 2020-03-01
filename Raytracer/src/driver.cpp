@@ -5,6 +5,22 @@
 #include "../header/camera.h"
 #include "../header/sphere.h"
 
+std::string padInt(int i, int n) {
+
+	int numZeros = n - 1;
+	int copy = i / 10;
+
+	while (copy > 0) {
+		numZeros--;
+		copy /= 10;
+	}
+
+	std::string pad = "";
+	pad.append("0000000000", numZeros);
+
+	return pad + std::to_string(i);
+}
+
 int main() {
 	// Create the World
 	World world(glm::ivec4(50, 150, 250, 255));
@@ -29,7 +45,7 @@ int main() {
 
 	// Render frames
 	for (int i = 0; i < frames; i++) {
-		camera.render(world, "../images/temp/output_" + std::to_string(i) + ".png", 600, 400, time);
+		camera.render(world, "../images/temp/output_" + padInt(i, 4) + ".png", 800, 800, time);
 		time += spf;
 	}
 
