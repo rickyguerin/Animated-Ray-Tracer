@@ -5,8 +5,6 @@
 #include "../header/camera.h"
 #include "../header/sphere.h"
 
-
-
 int main() {
 	// Create the World
 	World world(glm::ivec4(50, 150, 250, 255));
