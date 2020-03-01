@@ -17,17 +17,13 @@ private:
 
 public:
 	// Constructor
-	Image(unsigned width, unsigned height);
-
-	// Accessors
-	unsigned getWidth();
-	unsigned getHeight();
+	Image(const unsigned width, const unsigned height);
 
 	// Set the color of one pixel in the Image
-	void setPixel(long long x, long long y, glm::ivec4 color);
+	void setPixel(const unsigned x, const unsigned y, const glm::ivec4 color);
 
 	// Write the contents of this Image to a file
-	void write(std::string filename);
+	void write(const std::string filename);
 };
 
 #endif

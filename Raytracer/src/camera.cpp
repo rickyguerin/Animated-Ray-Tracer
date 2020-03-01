@@ -49,8 +49,8 @@ void Camera::render(World* world, std::string filename, const float imageWidth, 
 	// Fire a ray through each pixel to render the Image
 	float px, py;
 
-	for (unsigned y = 0; y < output.getHeight(); y++) {
-		for (unsigned x = 0; x < output.getWidth(); x++) {
+	for (unsigned y = 0; y < imageHeight; y++) {
+		for (unsigned x = 0; x < imageWidth; x++) {
 
 			px = minX + (pixelWidth * x);
 			py = minY + (pixelHeight * y);
