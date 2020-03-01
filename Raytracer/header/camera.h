@@ -23,13 +23,13 @@ private:
 
 public:
 	// Constructor
-	Camera(glm::vec3 pos, glm::vec3 lookat, glm::vec3 up, float angle, float focalLength);
+	Camera(const glm::vec3 pos, const glm::vec3 lookat, const glm::vec3 up, const float angle, const float focalLength);
 
 	// Access this Camera's transformation matrix
 	glm::mat4 getMatrix();
 
 	// Use this camera to render an image of the World
-	void render(World* world, std::string filename, const float imageWidth, const float imageHeight, float time);
+	void render(World* world, const std::string filename, const float imageWidth, const float imageHeight, const float time);
 };
 
 #endif

@@ -4,7 +4,7 @@
 
 #include <iostream>
 
-Camera::Camera(glm::vec3 pos, glm::vec3 lookat, glm::vec3 up, float angle, float focalLength) {
+Camera::Camera(const glm::vec3 pos, const glm::vec3 lookat, const glm::vec3 up, const float angle, const float focalLength) {
 	this->pos = pos;
 	this->lookat = lookat;
 	this->up = up;
@@ -29,7 +29,7 @@ glm::mat4 Camera::getMatrix() {
 	return matrix;
 }
 
-void Camera::render(World* world, std::string filename, const float imageWidth, const float imageHeight, float time) {
+void Camera::render(World* world, const std::string filename, const float imageWidth, const float imageHeight, const float time) {
 
 	// Create output Image
 	Image output(imageWidth, imageHeight);
