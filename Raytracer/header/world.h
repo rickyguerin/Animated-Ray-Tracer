@@ -6,12 +6,12 @@
 #include <vector>
 #include <glm/glm.hpp>
 #include <glm/vec4.hpp>
-#include "sphere.h"
+#include "sphereProgram.h"
 
 class World {
 private:
-	// All objects in the World
-	std::vector<Sphere> objects;
+	// All programs in the World
+	std::vector<SphereProgram> programs;
 
 	// Background color for the World
 	glm::ivec4 backgroundColor;
@@ -20,14 +20,11 @@ public:
 	// Constructor
 	World(const glm::ivec4 color);
 
+	// Add a program to the World
+	void addProgram(const SphereProgram program);
+
 	// Fire a ray into the world and get its color
-	glm::ivec4 trace(const glm::vec3 ray, const float time);
-
-	// Read one object file and add that object to the world
-	void add(const std::string filename);
-
-	// Edit every object to move it into camera space
-	void transformToCameraSpace(const glm::mat4 cameraMatrix);
+	glm::ivec4 trace(const glm::mat4 cameraMatrix, const glm::vec3 ray, const float time);
 };
 
 #endif
