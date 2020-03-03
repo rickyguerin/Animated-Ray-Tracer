@@ -23,7 +23,7 @@ struct SphereFrame {
 	double radius;
 };
 
-class SphereProgram : ShapeProgram {
+class SphereProgram : public ShapeProgram {
 private:
 	// All keyframes from input file
 	std::vector<SphereFrame> frames;
