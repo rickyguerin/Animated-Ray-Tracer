@@ -20,6 +20,9 @@ public:
 	// Constructor
 	World(const glm::ivec4 & color);
 
+	// Destructor
+	~World();
+
 	// Add a program to the World
 	void addProgram(const ShapeProgram * program);
 

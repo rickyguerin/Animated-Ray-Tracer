@@ -5,6 +5,12 @@ World::World(const glm::ivec4 & color) {
 	backgroundColor = color;
 }
 
+World::~World() {
+	for (auto prog : programs) {
+		delete prog;
+	}
+}
+
 void World::addProgram(const ShapeProgram * program) {
 	programs.push_back(program);
 }
