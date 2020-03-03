@@ -1,8 +1,7 @@
 #include "../header/sphere.h"
 
-Sphere::Sphere(const glm::vec3 & position, const glm::ivec4 & color, const double radius) {
+Sphere::Sphere(const glm::vec3 & position, const glm::ivec4 & color, const double radius) : Shape(color) {
 	this->position = position;
-	this->color = color;
 	this->radius = radius;
 }
 
