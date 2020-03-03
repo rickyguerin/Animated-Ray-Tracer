@@ -2,6 +2,7 @@
 #include <fstream>
 
 #include "../header/sphereProgram.h"
+#include "../header/sphere.h"
 
 SphereProgram::SphereProgram(const std::string & filename) {
 	std::ifstream progFile(filename);
@@ -46,10 +47,10 @@ SphereProgram::SphereProgram(const std::string & filename) {
 				double radius = std::stod(token);
 
 				// Create frame from parsed data
-				SphereFrame sf{
+				SphereFrame sf {
 					timestamp,
-					glm::vec3(x, y, z),
 					glm::ivec4(r, g, b, a),
+					glm::vec3(x, y, z),
 					radius
 				};
 
@@ -59,7 +60,7 @@ SphereProgram::SphereProgram(const std::string & filename) {
 	}
 }
 
-const Sphere SphereProgram::getSphere(const float time) {
+Shape * SphereProgram::getShape(const float time) const {
 
 	// Determine what frame of this program occurs at this time
 	int activeFrame = 0;
@@ -72,9 +73,11 @@ const Sphere SphereProgram::getSphere(const float time) {
 	SphereFrame now = frames[activeFrame];
 	SphereFrame next = frames[activeFrame + 1];
 
+	Shape* sphere;
+
 	// If it's the last frame, no need to interpolate
 	if (activeFrame == frames.size() - 1) {
-		return Sphere(now.position, now.color, now.radius);
+		sphere = new Sphere(now.position, now.color, now.radius);
 	}
 
 	// Do linear interpolation
@@ -85,6 +88,8 @@ const Sphere SphereProgram::getSphere(const float time) {
 		glm::ivec4 color = glm::mix(now.color, next.color, t);
 		double radius = glm::mix(now.radius, next.radius, t);
 
-		return Sphere(position, color, radius);
+		sphere = new Sphere(position, color, radius);
 	}
+
+	return sphere;
 }

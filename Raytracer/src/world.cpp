@@ -11,12 +11,14 @@ void World::addProgram(const SphereProgram & program) {
 
 const glm::ivec4 World::trace(const glm::mat4 & cameraMatrix, const glm::vec3 & ray, const float time) {
 	for (int i = 0; i < programs.size(); i++) {
-		Sphere sphere = programs[i].getSphere(time);
-		sphere.transformToCameraSpace(cameraMatrix);
+		Shape* shape = programs[i].getShape(time);
+		shape->transformToCameraSpace(cameraMatrix);
 
-		if (sphere.collision(ray)) {
-			return sphere.illuminate();
+		if (shape->collision(ray)) {
+			return shape->illuminate();
 		}
+
+		delete shape;
 	}
 
 	return backgroundColor;

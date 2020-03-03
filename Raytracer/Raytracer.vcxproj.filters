@@ -71,5 +71,8 @@
     <ClInclude Include="header\sphereProgram.h">
       <Filter>Header Files\ShapeProgram</Filter>
     </ClInclude>
+    <ClInclude Include="header\shapeProgram.h">
+      <Filter>Header Files\ShapeProgram</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

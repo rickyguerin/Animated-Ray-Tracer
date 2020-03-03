@@ -153,6 +153,7 @@
     <ClInclude Include="header\camera.h" />
     <ClInclude Include="header\image.h" />
     <ClInclude Include="header\shape.h" />
+    <ClInclude Include="header\shapeProgram.h" />
     <ClInclude Include="header\sphere.h" />
     <ClInclude Include="header\sphereProgram.h" />
     <ClInclude Include="header\world.h" />

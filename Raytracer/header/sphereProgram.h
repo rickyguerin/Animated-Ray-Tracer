@@ -6,24 +6,24 @@
 #include <vector>
 #include <glm/glm.hpp>
 
-#include "../header/sphere.h"
+#include "shapeProgram.h"
 
 // One keyframe from a Sphere input file
 struct SphereFrame {
 	// Time when this frame begins
 	float timestamp;
 
-	// Location of Sphere center at this time
-	glm::vec3 position;
-
 	// Color of Sphere at this time
 	glm::ivec4 color;
+
+	// Location of Sphere center at this time
+	glm::vec3 position;
 
 	// Radius of Sphere at this time
 	double radius;
 };
 
-class SphereProgram {
+class SphereProgram : ShapeProgram {
 private:
 	// All keyframes from input file
 	std::vector<SphereFrame> frames;
@@ -33,7 +33,7 @@ public:
 	SphereProgram(const std::string & filename);
 
 	// Interpolate between frames to get the Sphere at the given time
-	const Sphere getSphere(const float time);
+	virtual Shape * getShape(const float time) const;
 };
 
 #endif
