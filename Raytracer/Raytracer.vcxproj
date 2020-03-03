@@ -156,6 +156,8 @@
     <ClInclude Include="header\shapeProgram.h" />
     <ClInclude Include="header\sphere.h" />
     <ClInclude Include="header\sphereProgram.h" />
+    <ClInclude Include="header\triangle.h" />
+    <ClInclude Include="header\triangleProgram.h" />
     <ClInclude Include="header\world.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

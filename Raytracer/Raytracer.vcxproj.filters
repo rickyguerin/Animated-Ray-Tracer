@@ -74,5 +74,11 @@
     <ClInclude Include="header\shapeProgram.h">
       <Filter>Header Files\ShapeProgram</Filter>
     </ClInclude>
+    <ClInclude Include="header\triangle.h">
+      <Filter>Header Files\Shape</Filter>
+    </ClInclude>
+    <ClInclude Include="header\triangleProgram.h">
+      <Filter>Header Files\ShapeProgram</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
