@@ -9,7 +9,7 @@ void Sphere::transformToCameraSpace(const glm::mat4 & cameraMatrix) {
 	position = cameraMatrix * glm::vec4(position, 1.0f);
 }
 
-const bool Sphere::collision(const glm::vec3 & ray) {
+bool Sphere::collision(const glm::vec3 & ray) const {
 	
 	double a = glm::dot(ray, ray);
 	double b = glm::dot(ray, -position) * 2.0;
@@ -34,6 +34,6 @@ const bool Sphere::collision(const glm::vec3 & ray) {
 	return plusRoot > EPSILON;
 }
 
-const glm::ivec4 Sphere::illuminate() {
+glm::ivec4 Sphere::illuminate() const {
 	return color;
 }

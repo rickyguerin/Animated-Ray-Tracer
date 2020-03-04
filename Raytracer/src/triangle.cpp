@@ -10,10 +10,10 @@ void Triangle::transformToCameraSpace(const glm::mat4 & cameraMatrix) {
 	}
 }
 
-const bool Triangle::collision(const glm::vec3 & ray) {
+bool Triangle::collision(const glm::vec3 & ray) const {
 	return false;
 }
 
-const glm::ivec4 Triangle::illuminate() {
+glm::ivec4 Triangle::illuminate() const {
 	return color;
 }

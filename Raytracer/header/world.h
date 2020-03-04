@@ -27,7 +27,7 @@ public:
 	void addProgram(const ShapeProgram * program);
 
 	// Fire a ray into the world and get its color
-	const glm::ivec4 trace(const glm::mat4 & cameraMatrix, const glm::vec3 & ray, const float time);
+	glm::ivec4 trace(const glm::mat4 & cameraMatrix, const glm::vec3 & ray, const float time) const;
 };
 
 #endif

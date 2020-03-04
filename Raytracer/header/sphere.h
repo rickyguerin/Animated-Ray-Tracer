@@ -23,8 +23,8 @@ public:
 
 	// Override from Shape
 	virtual void transformToCameraSpace(const glm::mat4 & cameraMatrix);
-	virtual const bool collision(const glm::vec3 & ray);
-	virtual const glm::ivec4 illuminate();
+	virtual bool collision(const glm::vec3 & ray) const;
+	virtual glm::ivec4 illuminate() const;
 };
 
 #endif

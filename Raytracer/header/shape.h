@@ -19,10 +19,10 @@ public:
 	virtual void transformToCameraSpace(const glm::mat4 & cameraMatrix) = 0;
 
 	// Determine if a ray collides with this Shape
-	virtual const bool collision(const glm::vec3 & ray) = 0;
+	virtual bool collision(const glm::vec3 & ray) const = 0;
 
 	// Determine what color to return if a ray collision occurs
-	virtual const glm::ivec4 illuminate() = 0;
+	virtual glm::ivec4 illuminate() const = 0;
 };
 
 #endif
