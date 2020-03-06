@@ -26,31 +26,25 @@ double readDouble(std::ifstream & file) {
 
 // Read the next three tokens as a vec3
 glm::vec3 readPosition(std::ifstream & file) {
-	file >> token;
-	float x = std::stof(token);
 
-	file >> token;
-	float y = std::stof(token);
+	glm::vec3 position = glm::ivec4();
 
-	file >> token;
-	float z = std::stof(token);
+	for (int i = 0; i < 3; i++) {
+		file >> token;
+		position[i] = std::stof(token);
+	}
 
-	return glm::vec3(x, y, z);
+	return position;
 }
 
 // Read the next four tokens as a vec3
 glm::ivec4 readColor(std::ifstream & file) {
-	file >> token;
-	int r = std::stoi(token);
+	glm::ivec4 color = glm::ivec4();
 
-	file >> token;
-	int g = std::stoi(token);
+	for (int i = 0; i < 4; i++) {
+		file >> token;
+		color[i] = std::stoi(token);
+	}
 
-	file >> token;
-	int b = std::stoi(token);
-
-	file >> token;
-	int a = std::stoi(token);
-
-	return glm::ivec4(r, g, b, a);
+	return color;
 }
