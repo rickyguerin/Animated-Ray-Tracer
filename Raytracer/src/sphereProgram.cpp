@@ -3,6 +3,7 @@
 
 #include "../header/sphereProgram.h"
 #include "../header/sphere.h"
+#include "../header/reader.h"
 
 SphereProgram::SphereProgram(const std::string & filename) {
 	std::ifstream progFile(filename);
@@ -15,42 +16,18 @@ SphereProgram::SphereProgram(const std::string & filename) {
 			// Parse each frame
 			progFile >> token;
 			if (token.compare("FRAME") == 0) {
-				// Parse timestamp
-				progFile >> token;
-				float timestamp = std::stod(token);
 
-				// Parse position
-				progFile >> token;
-				float x = std::stod(token);
-
-				progFile >> token;
-				float y = std::stod(token);
-
-				progFile >> token;
-				float z = std::stod(token);
-
-				// Parse color
-				progFile >> token;
-				int r = std::stoi(token);
-
-				progFile >> token;
-				int g = std::stoi(token);
-
-				progFile >> token;
-				int b = std::stoi(token);
-
-				progFile >> token;
-				int a = std::stoi(token);
-
-				// Parse radius
-				progFile >> token;
-				double radius = std::stod(token);
+				// Read one frame of data from the file
+				float timestamp = readFloat(progFile);
+				glm::vec3 position = readPosition(progFile);
+				glm::ivec4 color = readColor(progFile);
+				double radius = readDouble(progFile);
 
 				// Create frame from parsed data
 				SphereFrame sf {
 					timestamp,
-					glm::ivec4(r, g, b, a),
-					glm::vec3(x, y, z),
+					color,
+					position,
 					radius
 				};
 
