@@ -142,8 +142,11 @@
     <ClCompile Include="src\camera.cpp" />
     <ClCompile Include="src\driver.cpp" />
     <ClCompile Include="src\image.cpp" />
+    <ClCompile Include="src\reader.cpp" />
     <ClCompile Include="src\sphere.cpp" />
     <ClCompile Include="src\sphereProgram.cpp" />
+    <ClCompile Include="src\triangle.cpp" />
+    <ClCompile Include="src\triangleProgram.cpp" />
     <ClCompile Include="src\world.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -152,8 +155,13 @@
   <ItemGroup>
     <ClInclude Include="header\camera.h" />
     <ClInclude Include="header\image.h" />
+    <ClInclude Include="header\reader.h" />
+    <ClInclude Include="header\shape.h" />
+    <ClInclude Include="header\shapeProgram.h" />
     <ClInclude Include="header\sphere.h" />
     <ClInclude Include="header\sphereProgram.h" />
+    <ClInclude Include="header\triangle.h" />
+    <ClInclude Include="header\triangleProgram.h" />
     <ClInclude Include="header\world.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

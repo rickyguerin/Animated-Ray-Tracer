@@ -20,10 +20,10 @@ public:
 	Image(const unsigned width, const unsigned height);
 
 	// Set the color of one pixel in the Image
-	void setPixel(const unsigned x, const unsigned y, const glm::ivec4 color);
+	void setPixel(const unsigned x, const unsigned y, const glm::ivec4 & color);
 
 	// Write the contents of this Image to a file
-	const void write(const std::string & filename);
+	void write(const std::string & filename) const;
 };
 
 #endif

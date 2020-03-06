@@ -25,7 +25,7 @@ Camera::Camera(const glm::vec3 & pos, const glm::vec3 & lookat, const glm::vec3 
 	);
 }
 
-const void Camera::render(World & world, const std::string & filename, const float imageWidth, const float imageHeight, const float time) {
+void Camera::render(const World & world, const std::string & filename, const float imageWidth, const float imageHeight, const float time) const {
 
 	// Create output Image
 	Image output(imageWidth, imageHeight);

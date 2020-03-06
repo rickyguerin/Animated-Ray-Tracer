@@ -1,10 +1,11 @@
 #include <vector>
 #include <string>
 
-
 #include "../header/world.h"
 #include "../header/camera.h"
 #include "../header/sphere.h"
+#include "../header/sphereProgram.h";
+#include "../header/triangleProgram.h"
 
 std::string padInt(int i, int n) {
 
@@ -25,10 +26,9 @@ std::string padInt(int i, int n) {
 int main() {
 	// Create the World
 	World world(glm::ivec4(0, 0, 0, 255));
-	world.addProgram(SphereProgram("world/anim1.txt"));
-	world.addProgram(SphereProgram("world/anim2.txt"));
-	world.addProgram(SphereProgram("world/anim3.txt"));
-	world.addProgram(SphereProgram("world/anim4.txt"));
+
+	world.addProgram(new SphereProgram("world/anim2.sphere"));
+	world.addProgram(new TriangleProgram("world/example.triangle"));
 
 	// Create the Camera
 	glm::vec3 pos{ 0, 0, 2 };
