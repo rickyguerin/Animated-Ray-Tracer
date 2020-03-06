@@ -3,6 +3,7 @@
 
 #include "../header/triangleProgram.h"
 #include "../header/triangle.h"
+#include "../header/reader.h"
 
 TriangleProgram::TriangleProgram(const std::string & filename) {
 	std::ifstream progFile(filename);
@@ -15,43 +16,25 @@ TriangleProgram::TriangleProgram(const std::string & filename) {
 			// Parse each frame
 			progFile >> token;
 			if (token.compare("FRAME") == 0) {
-				// Parse timestamp
-				progFile >> token;
-				float timestamp = std::stod(token);
-
-				// Parse vertices
-				progFile >> token;
-				float x = std::stod(token);
-
-				progFile >> token;
-				float y = std::stod(token);
-
-				progFile >> token;
-				float z = std::stod(token);
-
-				// Parse color
-				progFile >> token;
-				int r = std::stoi(token);
-
-				progFile >> token;
-				int g = std::stoi(token);
-
-				progFile >> token;
-				int b = std::stoi(token);
-
-				progFile >> token;
-				int a = std::stoi(token);
+				// Read one frame of data from the file
+				float timestamp = readFloat(progFile);
+				glm::ivec4 color = readColor(progFile);
+				glm::vec3 vertexOne = readPosition(progFile);
+				glm::vec3 vertexTwo = readPosition(progFile);
+				glm::vec3 vertexThree = readPosition(progFile);
 
 				// Create frame from parsed data
-				TriangleFrame sf {
+				TriangleFrame tf {
 					timestamp,
-					glm::ivec4(r, g, b, a),
-					std::vector<glm::vec3>{
-						glm::vec3(x, y, z)
+					color,
+					std::vector<glm::vec3> {
+						vertexOne,
+						vertexTwo,
+						vertexThree
 					}
 				};
 
-				frames.push_back(sf);
+				frames.push_back(tf);
 			}
 		}
 	}

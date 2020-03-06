@@ -16,7 +16,6 @@ SphereProgram::SphereProgram(const std::string & filename) {
 			// Parse each frame
 			progFile >> token;
 			if (token.compare("FRAME") == 0) {
-
 				// Read one frame of data from the file
 				float timestamp = readFloat(progFile);
 				glm::vec3 position = readPosition(progFile);
