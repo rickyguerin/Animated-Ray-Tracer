@@ -28,7 +28,8 @@ int main() {
 	World world(glm::ivec4(0, 0, 0, 255));
 
 	world.addProgram(new SphereProgram("world/anim2.sphere"));
-	world.addProgram(new TriangleProgram("world/example.triangle"));
+	world.addProgram(new TriangleProgram("world/leftFloor.triangle"));
+	world.addProgram(new TriangleProgram("world/rightFloor.triangle"));
 
 	// Create the Camera
 	glm::vec3 pos{ 0, 0, 2 };
