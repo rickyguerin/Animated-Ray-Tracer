@@ -64,11 +64,23 @@ Shape * TriangleProgram::getShape(const float time) const {
 	else {
 		double t = (time - now.timestamp) / (next.timestamp - now.timestamp);
 
-		std::vector<glm::vec3> vertices;
+		std::vector<glm::vec3> vertices = interpolateVertices(now.vertices, next.vertices, t);
 		glm::ivec4 color = glm::mix(now.color, next.color, t);
 
 		triangle = new Triangle(vertices, color);
 	}
 
 	return triangle;
+}
+
+// Interpolate between two sets of vertices
+std::vector<glm::vec3> interpolateVertices(const std::vector<glm::vec3> & before, const std::vector<glm::vec3> & after, const float t) {
+
+	std::vector<glm::vec3> vertices;
+
+	for (int i = 0; i < 3; i++) {
+		vertices.push_back(glm::mix(before[i], after[i], t));
+	}
+
+	return vertices;
 }
