@@ -26,10 +26,10 @@ int main() {
 	// Create the World
 	World world(glm::ivec4(0, 0, 0, 255));
 
-	world.addProgram(new SphereProgram("world/anim1.txt"));
-	world.addProgram(new SphereProgram("world/anim2.txt"));
-	world.addProgram(new SphereProgram("world/anim3.txt"));
-	world.addProgram(new SphereProgram("world/anim4.txt"));
+	world.addProgram(new SphereProgram("world/anim1.sphere"));
+	world.addProgram(new SphereProgram("world/anim2.sphere"));
+	world.addProgram(new SphereProgram("world/anim3.sphere"));
+	world.addProgram(new SphereProgram("world/anim4.sphere"));
 
 	// Create the Camera
 	glm::vec3 pos{ 0, 0, 2 };
