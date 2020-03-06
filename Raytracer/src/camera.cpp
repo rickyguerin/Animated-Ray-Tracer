@@ -25,6 +25,17 @@ Camera::Camera(const glm::vec3 & pos, const glm::vec3 & lookat, const glm::vec3 
 	);
 }
 
+// Return the average color of all colors in a vector
+glm::ivec4 averageColor(const std::vector<glm::ivec4> & colors) {
+	glm::ivec4 avg = glm::ivec4();
+
+	for (int i = 0; i < colors.size(); i++) {
+		avg += colors[i];
+	}
+
+	return avg.operator/=(colors.size());
+}
+
 void Camera::render(const World & world, const std::string & filename, const float imageWidth, const float imageHeight, const float time) const {
 
 	// Create output Image
@@ -38,6 +49,9 @@ void Camera::render(const World & world, const std::string & filename, const flo
 	const float pixelWidth = canvasWidth / imageWidth;
 	const float pixelHeight = canvasHeight / imageHeight;
 
+	const float qpw = pixelWidth / 4;
+	const float qph = pixelHeight / 4;
+
 	// Minimum X/Y value of a pixel in the Image
 	const float minX = (pixelWidth - canvasWidth) / 2;
 	const float minY = (pixelHeight - canvasHeight) / 2;
@@ -45,15 +59,27 @@ void Camera::render(const World & world, const std::string & filename, const flo
 	// Fire a ray through each pixel to render the Image
 	float px, py;
 
+	// Modifiers for supersampling
+	float ssx[4] = { -qpw, qpw, -qpw, qpw };
+	float ssy[4] = { -qph, -qph, qph, qph };
+
+	// Color vector for supersampling
+	std::vector<glm::ivec4> colors;
+
 	for (unsigned y = 0; y < imageHeight; y++) {
 		for (unsigned x = 0; x < imageWidth; x++) {
+			colors.clear();
 
-			px = minX + (pixelWidth * x);
-			py = minY + (pixelHeight * y);
+			for (int i = 0; i < 4; i++) {
+				px = minX + (pixelWidth * x) + ssx[i];
+				py = minY + (pixelHeight * y) + ssy[i];
 
-			glm::vec3 ray = glm::normalize(glm::vec3(px, py, -focalLength));
+				glm::vec3 ray = glm::normalize(glm::vec3(px, py, -focalLength));
 
-			output.setPixel(x, imageHeight - y - 1, world.trace(matrix, ray, time));
+				colors.push_back(world.trace(matrix, ray, time));
+			}
+
+			output.setPixel(x, imageHeight - y - 1, averageColor(colors));
 		}
 	}
 
