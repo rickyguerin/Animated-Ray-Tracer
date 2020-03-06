@@ -32,8 +32,8 @@ int main() {
 	world.addProgram(new TriangleProgram("world/rightFloor.triangle"));
 
 	// Create the Camera
-	glm::vec3 pos{ 0, 0, 2 };
-	glm::vec3 lookat{ 0, 0, 0 };
+	glm::vec3 pos{ 0, 1, 4 };
+	glm::vec3 lookat{ 0, 1, 0 };
 	glm::vec3 up{ 0, 1, 0 };
 
 	Camera camera(pos, lookat, up, 45, 2.0f);
