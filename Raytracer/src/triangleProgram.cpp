@@ -40,6 +40,18 @@ TriangleProgram::TriangleProgram(const std::string & filename) {
 	}
 }
 
+// Interpolate between two sets of vertices
+std::vector<glm::vec3> interpolateVertices(const std::vector<glm::vec3>& before, const std::vector<glm::vec3>& after, const float t) {
+
+	std::vector<glm::vec3> vertices;
+
+	for (int i = 0; i < 3; i++) {
+		vertices.push_back(glm::mix(before[i], after[i], t));
+	}
+
+	return vertices;
+}
+
 Shape * TriangleProgram::getShape(const float time) const {
 
 	// Determine what frame of this program occurs at this time
@@ -71,16 +83,4 @@ Shape * TriangleProgram::getShape(const float time) const {
 	}
 
 	return triangle;
-}
-
-// Interpolate between two sets of vertices
-std::vector<glm::vec3> interpolateVertices(const std::vector<glm::vec3> & before, const std::vector<glm::vec3> & after, const float t) {
-
-	std::vector<glm::vec3> vertices;
-
-	for (int i = 0; i < 3; i++) {
-		vertices.push_back(glm::mix(before[i], after[i], t));
-	}
-
-	return vertices;
 }
