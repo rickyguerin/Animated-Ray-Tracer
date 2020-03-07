@@ -49,7 +49,7 @@ int main() {
 
 	// Render frames
 	for (int i = 0; i < frames; i++) {
-		camera.render(world, "../images/temp/output_" + padInt(i, 4) + ".png", 800, 800, time);
+		camera.render(world, "../images/temp/output_" + padInt(i, 4) + ".png", 400, 400, time);
 		time += spf;
 	}
 
