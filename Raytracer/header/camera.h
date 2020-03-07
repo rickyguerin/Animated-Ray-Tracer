@@ -14,19 +14,25 @@ private:
 	glm::vec3 lookat;
 	glm::vec3 up;
 
+	// Film plane parameters
+	float focalLength;
+	float canvasWidth;
+	float canvasHeight;
+
+	// Image parameters
+	unsigned imageWidth;
+	unsigned imageHeight;
+
 	// World -> Camera transformation matrix
 	glm::mat4 matrix;
 
-	// Field of view parameters
-	float angle;
-	float focalLength;
-
 public:
 	// Constructor
-	Camera(const glm::vec3 & pos, const glm::vec3 & lookat, const glm::vec3 & up, const float angle, const float focalLength);
+	Camera(const glm::vec3 & pos, const glm::vec3 & lookat, const glm::vec3 & up,
+		const float focalLength, const float canvasWidth, const float canvasHeight, const unsigned imageWidth, const unsigned imageHeight);
 
 	// Use this camera to render an image of the World
-	void render(const World & world, const std::string & filename, const float imageWidth, const float imageHeight, const float time) const;
+	void render(const World & world, const std::string & filename, const float time) const;
 };
 
 #endif

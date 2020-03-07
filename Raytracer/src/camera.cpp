@@ -4,13 +4,19 @@
 
 #include <iostream>
 
-Camera::Camera(const glm::vec3 & pos, const glm::vec3 & lookat, const glm::vec3 & up, const float angle, const float focalLength) {
+Camera::Camera(const glm::vec3& pos, const glm::vec3& lookat, const glm::vec3& up,
+	const float focalLength, const float canvasWidth, const float canvasHeight, const unsigned imageWidth, const unsigned imageHeight) {
+
 	this->pos = pos;
 	this->lookat = lookat;
 	this->up = up;
 
-	this->angle = angle;
 	this->focalLength = focalLength;
+	this->canvasWidth = canvasWidth;
+	this->canvasHeight = canvasHeight;
+
+	this->imageWidth = imageWidth;
+	this->imageHeight = imageHeight;
 
 	// Build World -> Camera matrix
 	glm::vec3 n = glm::normalize(pos - lookat);
@@ -36,14 +42,10 @@ glm::ivec4 averageColor(const std::vector<glm::ivec4> & colors) {
 	return avg.operator/=(colors.size());
 }
 
-void Camera::render(const World & world, const std::string & filename, const float imageWidth, const float imageHeight, const float time) const {
+void Camera::render(const World & world, const std::string & filename, const float time) const {
 
 	// Create output Image
 	Image output(imageWidth, imageHeight);
-
-	// World space dimensions of canvas
-	const float canvasHeight = 2 * tan(angle/2) * focalLength;
-	const float canvasWidth = canvasHeight * (imageWidth / imageHeight);
 
 	// World space dimensions of one pixel of the Image
 	const float pixelWidth = canvasWidth / imageWidth;
