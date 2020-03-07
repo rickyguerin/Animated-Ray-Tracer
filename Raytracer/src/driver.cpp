@@ -24,20 +24,21 @@ int main() {
 	// Create the World
 	World world(glm::ivec4(0, 0, 0, 255));
 
+	world.addProgram("world/anim1.sphere");
 	world.addProgram("world/anim2.sphere");
-	world.addProgram("world/leftFloor.triangle");
-	world.addProgram("world/rightFloor.triangle");
+	world.addProgram("world/anim3.sphere");
+	world.addProgram("world/anim4.sphere");
 
 	// Create the Camera
-	glm::vec3 pos{ 0, 1, 4 };
-	glm::vec3 lookat{ 0, 1, 0 };
+	glm::vec3 pos{ 0, 0, 4 };
+	glm::vec3 lookat{ 0, 0, 0 };
 	glm::vec3 up{ 0, 1, 0 };
 
 	Camera camera(pos, lookat, up, 45, 2.0f);
 
 	// Animation frame information
-	const float fps = 1;
-	const float duration = 1.0;
+	const float fps = 50;
+	const float duration = 4.0;
 	const unsigned frames = fps * duration;
 
 	// Animation timer
