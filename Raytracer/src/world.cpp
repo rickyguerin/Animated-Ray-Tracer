@@ -1,5 +1,5 @@
 #include "../header/world.h"
-#include "../header/sphere.h"
+#include "../header/shape.h"
 
 World::World(const glm::ivec4 & color) {
 	backgroundColor = color;
