@@ -5,7 +5,7 @@ A ray tracer I'm building to learn C++ and to practice what I learned in CSCI-71
 
 ### Current Functionality
 + Can render spheres with flat shading
-+ Can parse input files like [this](Raytracer/world/prog.txt) that define keyframes for one sphere
++ Can parse input files like [this](Raytracer/world/anim1.sphere) that define keyframes for one sphere
 + Can use keyframes to produce a series of images that can be turned into a gif/mp4
 
 ### Next Tasks
