@@ -2,12 +2,9 @@
 #include "../header/image.h"
 #include "../header/sphere.h"
 
-#include <iostream>
+Camera::Camera(const glm::vec3& eye, const glm::vec3& lookat, const glm::vec3& up, const float focalLength, const float canvasWidth, const float canvasHeight) {
 
-Camera::Camera(const glm::vec3& pos, const glm::vec3& lookat, const glm::vec3& up,
-	const float focalLength, const float canvasWidth, const float canvasHeight, const unsigned imageWidth, const unsigned imageHeight) {
-
-	this->pos = pos;
+	this->eye = eye;
 	this->lookat = lookat;
 	this->up = up;
 
@@ -15,11 +12,8 @@ Camera::Camera(const glm::vec3& pos, const glm::vec3& lookat, const glm::vec3& u
 	this->canvasWidth = canvasWidth;
 	this->canvasHeight = canvasHeight;
 
-	this->imageWidth = imageWidth;
-	this->imageHeight = imageHeight;
-
 	// Build World -> Camera matrix
-	glm::vec3 n = glm::normalize(pos - lookat);
+	glm::vec3 n = glm::normalize(eye - lookat);
 	glm::vec3 u = glm::normalize(glm::cross(up, n));
 	glm::vec3 v = glm::normalize(glm::cross(n, u));
 
@@ -27,7 +21,7 @@ Camera::Camera(const glm::vec3& pos, const glm::vec3& lookat, const glm::vec3& u
 		u.x, v.x, n.x, 0.0f,
 		u.y, v.y, n.y, 0.0f,
 		u.z, v.z, n.z, 0.0f,
-		-glm::dot(pos, u), -glm::dot(pos, v), -glm::dot(pos, n), 1.0f
+		-glm::dot(eye, u), -glm::dot(eye, v), -glm::dot(eye, n), 1.0f
 	);
 }
 
@@ -42,7 +36,7 @@ glm::ivec4 averageColor(const std::vector<glm::ivec4> & colors) {
 	return avg.operator/=(colors.size());
 }
 
-void Camera::render(const World & world, const std::string & filename, const float time) const {
+void Camera::render(const World & world, const std::string & filename, const unsigned imageWidth, const unsigned imageHeight, const float time) const {
 
 	// Create output Image
 	Image output(imageWidth, imageHeight);
