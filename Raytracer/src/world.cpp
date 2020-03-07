@@ -16,6 +16,7 @@ World::~World() {
 void World::addProgram(const std::string filename) {
 	// Position of dot in name.sphere
 	size_t sphereExt = filename.length() - 7;
+	assert(sphereExt > 0);
 
 	// File is .sphere
 	if (filename.substr(sphereExt).compare(".sphere") == 0) {
@@ -25,6 +26,7 @@ void World::addProgram(const std::string filename) {
 
 	// Position of dot in name.triangle
 	size_t triangleExt = filename.length() - 9;
+	assert(triangleExt > 0);
 
 	// File is .triangle
 	if (filename.substr(triangleExt).compare(".triangle") == 0) {
