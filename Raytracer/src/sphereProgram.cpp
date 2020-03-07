@@ -46,26 +46,22 @@ Shape * SphereProgram::getShape(const float time) const {
 		}
 	}
 
-	SphereFrame now = frames[activeFrame];
-	SphereFrame next = frames[activeFrame + 1];
-
-	Shape* sphere;
-
-	// If it's the last frame, no need to interpolate
+	// If the last frame is active, no need to interpolate
 	if (activeFrame == frames.size() - 1) {
-		sphere = new Sphere(now.position, now.color, now.radius);
+		return new Sphere(frames[activeFrame].position, frames[activeFrame].color, frames[activeFrame].radius);
 	}
 
 	// Do linear interpolation
 	else {
+		SphereFrame now = frames[activeFrame];
+		SphereFrame next = frames[activeFrame + 1];
+
 		double t = (time - now.timestamp) / (next.timestamp - now.timestamp);
 
 		glm::vec3 position = glm::mix(now.position, next.position, t);
 		glm::ivec4 color = glm::mix(now.color, next.color, t);
 		double radius = glm::mix(now.radius, next.radius, t);
 
-		sphere = new Sphere(position, color, radius);
+		return new Sphere(position, color, radius);
 	}
-
-	return sphere;
 }

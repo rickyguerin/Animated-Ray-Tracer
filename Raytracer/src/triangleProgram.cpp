@@ -62,25 +62,21 @@ Shape * TriangleProgram::getShape(const float time) const {
 		}
 	}
 
-	TriangleFrame now = frames[activeFrame];
-	TriangleFrame next = frames[activeFrame + 1];
-
-	Shape* triangle;
-
-	// If it's the last frame, no need to interpolate
+	// If the last frame is active, no need to interpolate
 	if (activeFrame == frames.size() - 1) {
-		triangle = new Triangle(now.vertices, now.color);
+		return new Triangle(frames[activeFrame].vertices, frames[activeFrame].color);
 	}
 
 	// Do linear interpolation
 	else {
+		TriangleFrame now = frames[activeFrame];
+		TriangleFrame next = frames[activeFrame + 1];
+
 		double t = (time - now.timestamp) / (next.timestamp - now.timestamp);
 
 		std::vector<glm::vec3> vertices = interpolateVertices(now.vertices, next.vertices, t);
 		glm::ivec4 color = glm::mix(now.color, next.color, t);
 
-		triangle = new Triangle(vertices, color);
+		return new Triangle(vertices, color);
 	}
-
-	return triangle;
 }
