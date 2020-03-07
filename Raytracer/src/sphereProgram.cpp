@@ -12,9 +12,8 @@ SphereProgram::SphereProgram(const std::string & filename) {
 	// Only parse the provided file if it's a Sphere file
 	progFile >> token;
 	if (token.compare("SPHERE") == 0) {
-		while (progFile) {
+		while (progFile >> token) {
 			// Parse each frame
-			progFile >> token;
 			if (token.compare("FRAME") == 0) {
 				// Read one frame of data from the file
 				float timestamp = readFloat(progFile);
