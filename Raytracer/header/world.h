@@ -24,7 +24,7 @@ public:
 	~World();
 
 	// Add a program to the World
-	void addProgram(const ShapeProgram * program);
+	void addProgram(const std::string filename);
 
 	// Fire a ray into the world and get its color
 	glm::ivec4 trace(const glm::mat4 & cameraMatrix, const glm::vec3 & ray, const float time) const;

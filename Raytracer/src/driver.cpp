@@ -3,9 +3,6 @@
 
 #include "../header/world.h"
 #include "../header/camera.h"
-#include "../header/sphere.h"
-#include "../header/sphereProgram.h";
-#include "../header/triangleProgram.h"
 
 std::string padInt(int i, int n) {
 
@@ -27,9 +24,9 @@ int main() {
 	// Create the World
 	World world(glm::ivec4(0, 0, 0, 255));
 
-	world.addProgram(new SphereProgram("world/anim2.sphere"));
-	world.addProgram(new TriangleProgram("world/leftFloor.triangle"));
-	world.addProgram(new TriangleProgram("world/rightFloor.triangle"));
+	world.addProgram("world/anim2.sphere");
+	world.addProgram("world/leftFloor.triangle");
+	world.addProgram("world/rightFloor.triangle");
 
 	// Create the Camera
 	glm::vec3 pos{ 0, 1, 4 };
