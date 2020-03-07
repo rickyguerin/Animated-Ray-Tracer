@@ -60,6 +60,9 @@
     <ClCompile Include="src\reader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\cameraProgram.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="header\camera.h">
@@ -90,6 +93,9 @@
       <Filter>Header Files\ShapeProgram</Filter>
     </ClInclude>
     <ClInclude Include="header\reader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="header\cameraProgram.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
