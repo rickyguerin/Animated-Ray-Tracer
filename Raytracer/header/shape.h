@@ -15,6 +15,9 @@ protected:
 	}
 
 public:
+	// Destructor
+	virtual ~Shape() {};
+
 	// Transform this Shape to move it into camera space
 	virtual void transformToCameraSpace(const glm::mat4 & cameraMatrix) = 0;
 
