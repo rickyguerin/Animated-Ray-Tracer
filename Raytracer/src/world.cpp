@@ -6,7 +6,7 @@ World::World(const glm::ivec4 & color) {
 }
 
 World::~World() {
-	for (auto prog : programs) {
+	for (const ShapeProgram * prog : programs) {
 		delete prog;
 	}
 }
