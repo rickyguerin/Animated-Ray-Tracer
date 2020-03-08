@@ -4,13 +4,14 @@
 A ray tracer I'm building to learn C++ and to practice what I learned in CSCI-711 Global Illumination.
 
 ### Current Functionality
-+ Can render spheres with flat shading
++ Can render spheres and triangles with flat shading
 + Can parse input files like [this](Raytracer/world/anim1.sphere) that define keyframes for one sphere
 + Can use keyframes to produce a series of images that can be turned into a gif/mp4
 
 ### Next Tasks
-+ Add triangles
 + Phong shading
++ KD Tree
++ Catmull-Rom interpolation
 
 ### Dependencies
 + Relies on the [LodePNG](https://github.com/lvandeve/lodepng) NuGet package for writing .png files.
