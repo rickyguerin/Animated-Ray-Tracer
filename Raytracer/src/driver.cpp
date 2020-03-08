@@ -3,6 +3,7 @@
 
 #include "../header/world.h"
 #include "../header/camera.h"
+#include "../header/cameraProgram.h"
 
 // Turn i into a string padded with 0s up to length n
 std::string padInt(int i, int n) {
@@ -25,19 +26,16 @@ int main() {
 	// Create the World
 	World world(glm::ivec4(0, 0, 0, 255));
 
+	world.addProgram("world/center.sphere");
 	world.addProgram("world/leftFloor.triangle");
 	world.addProgram("world/rightFloor.triangle");
 
-	// Create the Camera
-	glm::vec3 pos{ 0, 2, 2 };
-	glm::vec3 lookat{ 0, 0, 0 };
-	glm::vec3 up{ 0, 1, 0 };
-
-	Camera camera(pos, lookat, up, 5.0f, 10.0f, 10.0f, 400, 400);
+	// Read the CameraProgram
+	CameraProgram camProg("world/main.camera");
 
 	// Animation frame information
-	const float fps = 1;
-	const float duration = 1.0;
+	const float fps = 4;
+	const float duration = 4.0;
 	const unsigned frames = fps * duration;
 
 	// Animation timer
@@ -46,7 +44,7 @@ int main() {
 
 	// Render frames
 	for (int i = 0; i < frames; i++) {
-		camera.render(world, "../images/temp/output_" + padInt(i, 4) + ".png", time);
+		camProg.getCamera(time).render(world, "../images/temp/output_" + padInt(i, 4) + ".png", 400, 400, time);
 		time += spf;
 	}
 
