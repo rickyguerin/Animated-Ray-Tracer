@@ -16,14 +16,20 @@
     <Filter Include="Header Files\Shape">
       <UniqueIdentifier>{b1a3692e-a761-475d-9bd7-808ebb92c0cb}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\ShapeProgram">
-      <UniqueIdentifier>{3c5eba5e-a2b1-43cc-9d3e-3350882b7e54}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\Shape">
       <UniqueIdentifier>{a05ffe99-5c93-4c80-853b-c775c253442a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\ShapeProgram">
+    <Filter Include="Source Files\WorldProgram">
       <UniqueIdentifier>{250035d4-cdc7-48c1-bd88-f1209bed7606}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\WorldProgram">
+      <UniqueIdentifier>{3c5eba5e-a2b1-43cc-9d3e-3350882b7e54}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Illumination">
+      <UniqueIdentifier>{10de3004-4ca2-42bc-bdbd-ca47568308cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Illumination">
+      <UniqueIdentifier>{502524ad-ab78-464e-a1f5-d418d9a87648}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -45,23 +51,26 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\lodepng.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\sphere.cpp">
+    <ClCompile Include="src\Shape\sphere.cpp">
       <Filter>Source Files\Shape</Filter>
     </ClCompile>
-    <ClCompile Include="src\sphereProgram.cpp">
-      <Filter>Source Files\ShapeProgram</Filter>
-    </ClCompile>
-    <ClCompile Include="src\triangle.cpp">
+    <ClCompile Include="src\Shape\triangle.cpp">
       <Filter>Source Files\Shape</Filter>
     </ClCompile>
-    <ClCompile Include="src\triangleProgram.cpp">
-      <Filter>Source Files\ShapeProgram</Filter>
+    <ClCompile Include="src\WorldProgram\cameraProgram.cpp">
+      <Filter>Source Files\WorldProgram</Filter>
     </ClCompile>
-    <ClCompile Include="src\reader.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="src\WorldProgram\reader.cpp">
+      <Filter>Source Files\WorldProgram</Filter>
     </ClCompile>
-    <ClCompile Include="src\cameraProgram.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="src\WorldProgram\sphereProgram.cpp">
+      <Filter>Source Files\WorldProgram</Filter>
+    </ClCompile>
+    <ClCompile Include="src\WorldProgram\triangleProgram.cpp">
+      <Filter>Source Files\WorldProgram</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Illumination\flatModel.cpp">
+      <Filter>Source Files\Illumination</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -74,29 +83,35 @@
     <ClInclude Include="header\world.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="header\shape.h">
+    <ClInclude Include="header\Shape\shape.h">
       <Filter>Header Files\Shape</Filter>
     </ClInclude>
-    <ClInclude Include="header\sphere.h">
+    <ClInclude Include="header\Shape\sphere.h">
       <Filter>Header Files\Shape</Filter>
     </ClInclude>
-    <ClInclude Include="header\sphereProgram.h">
-      <Filter>Header Files\ShapeProgram</Filter>
-    </ClInclude>
-    <ClInclude Include="header\shapeProgram.h">
-      <Filter>Header Files\ShapeProgram</Filter>
-    </ClInclude>
-    <ClInclude Include="header\triangle.h">
+    <ClInclude Include="header\Shape\triangle.h">
       <Filter>Header Files\Shape</Filter>
     </ClInclude>
-    <ClInclude Include="header\triangleProgram.h">
-      <Filter>Header Files\ShapeProgram</Filter>
+    <ClInclude Include="header\WorldProgram\cameraProgram.h">
+      <Filter>Header Files\WorldProgram</Filter>
     </ClInclude>
-    <ClInclude Include="header\reader.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="header\WorldProgram\reader.h">
+      <Filter>Header Files\WorldProgram</Filter>
     </ClInclude>
-    <ClInclude Include="header\cameraProgram.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="header\WorldProgram\shapeProgram.h">
+      <Filter>Header Files\WorldProgram</Filter>
+    </ClInclude>
+    <ClInclude Include="header\WorldProgram\sphereProgram.h">
+      <Filter>Header Files\WorldProgram</Filter>
+    </ClInclude>
+    <ClInclude Include="header\WorldProgram\triangleProgram.h">
+      <Filter>Header Files\WorldProgram</Filter>
+    </ClInclude>
+    <ClInclude Include="header\Illumination\illuminationModel.h">
+      <Filter>Header Files\Illumination</Filter>
+    </ClInclude>
+    <ClInclude Include="header\Illumination\flatModel.h">
+      <Filter>Header Files\Illumination</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

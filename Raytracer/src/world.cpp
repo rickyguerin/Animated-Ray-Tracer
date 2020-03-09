@@ -1,7 +1,7 @@
 #include "../header/world.h"
-#include "../header/sphereProgram.h"
-#include "../header/triangleProgram.h"
-#include "../header/shape.h"
+#include "../header/WorldProgram/sphereProgram.h"
+#include "../header/WorldProgram/triangleProgram.h"
+#include "../header/Shape/shape.h"
 
 World::World(const glm::ivec4 & color) {
 	backgroundColor = color;

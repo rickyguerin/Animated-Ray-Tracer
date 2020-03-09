@@ -1,6 +1,6 @@
 #include "../header/camera.h"
 #include "../header/image.h"
-#include "../header/sphere.h"
+#include "../header/Shape/sphere.h"
 
 Camera::Camera(const glm::vec3& eye, const glm::vec3& lookat, const glm::vec3& up, const float focalLength, const float canvasWidth, const float canvasHeight) {
 

@@ -19,12 +19,11 @@ private:
 
 public:
 	// Constructor
-	Sphere(const glm::vec3 & position, const glm::ivec4 & color, const double radius);
+	Sphere(IlluminationModel* illumination, const glm::vec3 & position, const double radius);
 
 	// Override from Shape
 	virtual void transformToCameraSpace(const glm::mat4 & cameraMatrix);
 	virtual bool collision(const glm::vec3 & ray) const;
-	virtual glm::ivec4 illuminate() const;
 };
 
 #endif

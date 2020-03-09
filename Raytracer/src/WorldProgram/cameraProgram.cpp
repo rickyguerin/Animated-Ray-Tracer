@@ -1,39 +1,34 @@
 #include <iostream>
 #include <fstream>
 
-#include "../header/cameraProgram.h"
-#include "../header/reader.h"
+#include "../../header/WorldProgram/cameraProgram.h"
+#include "../../header/WorldProgram/reader.h"
 
-CameraProgram::CameraProgram(const std::string & filename) {
+CameraProgram::CameraProgram(const std::string& filename) {
 	std::ifstream progFile(filename);
 	std::string token;
 
-	// Only parse the provided file if it's a Camera file
-	progFile >> token;
-	if (token.compare("CAMERA") == 0) {
-		while (progFile >> token) {
-			// Parse each frame
-			if (token.compare("FRAME") == 0) {
-				// Read one frame of data from the file
-				float timestamp = readFloat(progFile);
+	while (progFile >> token) {
+		if (token.compare("FRAME") == 0) {
+			// Read one frame of data from the file
+			float timestamp = readFloat(progFile);
 
-				glm::vec3 eye = readPosition(progFile);
-				glm::vec3 lookat = readPosition(progFile);
-				glm::vec3 up = readPosition(progFile);
+			glm::vec3 eye = readPosition(progFile);
+			glm::vec3 lookat = readPosition(progFile);
+			glm::vec3 up = readPosition(progFile);
 
-				float focalLength = readFloat(progFile);
-				float canvasWidth = readFloat(progFile);
-				float canvasHeight = readFloat(progFile);
+			float focalLength = readFloat(progFile);
+			float canvasWidth = readFloat(progFile);
+			float canvasHeight = readFloat(progFile);
 
-				// Create frame from parsed data
-				CameraFrame cf {
-					timestamp,
-					eye, lookat, up,
-					focalLength, canvasWidth, canvasHeight
-				};
+			// Create frame from parsed data
+			CameraFrame cf{
+				timestamp,
+				eye, lookat, up,
+				focalLength, canvasWidth, canvasHeight
+			};
 
-				frames.push_back(cf);
-			}
+			frames.push_back(cf);
 		}
 	}
 }

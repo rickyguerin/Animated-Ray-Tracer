@@ -2,11 +2,7 @@
 #ifndef SHAPEPROG_H
 #define SHAPEPROG_H
 
-#include <string>
-#include <vector>
-#include <glm/glm.hpp>
-
-#include "shape.h"
+#include "../Shape/shape.h"
 
 class ShapeProgram {
 public:

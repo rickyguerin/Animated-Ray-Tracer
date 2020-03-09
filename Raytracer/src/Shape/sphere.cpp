@@ -1,6 +1,6 @@
-#include "../header/sphere.h"
+#include "../../header/Shape/sphere.h"
 
-Sphere::Sphere(const glm::vec3 & position, const glm::ivec4 & color, const double radius) : Shape(color) {
+Sphere::Sphere(IlluminationModel * illumination, const glm::vec3 & position, const double radius) : Shape(illumination) {
 	this->position = position;
 	this->radius = radius;
 }
@@ -32,8 +32,4 @@ bool Sphere::collision(const glm::vec3 & ray) const {
 	double plusRoot = (-b + e) / denom;
 	
 	return plusRoot > EPSILON;
-}
-
-glm::ivec4 Sphere::illuminate() const {
-	return color;
 }
