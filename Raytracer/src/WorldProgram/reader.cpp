@@ -2,6 +2,8 @@
 #include <iostream>
 
 #include "../../header/WorldProgram/reader.h"
+#include "../../header/Illumination/illuminationModel.h"
+#include "../../header/Illumination/flatModel.h"
 
 // A string that every method can read into
 std::string token;
@@ -37,7 +39,7 @@ glm::vec3 readPosition(std::ifstream & file) {
 	return position;
 }
 
-// Read the next four tokens as a vec3
+// Read the next four tokens as a ivec4
 glm::ivec4 readColor(std::ifstream & file) {
 	glm::ivec4 color = glm::ivec4();
 
@@ -47,4 +49,9 @@ glm::ivec4 readColor(std::ifstream & file) {
 	}
 
 	return color;
+}
+
+// Read the next four tokens as a Flat Illumination Model
+IlluminationModel* readFlatModel(std::ifstream& file) {
+	return new FlatModel(readColor(file));
 }
