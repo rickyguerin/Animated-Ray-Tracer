@@ -19,19 +19,19 @@ void consumeParen(std::ifstream& file) {
 }
 
 // Read the next token as an int
-int readInt(std::ifstream & file) {
+int readInt(std::ifstream& file) {
 	file >> token;
 	return std::stoi(token);
 }
 
 // Read the next token as a float
-float readFloat(std::ifstream & file) {
+float readFloat(std::ifstream& file) {
 	file >> token;
 	return std::stof(token);
 }
 
 // Read the next token as a double
-double readDouble(std::ifstream & file) {
+double readDouble(std::ifstream& file) {
 	file >> token;
 	return std::stod(token);
 }
