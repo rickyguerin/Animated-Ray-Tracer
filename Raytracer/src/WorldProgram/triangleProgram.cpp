@@ -1,9 +1,9 @@
 #include <iostream>
 #include <fstream>
 
-#include "../header/triangleProgram.h"
-#include "../header/triangle.h"
-#include "../header/reader.h"
+#include "../../header/WorldProgram/reader.h"
+#include "../../header/WorldProgram/triangleProgram.h"
+#include "../../header/Shape/triangle.h"
 
 TriangleProgram::TriangleProgram(const std::string & filename) {
 	std::ifstream progFile(filename);

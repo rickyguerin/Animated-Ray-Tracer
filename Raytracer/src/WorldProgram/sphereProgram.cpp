@@ -1,9 +1,9 @@
 #include <iostream>
 #include <fstream>
 
-#include "../header/sphereProgram.h"
-#include "../header/sphere.h"
-#include "../header/reader.h"
+#include "../../header/WorldProgram/reader.h"
+#include "../../header/WorldProgram/sphereProgram.h"
+#include "../../header/Shape/sphere.h"
 
 SphereProgram::SphereProgram(const std::string & filename) {
 	std::ifstream progFile(filename);

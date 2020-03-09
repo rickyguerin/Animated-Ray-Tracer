@@ -140,31 +140,31 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\camera.cpp" />
-    <ClCompile Include="src\cameraProgram.cpp" />
     <ClCompile Include="src\driver.cpp" />
     <ClCompile Include="src\image.cpp" />
-    <ClCompile Include="src\reader.cpp" />
-    <ClCompile Include="src\sphere.cpp" />
-    <ClCompile Include="src\sphereProgram.cpp" />
-    <ClCompile Include="src\triangle.cpp" />
-    <ClCompile Include="src\triangleProgram.cpp" />
+    <ClCompile Include="src\Shape\sphere.cpp" />
+    <ClCompile Include="src\Shape\triangle.cpp" />
     <ClCompile Include="src\world.cpp" />
+    <ClCompile Include="src\WorldProgram\cameraProgram.cpp" />
+    <ClCompile Include="src\WorldProgram\reader.cpp" />
+    <ClCompile Include="src\WorldProgram\sphereProgram.cpp" />
+    <ClCompile Include="src\WorldProgram\triangleProgram.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="header\camera.h" />
-    <ClInclude Include="header\cameraProgram.h" />
     <ClInclude Include="header\image.h" />
-    <ClInclude Include="header\reader.h" />
-    <ClInclude Include="header\shape.h" />
-    <ClInclude Include="header\shapeProgram.h" />
-    <ClInclude Include="header\sphere.h" />
-    <ClInclude Include="header\sphereProgram.h" />
-    <ClInclude Include="header\triangle.h" />
-    <ClInclude Include="header\triangleProgram.h" />
+    <ClInclude Include="header\Shape\shape.h" />
+    <ClInclude Include="header\Shape\sphere.h" />
+    <ClInclude Include="header\Shape\triangle.h" />
     <ClInclude Include="header\world.h" />
+    <ClInclude Include="header\WorldProgram\cameraProgram.h" />
+    <ClInclude Include="header\WorldProgram\reader.h" />
+    <ClInclude Include="header\WorldProgram\shapeProgram.h" />
+    <ClInclude Include="header\WorldProgram\sphereProgram.h" />
+    <ClInclude Include="header\WorldProgram\triangleProgram.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

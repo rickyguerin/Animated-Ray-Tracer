@@ -1,36 +1,34 @@
 #pragma once
-#ifndef SPHEREPROG_H
-#define SPHEREPROG_H
+#ifndef TRIANGLEPROG_H
+#define TRIANGLEPROG_H
 
 #include <string>
 #include <vector>
+
 #include <glm/glm.hpp>
 
 #include "shapeProgram.h"
 
 // One keyframe from a Sphere input file
-struct SphereFrame {
+struct TriangleFrame {
 	// Time when this frame begins
 	float timestamp;
 
-	// Color of Sphere at this time
+	// Color of Triangle at this time
 	glm::ivec4 color;
 
-	// Location of Sphere center at this time
-	glm::vec3 position;
-
-	// Radius of Sphere at this time
-	double radius;
+	// Vertices of Triangle in clockwise order at this time
+	std::vector<glm::vec3> vertices;
 };
 
-class SphereProgram : public ShapeProgram {
+class TriangleProgram : public ShapeProgram {
 private:
 	// All keyframes from input file
-	std::vector<SphereFrame> frames;
+	std::vector<TriangleFrame> frames;
 
 public:
 	// Constructor
-	SphereProgram(const std::string & filename);
+	TriangleProgram(const std::string & filename);
 
 	// Interpolate between frames to get the Sphere at the given time
 	virtual Shape * getShape(const float time) const;

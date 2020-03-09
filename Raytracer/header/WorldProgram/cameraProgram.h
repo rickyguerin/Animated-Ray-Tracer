@@ -4,9 +4,10 @@
 
 #include <string>
 #include <vector>
+
 #include <glm/glm.hpp>
 
-#include "camera.h"
+#include "../camera.h"
 
 struct CameraFrame {
 	// Time when this frame begins

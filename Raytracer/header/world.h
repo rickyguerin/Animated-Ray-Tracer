@@ -4,9 +4,11 @@
 
 #include <string>
 #include <vector>
+
 #include <glm/glm.hpp>
 #include <glm/vec4.hpp>
-#include "shapeProgram.h"
+
+#include "WorldProgram/shapeProgram.h"
 
 class World {
 private:

@@ -1,4 +1,4 @@
-#include "../header/triangle.h"
+#include "../../header/Shape/triangle.h"
 
 Triangle::Triangle(const std::vector<glm::vec3> & vertices, const glm::ivec4 & color) : Shape(color) {
 	this->vertices = vertices;

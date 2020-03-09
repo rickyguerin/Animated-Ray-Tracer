@@ -1,4 +1,4 @@
-#include "../header/sphere.h"
+#include "../../header/Shape/sphere.h"
 
 Sphere::Sphere(const glm::vec3 & position, const glm::ivec4 & color, const double radius) : Shape(color) {
 	this->position = position;

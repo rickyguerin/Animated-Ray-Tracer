@@ -3,8 +3,10 @@
 #define CAMERA_H
 
 #include <string>
+
 #include <glm/glm.hpp>
 #include <glm/vec3.hpp>
+
 #include "world.h"
 
 class Camera {

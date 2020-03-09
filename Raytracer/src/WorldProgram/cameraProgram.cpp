@@ -1,8 +1,8 @@
 #include <iostream>
 #include <fstream>
 
-#include "../header/cameraProgram.h"
-#include "../header/reader.h"
+#include "../../header/WorldProgram/cameraProgram.h"
+#include "../../header/WorldProgram/reader.h"
 
 CameraProgram::CameraProgram(const std::string & filename) {
 	std::ifstream progFile(filename);
