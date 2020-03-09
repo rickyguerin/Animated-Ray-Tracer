@@ -5,37 +5,32 @@
 #include "../../header/WorldProgram/sphereProgram.h"
 #include "../../header/Shape/sphere.h"
 
-SphereProgram::SphereProgram(const std::string & filename) {
+SphereProgram::SphereProgram(const std::string& filename) {
 	std::ifstream progFile(filename);
 	std::string token;
 
-	// Only parse the provided file if it's a Sphere file
-	progFile >> token;
-	if (token.compare("SPHERE") == 0) {
-		while (progFile >> token) {
-			// Parse each frame
-			if (token.compare("FRAME") == 0) {
-				// Read one frame of data from the file
-				float timestamp = readFloat(progFile);
-				IlluminationModel* illumination = readFlatModel(progFile);
-				glm::vec3 position = readPosition(progFile);
-				double radius = readDouble(progFile);
+	while (progFile >> token) {
+		if (token.compare("FRAME") == 0) {
+			// Read one frame of data from the file
+			float timestamp = readFloat(progFile);
+			IlluminationModel* illumination = readFlatModel(progFile);
+			glm::vec3 position = readPosition(progFile);
+			double radius = readDouble(progFile);
 
-				// Create frame from parsed data
-				SphereFrame sf {
-					timestamp,
-					illumination,
-					position,
-					radius
-				};
+			// Create frame from parsed data
+			SphereFrame sf{
+				timestamp,
+				illumination,
+				position,
+				radius
+			};
 
-				frames.push_back(sf);
-			}
+			frames.push_back(sf);
 		}
 	}
 }
 
-Shape * SphereProgram::getShape(const float time) const {
+Shape* SphereProgram::getShape(const float time) const {
 
 	// Determine what frame of this program occurs at this time
 	int activeFrame = 0;

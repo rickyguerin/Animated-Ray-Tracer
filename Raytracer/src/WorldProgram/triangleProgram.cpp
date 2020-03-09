@@ -5,36 +5,31 @@
 #include "../../header/WorldProgram/triangleProgram.h"
 #include "../../header/Shape/triangle.h"
 
-TriangleProgram::TriangleProgram(const std::string & filename) {
+TriangleProgram::TriangleProgram(const std::string& filename) {
 	std::ifstream progFile(filename);
 	std::string token;
 
-	// Only parse the provided file if it's a Triangle file
-	progFile >> token;
-	if (token.compare("TRIANGLE") == 0) {
-		while (progFile >> token) {
-			// Parse each frame
-			if (token.compare("FRAME") == 0) {
-				// Read one frame of data from the file
-				float timestamp = readFloat(progFile);
-				IlluminationModel* illumination = readFlatModel(progFile);
-				glm::vec3 vertexOne = readPosition(progFile);
-				glm::vec3 vertexTwo = readPosition(progFile);
-				glm::vec3 vertexThree = readPosition(progFile);
+	while (progFile >> token) {
+		if (token.compare("FRAME") == 0) {
+			// Read one frame of data from the file
+			float timestamp = readFloat(progFile);
+			IlluminationModel* illumination = readFlatModel(progFile);
+			glm::vec3 vertexOne = readPosition(progFile);
+			glm::vec3 vertexTwo = readPosition(progFile);
+			glm::vec3 vertexThree = readPosition(progFile);
 
-				// Create frame from parsed data
-				TriangleFrame tf {
-					timestamp,
-					illumination,
-					std::vector<glm::vec3> {
-						vertexOne,
-						vertexTwo,
-						vertexThree
-					}
-				};
+			// Create frame from parsed data
+			TriangleFrame tf{
+				timestamp,
+				illumination,
+				std::vector<glm::vec3> {
+					vertexOne,
+					vertexTwo,
+					vertexThree
+				}
+			};
 
-				frames.push_back(tf);
-			}
+			frames.push_back(tf);
 		}
 	}
 }
@@ -51,7 +46,7 @@ std::vector<glm::vec3> interpolateVertices(const std::vector<glm::vec3>& before,
 	return vertices;
 }
 
-Shape * TriangleProgram::getShape(const float time) const {
+Shape* TriangleProgram::getShape(const float time) const {
 
 	// Determine what frame of this program occurs at this time
 	int activeFrame = 0;
