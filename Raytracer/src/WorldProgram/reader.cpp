@@ -61,6 +61,15 @@ glm::ivec4 readColor(std::ifstream & file) {
 	return color;
 }
 
+// Consume one token and check that it's a paren
+double readRadius(std::ifstream& file) {
+	file >> token;
+	assert(token.compare("radius:") == 0);
+
+	file >> token;
+	return std::stod(token);
+}
+
 // Read the next four tokens as a Flat Illumination Model
 IlluminationModel* readFlatModel(std::ifstream& file) {
 	return new FlatModel(readColor(file));

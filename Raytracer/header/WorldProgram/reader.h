@@ -15,9 +15,10 @@ int readInt(std::ifstream& file);
 float readFloat(std::ifstream& file);
 double readDouble(std::ifstream& file);
 
-// Read several tokens from the file and convert to a complex type
-glm::vec3 readPosition(std::ifstream & file);
-glm::ivec4 readColor(std::ifstream & file);
+// Consume property name, then read tokens from the file
+glm::ivec4 readColor(std::ifstream& file);
+glm::vec3 readPosition(std::ifstream& file);
+double readRadius(std::ifstream& file);
 
 // Read illumination models
 IlluminationModel* readFlatModel(std::ifstream& file);
