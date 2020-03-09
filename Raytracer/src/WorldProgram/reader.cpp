@@ -8,6 +8,16 @@
 // A string that every method can read into
 std::string token;
 
+// Consume one token and check that it's a paren
+void consumeParen(std::ifstream& file) {
+	file >> token;
+
+	bool isLeftParen = token.compare("{") == 0;
+	bool isRightParen = token.compare("}") == 0;
+
+	assert(isLeftParen || isRightParen);
+}
+
 // Read the next token as an int
 int readInt(std::ifstream & file) {
 	file >> token;
