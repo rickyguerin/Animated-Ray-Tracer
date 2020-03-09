@@ -37,7 +37,7 @@ double readDouble(std::ifstream& file) {
 }
 
 // Read the next three tokens as a vec3
-glm::vec3 readPosition(std::ifstream & file) {
+glm::vec3 readPosition(std::ifstream& file) {
 
 	glm::vec3 position = glm::ivec4();
 
@@ -50,7 +50,7 @@ glm::vec3 readPosition(std::ifstream & file) {
 }
 
 // Read the next four tokens as a ivec4
-glm::ivec4 readColor(std::ifstream & file) {
+glm::ivec4 readColor(std::ifstream& file) {
 	glm::ivec4 color = glm::ivec4();
 
 	for (int i = 0; i < 4; i++) {
