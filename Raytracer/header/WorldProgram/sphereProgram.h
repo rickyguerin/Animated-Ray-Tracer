@@ -14,8 +14,8 @@ struct SphereFrame {
 	// Time when this frame begins
 	float timestamp;
 
-	// Color of Sphere at this time
-	glm::ivec4 color;
+	// Shading of Sphere at this time
+	IlluminationModel * illumination;
 
 	// Location of Sphere center at this time
 	glm::vec3 position;

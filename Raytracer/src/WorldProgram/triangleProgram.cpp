@@ -17,7 +17,7 @@ TriangleProgram::TriangleProgram(const std::string & filename) {
 			if (token.compare("FRAME") == 0) {
 				// Read one frame of data from the file
 				float timestamp = readFloat(progFile);
-				glm::ivec4 color = readColor(progFile);
+				IlluminationModel* illumination = readFlatModel(progFile);
 				glm::vec3 vertexOne = readPosition(progFile);
 				glm::vec3 vertexTwo = readPosition(progFile);
 				glm::vec3 vertexThree = readPosition(progFile);
@@ -25,7 +25,7 @@ TriangleProgram::TriangleProgram(const std::string & filename) {
 				// Create frame from parsed data
 				TriangleFrame tf {
 					timestamp,
-					color,
+					illumination,
 					std::vector<glm::vec3> {
 						vertexOne,
 						vertexTwo,
@@ -63,7 +63,7 @@ Shape * TriangleProgram::getShape(const float time) const {
 
 	// If the last frame is active, no need to interpolate
 	if (activeFrame == frames.size() - 1) {
-		return new Triangle(frames[activeFrame].vertices, frames[activeFrame].color);
+		return new Triangle(frames[activeFrame].illumination, frames[activeFrame].vertices);
 	}
 
 	// Do linear interpolation
@@ -73,9 +73,9 @@ Shape * TriangleProgram::getShape(const float time) const {
 
 		double t = (time - now.timestamp) / (next.timestamp - now.timestamp);
 
+		IlluminationModel* illumination = now.illumination->interpolate(next.illumination, t);
 		std::vector<glm::vec3> vertices = interpolateVertices(now.vertices, next.vertices, t);
-		glm::ivec4 color = glm::mix(now.color, next.color, t);
 
-		return new Triangle(vertices, color);
+		return new Triangle(illumination, vertices);
 	}
 }

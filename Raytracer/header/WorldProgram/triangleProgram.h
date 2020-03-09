@@ -14,8 +14,8 @@ struct TriangleFrame {
 	// Time when this frame begins
 	float timestamp;
 
-	// Color of Triangle at this time
-	glm::ivec4 color;
+	// Shading of Triangle at this time
+	IlluminationModel * illumination;
 
 	// Vertices of Triangle in clockwise order at this time
 	std::vector<glm::vec3> vertices;

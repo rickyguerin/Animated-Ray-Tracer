@@ -3,15 +3,16 @@
 #define SHAPE_H
 
 #include <glm/glm.hpp>
+#include "../Illumination/illuminationModel.h"
 
 class Shape {
 protected:
-	// Color
-	glm::ivec4 color;
+	// How this shape is shaded
+	IlluminationModel * illumination;
 
 	// Constructor
-	Shape(const glm::ivec4 & color) {
-		this->color = color;
+	Shape(IlluminationModel * illumination) {
+		this->illumination = illumination;
 	}
 
 public:
@@ -25,7 +26,9 @@ public:
 	virtual bool collision(const glm::vec3 & ray) const = 0;
 
 	// Determine what color to return if a ray collision occurs
-	virtual glm::ivec4 illuminate() const = 0;
+	glm::ivec4 illuminate() const {
+		return illumination->illuminate();
+	}
 };
 
 #endif

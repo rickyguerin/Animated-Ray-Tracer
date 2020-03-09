@@ -1,6 +1,6 @@
 #include "../../header/Shape/triangle.h"
 
-Triangle::Triangle(const std::vector<glm::vec3> & vertices, const glm::ivec4 & color) : Shape(color) {
+Triangle::Triangle(IlluminationModel * illumination, const std::vector<glm::vec3> & vertices) : Shape(illumination) {
 	this->vertices = vertices;
 }
 
@@ -42,8 +42,4 @@ bool Triangle::collision(const glm::vec3 & ray) const {
 
 	// Intersection is inside Triangle
 	return true;
-}
-
-glm::ivec4 Triangle::illuminate() const {
-	return color;
 }

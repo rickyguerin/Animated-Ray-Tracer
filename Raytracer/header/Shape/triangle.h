@@ -14,12 +14,11 @@ private:
 
 public:
 	// Constructor
-	Triangle(const std::vector<glm::vec3> & vertices, const glm::ivec4 & color);
+	Triangle(IlluminationModel * illumination, const std::vector<glm::vec3> & vertices);
 
 	// Override from Shape
 	virtual void transformToCameraSpace(const glm::mat4 & cameraMatrix);
 	virtual bool collision(const glm::vec3 & ray) const;
-	virtual glm::ivec4 illuminate() const;
 };
 
 #endif
