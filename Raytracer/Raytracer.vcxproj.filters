@@ -25,6 +25,12 @@
     <Filter Include="Header Files\WorldProgram">
       <UniqueIdentifier>{3c5eba5e-a2b1-43cc-9d3e-3350882b7e54}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Illumination">
+      <UniqueIdentifier>{10de3004-4ca2-42bc-bdbd-ca47568308cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Illumination">
+      <UniqueIdentifier>{502524ad-ab78-464e-a1f5-d418d9a87648}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -63,6 +69,9 @@
     <ClCompile Include="src\WorldProgram\triangleProgram.cpp">
       <Filter>Source Files\WorldProgram</Filter>
     </ClCompile>
+    <ClCompile Include="src\Illumination\flatModel.cpp">
+      <Filter>Source Files\Illumination</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="header\camera.h">
@@ -97,6 +106,12 @@
     </ClInclude>
     <ClInclude Include="header\WorldProgram\triangleProgram.h">
       <Filter>Header Files\WorldProgram</Filter>
+    </ClInclude>
+    <ClInclude Include="header\Illumination\illuminationModel.h">
+      <Filter>Header Files\Illumination</Filter>
+    </ClInclude>
+    <ClInclude Include="header\Illumination\flatModel.h">
+      <Filter>Header Files\Illumination</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
