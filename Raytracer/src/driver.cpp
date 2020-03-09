@@ -3,7 +3,7 @@
 
 #include "../header/world.h"
 #include "../header/camera.h"
-#include "../header/cameraProgram.h"
+#include "../header/WorldProgram/cameraProgram.h"
 
 // Turn i into a string padded with 0s up to length n
 std::string padInt(int i, int n) {
