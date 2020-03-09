@@ -11,6 +11,9 @@ public:
 
 	// Determine what color to return if a ray collision occurs
 	virtual glm::ivec4 illuminate() const = 0;
+
+	//
+	virtual IlluminationModel* interpolate(IlluminationModel* other, const float t) const = 0;
 };
 
 #endif

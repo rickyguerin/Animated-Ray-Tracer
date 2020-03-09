@@ -17,6 +17,7 @@ public:
 
 	// Override from IlluminationModel
 	virtual glm::ivec4 illuminate() const;
+	virtual IlluminationModel* interpolate(IlluminationModel* other, const float t) const;
 };
 
 #endif
