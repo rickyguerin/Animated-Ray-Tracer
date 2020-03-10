@@ -9,27 +9,28 @@ CameraProgram::CameraProgram(const std::string& filename) {
 	std::string token;
 
 	while (progFile >> token) {
-		if (token.compare("FRAME") == 0) {
-			// Read one frame of data from the file
-			float timestamp = readFloat(progFile);
+		// Read one frame of data from the file
+		float timestamp = stof(token);
+		consumeToken(progFile, "{");
 
-			glm::vec3 eye = readPosition(progFile);
-			glm::vec3 lookat = readPosition(progFile);
-			glm::vec3 up = readPosition(progFile);
+		glm::vec3 eye = readVec3(progFile, "eye:");
+		glm::vec3 lookat = readVec3(progFile, "lookat:");
+		glm::vec3 up = readVec3(progFile, "up:");
 
-			float focalLength = readFloat(progFile);
-			float canvasWidth = readFloat(progFile);
-			float canvasHeight = readFloat(progFile);
+		float focalLength = readFloat(progFile, "focalLength:");
+		float canvasWidth = readFloat(progFile, "canvasWidth:");
+		float canvasHeight = readFloat(progFile, "canvasHeight:");
 
-			// Create frame from parsed data
-			CameraFrame cf{
-				timestamp,
-				eye, lookat, up,
-				focalLength, canvasWidth, canvasHeight
-			};
+		consumeToken(progFile, "}");
 
-			frames.push_back(cf);
-		}
+		// Create frame from parsed data
+		CameraFrame cf{
+			timestamp,
+			eye, lookat, up,
+			focalLength, canvasWidth, canvasHeight
+		};
+
+		frames.push_back(cf);
 	}
 }
 
