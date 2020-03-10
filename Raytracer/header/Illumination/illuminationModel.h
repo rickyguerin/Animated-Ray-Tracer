@@ -4,11 +4,6 @@
 
 #include <glm/glm.hpp>
 
-enum ModelType {
-	FLAT,
-	PHONG
-};
-
 class IlluminationModel {
 public:
 	// Destructor
