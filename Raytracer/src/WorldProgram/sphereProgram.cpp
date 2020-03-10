@@ -4,17 +4,24 @@
 #include "../../header/WorldProgram/reader.h"
 #include "../../header/WorldProgram/sphereProgram.h"
 #include "../../header/Shape/sphere.h"
+#include "../../header/Illumination/illuminationModel.h"
 
 SphereProgram::SphereProgram(const std::string& filename) {
 	std::ifstream progFile(filename);
 	std::string token;
+
+	// Read global values
+	consumeToken(progFile, "GLOBAL");
+	consumeToken(progFile, "{");
+	const std::string modelName = readIlluminationModelName(progFile, "illumination:");
+	consumeToken(progFile, "}");
 
 	while (progFile >> token) {
 		// Read one frame of data from the file
 		float timestamp = stof(token);
 		consumeToken(progFile, "{");
 		
-		IlluminationModel* illumination = readFlatModel(progFile);
+		IlluminationModel* illumination = readIlluminationModel(progFile, modelName);
 		glm::vec3 position = readVec3(progFile, "center:");
 		double radius = readDouble(progFile, "radius:");
 
