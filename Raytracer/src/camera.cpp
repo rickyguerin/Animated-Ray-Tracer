@@ -36,7 +36,10 @@ glm::ivec4 averageColor(const std::vector<glm::ivec4>& colors) {
 	return avg.operator/=(colors.size());
 }
 
-void Camera::render(const World& world, const std::string& filename, const unsigned imageWidth, const unsigned imageHeight, const float time) const {
+void Camera::render(World& world, const std::string& filename, const unsigned imageWidth, const unsigned imageHeight, const float time) const {
+
+	// Get Camera space Shapes for this image
+	world.loadShapes(matrix, time);
 
 	// Create output Image
 	Image output(imageWidth, imageHeight);
@@ -64,21 +67,23 @@ void Camera::render(const World& world, const std::string& filename, const unsig
 
 	for (unsigned y = 0; y < imageHeight; y++) {
 		for (unsigned x = 0; x < imageWidth; x++) {
-			colors.clear();
-
 			for (int i = 0; i < 4; i++) {
 				px = minX + (pixelWidth * x) + ssx[i];
 				py = minY + (pixelHeight * y) + ssy[i];
 
 				glm::vec3 ray = glm::normalize(glm::vec3(px, py, -focalLength));
 
-				colors.push_back(world.trace(matrix, ray, time));
+				colors.push_back(world.trace(ray, time));
 			}
 
 			output.setPixel(x, imageHeight - y - 1, averageColor(colors));
+			colors.clear();
 		}
 	}
 
 	// Save Image to file
 	output.write(filename);
+
+	// Delete Shapes
+	world.clearShapes();
 }

@@ -35,23 +35,26 @@ void World::addProgram(const std::string& filename) {
 	}
 }
 
-glm::ivec4 World::trace(const glm::mat4& cameraMatrix, const glm::vec3& ray, const float time) const {
-	glm::ivec4 color;
-
+void World::loadShapes(const glm::mat4& cameraMatrix, const float time) {
 	for (int i = 0; i < programs.size(); i++) {
 		Shape* shape = programs[i]->getShape(time);
 		shape->transformToCameraSpace(cameraMatrix);
+		currentShapes.push_back(shape);
+	}
+}
 
-		bool collided = shape->collision(ray);
+void World::clearShapes() {
+	for (int i = 0; i < programs.size(); i++) {
+		delete currentShapes[i];
+	}
 
-		if (collided) {
-			color = shape->illuminate();
-		}
+	currentShapes.clear();
+}
 
-		delete shape;
-
-		if (collided) {
-			return color;
+glm::ivec4 World::trace(const glm::vec3& ray, const float time) const {
+	for (int i = 0; i < currentShapes.size(); i++) {
+		if (currentShapes[i]->collision(ray)) {
+			return currentShapes[i]->illuminate();
 		}
 	}
 
