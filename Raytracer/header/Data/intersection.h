@@ -15,4 +15,9 @@ struct Intersection {
 	}
 };
 
+// Used to indicate that no intersection occurred
+static const Intersection NULL_INTERSECTION {
+	-1.0f, glm::vec3(-1.0f), glm::vec3(-1.0f)
+};
+
 #endif
