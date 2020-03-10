@@ -63,6 +63,25 @@ glm::ivec4 readIVec4(std::ifstream& file, const char* attribute) {
 	return vec;
 }
 
+std::string readIlluminationModelName(std::ifstream& file, const char* attribute) {
+	consumeToken(file, attribute);
+
+	file >> token;
+
+	// Check that token is a valid IlluminationModel name
+	assert(
+		token.compare("FLAT") == 0 ||
+		token.compare("PHONG") == 0
+	);
+
+	return token;
+}
+
+IlluminationModel* readIlluminationModel(std::ifstream& file, const std::string& modelName) {
+	if (modelName.compare("FLAT") == 0) { return readFlatModel(file); }
+	//if (name.compare("PHONG") == 0) { return readPhongModel(file); }
+}
+
 // Read the next four tokens as a Flat Illumination Model
 IlluminationModel* readFlatModel(std::ifstream& file) {
 	return new FlatModel(readIVec4(file, "color:"));
