@@ -23,5 +23,6 @@ glm::ivec4 readIVec4(std::ifstream& file, const char* attribute);
 std::string readIlluminationModelName(std::ifstream& file, const char* attribute);
 IlluminationModel* readIlluminationModel(std::ifstream& file, const std::string& modelName);
 IlluminationModel* readFlatModel(std::ifstream& file);
+IlluminationModel* readPhongModel(std::ifstream& file);
 
 #endif

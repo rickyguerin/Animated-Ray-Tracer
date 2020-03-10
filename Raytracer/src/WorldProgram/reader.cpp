@@ -4,6 +4,7 @@
 #include "../../header/WorldProgram/reader.h"
 #include "../../header/Illumination/illuminationModel.h"
 #include "../../header/Illumination/flatModel.h"
+#include "../../header/Illumination/phongModel.h"
 
 // A string that every method can read into
 std::string token;
@@ -80,14 +81,26 @@ std::string readIlluminationModelName(std::ifstream& file, const char* attribute
 IlluminationModel* readIlluminationModel(std::ifstream& file, const std::string& modelName) {
 
 	if (modelName.compare("PHONG") == 0) {
-		//return readPhongModel(file);
+		return readPhongModel(file);
 	}
 
 	// Return Flat by defualt
 	return readFlatModel(file);
 }
 
-// Read the next four tokens as a Flat Illumination Model
+// Read the next color as a Flat Illumination Model
 IlluminationModel* readFlatModel(std::ifstream& file) {
 	return new FlatModel(readIVec4(file, "color:"));
+}
+
+// Read the next lines as a Phong Illumination Model
+IlluminationModel* readPhongModel(std::ifstream& file) {
+	return new PhongModel(
+		readIVec4(file, "diffuseColor:"),
+		readIVec4(file, "diffuseColor:"),
+		readFloat(file, "ambientConst:"),
+		readFloat(file, "diffuseConst:"),
+		readFloat(file, "specularConst:"),
+		readFloat(file, "specularExp:")
+	);
 }

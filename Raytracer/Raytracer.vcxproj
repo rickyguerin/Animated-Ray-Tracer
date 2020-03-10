@@ -143,6 +143,7 @@
     <ClCompile Include="src\Data\image.cpp" />
     <ClCompile Include="src\driver.cpp" />
     <ClCompile Include="src\Illumination\flatModel.cpp" />
+    <ClCompile Include="src\Illumination\phongModel.cpp" />
     <ClCompile Include="src\Shape\sphere.cpp" />
     <ClCompile Include="src\Shape\triangle.cpp" />
     <ClCompile Include="src\world.cpp" />
@@ -160,6 +161,7 @@
     <ClInclude Include="header\Data\intersection.h" />
     <ClInclude Include="header\Illumination\flatModel.h" />
     <ClInclude Include="header\Illumination\illuminationModel.h" />
+    <ClInclude Include="header\Illumination\phongModel.h" />
     <ClInclude Include="header\Shape\shape.h" />
     <ClInclude Include="header\Shape\sphere.h" />
     <ClInclude Include="header\Shape\triangle.h" />

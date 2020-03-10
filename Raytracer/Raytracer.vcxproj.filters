@@ -78,6 +78,9 @@
     <ClCompile Include="src\Data\image.cpp">
       <Filter>Source Files\Data</Filter>
     </ClCompile>
+    <ClCompile Include="src\Illumination\phongModel.cpp">
+      <Filter>Source Files\Illumination</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="header\camera.h">
@@ -121,6 +124,9 @@
     </ClInclude>
     <ClInclude Include="header\Data\intersection.h">
       <Filter>Header Files\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="header\Illumination\phongModel.h">
+      <Filter>Header Files\Illumination</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
