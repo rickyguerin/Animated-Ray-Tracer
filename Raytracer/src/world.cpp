@@ -2,6 +2,7 @@
 #include "../header/WorldProgram/sphereProgram.h"
 #include "../header/WorldProgram/triangleProgram.h"
 #include "../header/Shape/shape.h"
+#include "../header/Data/intersection.h"
 
 World::World(const glm::ivec4& color) {
 	backgroundColor = color;
@@ -52,11 +53,29 @@ void World::clearShapes() {
 }
 
 glm::ivec4 World::trace(const glm::vec3& ray, const float time) const {
+
+	// Determine what Shape is intersected by ray first
+	Intersection closestIntersection = NULL_INTERSECTION;
+	const Shape* intersectedShape = currentShapes[0];
+
+	Intersection currentIntersection;
 	for (int i = 0; i < currentShapes.size(); i++) {
-		if (currentShapes[i]->collision(ray)) {
-			return currentShapes[i]->illuminate();
+
+		currentIntersection = currentShapes[i]->collision(ray);
+
+		// No intersection occured with this Shape
+		if (currentIntersection.isNull()) { continue; }
+
+		// If this intersection is closer than the previous closest, update
+		else if (closestIntersection.isNull() || currentIntersection.omega < closestIntersection.omega) {
+			closestIntersection = currentIntersection;
+			intersectedShape = currentShapes[i];
 		}
 	}
 
-	return backgroundColor;
+	// No intersection occurred at all
+	if (closestIntersection.isNull()) { return backgroundColor; }
+
+	// Illuminate the intersected Shape
+	else { return intersectedShape->illuminate(); }
 }
