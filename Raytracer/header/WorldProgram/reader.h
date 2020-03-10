@@ -7,8 +7,8 @@
 
 #include "../Illumination/illuminationModel.h"
 
-// Consume either a { or }
-void consumeParen(std::ifstream& file);
+// Consume one token and check that it matches expected
+void consumeToken(std::ifstream& file, const char* expected);
 
 // Read one token from the file and convert to the provided type
 int readInt(std::ifstream& file);
