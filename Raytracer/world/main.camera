@@ -57,7 +57,9 @@
 	eye: -2.0 2.0 0.0
 	lookat: 0.0 0.0 0.0
 	up: 0.0 1.0 0.0
-	5.0 10.0 10.0
+	focalLength: 5.0
+	canvasWidth: 10.0
+	canvasHeight: 10.0
 }
 
 3.5 {
