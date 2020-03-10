@@ -31,6 +31,12 @@
     <Filter Include="Source Files\Illumination">
       <UniqueIdentifier>{502524ad-ab78-464e-a1f5-d418d9a87648}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Data">
+      <UniqueIdentifier>{bfbbd1a6-d97a-4259-a3e4-b309df08eec8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Data">
+      <UniqueIdentifier>{95bdaeaf-057a-48d4-8aa4-20309280e643}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -40,9 +46,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\driver.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\image.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\world.cpp">
@@ -72,12 +75,12 @@
     <ClCompile Include="src\Illumination\flatModel.cpp">
       <Filter>Source Files\Illumination</Filter>
     </ClCompile>
+    <ClCompile Include="src\Data\image.cpp">
+      <Filter>Source Files\Data</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="header\camera.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="header\image.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="header\world.h">
@@ -112,6 +115,12 @@
     </ClInclude>
     <ClInclude Include="header\Illumination\flatModel.h">
       <Filter>Header Files\Illumination</Filter>
+    </ClInclude>
+    <ClInclude Include="header\Data\image.h">
+      <Filter>Header Files\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="header\Data\intersection.h">
+      <Filter>Header Files\Data</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
