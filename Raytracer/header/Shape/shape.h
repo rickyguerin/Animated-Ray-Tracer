@@ -4,6 +4,7 @@
 
 #include <glm/glm.hpp>
 #include "../Illumination/illuminationModel.h"
+#include "../Data/intersection.h"
 
 class Shape {
 protected:
@@ -23,7 +24,7 @@ public:
 	virtual void transformToCameraSpace(const glm::mat4& cameraMatrix) = 0;
 
 	// Determine if a ray collides with this Shape
-	virtual bool collision(const glm::vec3& ray) const = 0;
+	virtual Intersection collision(const glm::vec3& ray) const = 0;
 
 	// Determine what color to return if a ray collision occurs
 	glm::ivec4 illuminate() const {
