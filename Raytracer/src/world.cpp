@@ -3,17 +3,17 @@
 #include "../header/WorldProgram/triangleProgram.h"
 #include "../header/Shape/shape.h"
 
-World::World(const glm::ivec4 & color) {
+World::World(const glm::ivec4& color) {
 	backgroundColor = color;
 }
 
 World::~World() {
-	for (const ShapeProgram * prog : programs) {
+	for (const ShapeProgram* prog : programs) {
 		delete prog;
 	}
 }
 
-void World::addProgram(const std::string filename) {
+void World::addProgram(const std::string& filename) {
 	// Position of dot in name.sphere
 	size_t sphereExt = filename.length() - 7;
 	assert(sphereExt > 0);
@@ -35,7 +35,7 @@ void World::addProgram(const std::string filename) {
 	}
 }
 
-glm::ivec4 World::trace(const glm::mat4 & cameraMatrix, const glm::vec3 & ray, const float time) const {
+glm::ivec4 World::trace(const glm::mat4& cameraMatrix, const glm::vec3& ray, const float time) const {
 	glm::ivec4 color;
 
 	for (int i = 0; i < programs.size(); i++) {

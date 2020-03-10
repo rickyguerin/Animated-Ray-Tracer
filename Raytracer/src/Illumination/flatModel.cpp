@@ -1,6 +1,6 @@
 #include "../../header/Illumination/flatModel.h"
 
-FlatModel::FlatModel(const glm::ivec4 & color) {
+FlatModel::FlatModel(const glm::ivec4& color) {
 	this->color = color;
 }
 

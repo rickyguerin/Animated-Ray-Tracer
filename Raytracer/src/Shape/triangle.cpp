@@ -1,16 +1,16 @@
 #include "../../header/Shape/triangle.h"
 
-Triangle::Triangle(IlluminationModel * illumination, const std::vector<glm::vec3> & vertices) : Shape(illumination) {
+Triangle::Triangle(IlluminationModel* illumination, const std::vector<glm::vec3>& vertices) : Shape(illumination) {
 	this->vertices = vertices;
 }
 
-void Triangle::transformToCameraSpace(const glm::mat4 & cameraMatrix) {
+void Triangle::transformToCameraSpace(const glm::mat4& cameraMatrix) {
 	for (int i = 0; i < 3; i++) {
 		vertices[i] = cameraMatrix * glm::vec4(vertices[i], 1.0f);
 	}
 }
 
-bool Triangle::collision(const glm::vec3 & ray) const {
+bool Triangle::collision(const glm::vec3& ray) const {
 
 	glm::vec3 e1 = vertices[1] - vertices[0];
 	glm::vec3 e2 = vertices[2] - vertices[0];

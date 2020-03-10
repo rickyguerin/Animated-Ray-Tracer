@@ -1,15 +1,15 @@
 #include "../../header/Shape/sphere.h"
 
-Sphere::Sphere(IlluminationModel * illumination, const glm::vec3 & position, const double radius) : Shape(illumination) {
+Sphere::Sphere(IlluminationModel* illumination, const glm::vec3& position, const double radius) : Shape(illumination) {
 	this->position = position;
 	this->radius = radius;
 }
 
-void Sphere::transformToCameraSpace(const glm::mat4 & cameraMatrix) {
+void Sphere::transformToCameraSpace(const glm::mat4& cameraMatrix) {
 	position = cameraMatrix * glm::vec4(position, 1.0f);
 }
 
-bool Sphere::collision(const glm::vec3 & ray) const {
+bool Sphere::collision(const glm::vec3& ray) const {
 	
 	double a = glm::dot(ray, ray);
 	double b = glm::dot(ray, -position) * 2.0;

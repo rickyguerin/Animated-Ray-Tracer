@@ -13,7 +13,7 @@ private:
 
 public:
 	// Constructor
-	FlatModel(const glm::ivec4 & color);
+	FlatModel(const glm::ivec4& color);
 
 	// Override from IlluminationModel
 	virtual glm::ivec4 illuminate() const;

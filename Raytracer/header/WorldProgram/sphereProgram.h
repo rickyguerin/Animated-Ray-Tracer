@@ -15,7 +15,7 @@ struct SphereFrame {
 	float timestamp;
 
 	// Shading of Sphere at this time
-	IlluminationModel * illumination;
+	IlluminationModel* illumination;
 
 	// Location of Sphere center at this time
 	glm::vec3 position;
@@ -31,10 +31,10 @@ private:
 
 public:
 	// Constructor
-	SphereProgram(const std::string & filename);
+	SphereProgram(const std::string& filename);
 
 	// Interpolate between frames to get the Sphere at the given time
-	virtual Shape * getShape(const float time) const;
+	virtual Shape* getShape(const float time) const;
 };
 
 #endif

@@ -31,7 +31,7 @@ private:
 
 public:
 	// Constructor
-	CameraProgram(const std::string & filename);
+	CameraProgram(const std::string& filename);
 
 	// Interpolate between frames to get the Camera at the given time
 	Camera getCamera(const float time) const;

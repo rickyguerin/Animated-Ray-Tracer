@@ -10,7 +10,7 @@ public:
 	virtual ~ShapeProgram() {}
 
 	// Interpolate between frames to get the Shape at the given time
-	virtual Shape * getShape(const float time) const = 0;
+	virtual Shape* getShape(const float time) const = 0;
 };
 
 #endif

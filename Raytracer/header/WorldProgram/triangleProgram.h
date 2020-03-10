@@ -15,7 +15,7 @@ struct TriangleFrame {
 	float timestamp;
 
 	// Shading of Triangle at this time
-	IlluminationModel * illumination;
+	IlluminationModel* illumination;
 
 	// Vertices of Triangle in clockwise order at this time
 	std::vector<glm::vec3> vertices;
@@ -28,10 +28,10 @@ private:
 
 public:
 	// Constructor
-	TriangleProgram(const std::string & filename);
+	TriangleProgram(const std::string& filename);
 
 	// Interpolate between frames to get the Sphere at the given time
-	virtual Shape * getShape(const float time) const;
+	virtual Shape* getShape(const float time) const;
 };
 
 #endif

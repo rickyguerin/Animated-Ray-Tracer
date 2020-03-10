@@ -8,10 +8,10 @@
 class Shape {
 protected:
 	// How this shape is shaded
-	IlluminationModel * illumination;
+	IlluminationModel* illumination;
 
 	// Constructor
-	Shape(IlluminationModel * illumination) {
+	Shape(IlluminationModel* illumination) {
 		this->illumination = illumination;
 	}
 
@@ -20,10 +20,10 @@ public:
 	virtual ~Shape() {};
 
 	// Transform this Shape to move it into camera space
-	virtual void transformToCameraSpace(const glm::mat4 & cameraMatrix) = 0;
+	virtual void transformToCameraSpace(const glm::mat4& cameraMatrix) = 0;
 
 	// Determine if a ray collides with this Shape
-	virtual bool collision(const glm::vec3 & ray) const = 0;
+	virtual bool collision(const glm::vec3& ray) const = 0;
 
 	// Determine what color to return if a ray collision occurs
 	glm::ivec4 illuminate() const {

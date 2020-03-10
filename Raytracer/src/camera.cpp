@@ -26,7 +26,7 @@ Camera::Camera(const glm::vec3& eye, const glm::vec3& lookat, const glm::vec3& u
 }
 
 // Return the average color of all colors in a vector
-glm::ivec4 averageColor(const std::vector<glm::ivec4> & colors) {
+glm::ivec4 averageColor(const std::vector<glm::ivec4>& colors) {
 	glm::ivec4 avg = glm::ivec4();
 
 	for (int i = 0; i < colors.size(); i++) {
@@ -36,7 +36,7 @@ glm::ivec4 averageColor(const std::vector<glm::ivec4> & colors) {
 	return avg.operator/=(colors.size());
 }
 
-void Camera::render(const World & world, const std::string & filename, const unsigned imageWidth, const unsigned imageHeight, const float time) const {
+void Camera::render(const World& world, const std::string& filename, const unsigned imageWidth, const unsigned imageHeight, const float time) const {
 
 	// Create output Image
 	Image output(imageWidth, imageHeight);
