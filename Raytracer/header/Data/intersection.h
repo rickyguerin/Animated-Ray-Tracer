@@ -8,7 +8,6 @@ struct Intersection {
 	float omega;
 	glm::vec3 point;
 	glm::vec3 normal;
-	glm::vec3 dest;
 };
 
 #endif
