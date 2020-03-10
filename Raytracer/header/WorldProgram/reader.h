@@ -16,8 +16,8 @@ float readFloat(std::ifstream& file, const char* attribute);
 double readDouble(std::ifstream& file, const char* attribute);
 
 // Read one complex attribute from the file
-glm::ivec4 readIVec4(std::ifstream& file, const char* attribute);
 glm::vec3 readVec3(std::ifstream& file, const char* attribute);
+glm::ivec4 readIVec4(std::ifstream& file, const char* attribute);
 
 // Read illumination models
 IlluminationModel* readFlatModel(std::ifstream& file);
