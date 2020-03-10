@@ -34,8 +34,8 @@ int main() {
 	CameraProgram camProg("world/main.camera");
 
 	// Animation frame information
-	const float fps = 4;
-	const float duration = 4.0;
+	const float fps = 1;
+	const float duration = 1.0;
 	const unsigned frames = fps * duration;
 
 	// Animation timer

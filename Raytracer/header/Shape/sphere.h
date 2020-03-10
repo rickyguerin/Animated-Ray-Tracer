@@ -12,7 +12,7 @@ static const double EPSILON = 0.001;
 class Sphere : public Shape {
 private:
 	// Location of Sphere center at this time
-	glm::vec3 position;
+	glm::vec3 center;
 
 	// Radius of Sphere at this time
 	double radius;
@@ -23,7 +23,7 @@ public:
 
 	// Override from Shape
 	virtual void transformToCameraSpace(const glm::mat4& cameraMatrix);
-	virtual bool collision(const glm::vec3& ray) const;
+	virtual Intersection collision(const glm::vec3& ray) const;
 };
 
 #endif
