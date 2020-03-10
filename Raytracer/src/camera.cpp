@@ -1,6 +1,6 @@
+#include <glm/glm.hpp>
 #include "../header/camera.h"
 #include "../header/Data/image.h"
-#include "../header/Shape/sphere.h"
 
 Camera::Camera(const glm::vec3& eye, const glm::vec3& lookat, const glm::vec3& up, const float focalLength, const float canvasWidth, const float canvasHeight) {
 
@@ -26,8 +26,8 @@ Camera::Camera(const glm::vec3& eye, const glm::vec3& lookat, const glm::vec3& u
 }
 
 // Return the average color of all colors in a vector
-glm::ivec4 averageColor(const std::vector<glm::ivec4>& colors) {
-	glm::ivec4 avg = glm::ivec4();
+glm::vec3 averageColor(const std::vector<glm::vec3>& colors) {
+	glm::vec3 avg = glm::vec3();
 
 	for (int i = 0; i < colors.size(); i++) {
 		avg += colors[i];
@@ -63,7 +63,7 @@ void Camera::render(World& world, const std::string& filename, const unsigned im
 	float ssy[4] = { -qph, -qph, qph, qph };
 
 	// Color vector for supersampling
-	std::vector<glm::ivec4> colors;
+	std::vector<glm::vec3> colors;
 
 	for (unsigned y = 0; y < imageHeight; y++) {
 		for (unsigned x = 0; x < imageWidth; x++) {

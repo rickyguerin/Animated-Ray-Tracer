@@ -1,3 +1,4 @@
+#include <glm/common.hpp>
 #include "../../header/Illumination/phongModel.h"
 
 PhongModel::PhongModel(const glm::vec3& diffuseColor, const glm::vec3& specularColor,
@@ -12,8 +13,8 @@ PhongModel::PhongModel(const glm::vec3& diffuseColor, const glm::vec3& specularC
 	this->specularExp = specularExp;
 }
 
-glm::ivec4 PhongModel::illuminate() const {
-	return glm::ivec4(diffuseColor, 1.0f);
+glm::vec3 PhongModel::illuminate() const {
+	return diffuseColor;
 }
 
 IlluminationModel* PhongModel::interpolate(IlluminationModel* other, const float t) const {

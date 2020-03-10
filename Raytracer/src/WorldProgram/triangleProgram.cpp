@@ -1,6 +1,6 @@
 #include <iostream>
 #include <fstream>
-
+#include <glm/common.hpp>
 #include "../../header/WorldProgram/reader.h"
 #include "../../header/WorldProgram/triangleProgram.h"
 #include "../../header/Shape/triangle.h"

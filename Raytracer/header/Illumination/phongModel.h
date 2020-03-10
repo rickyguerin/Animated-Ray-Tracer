@@ -2,8 +2,6 @@
 #ifndef PHONG_MODEL_H
 #define PHONG_MODEL_H
 
-#include <glm/glm.hpp>
-
 #include "illuminationModel.h"
 
 class PhongModel : public IlluminationModel {
@@ -22,7 +20,7 @@ public:
 		const float ambientConst, const float diffuseConst, const float SpecularConst, const float specularExp);
 
 	// Override from IlluminationModel
-	virtual glm::ivec4 illuminate() const;
+	virtual glm::vec3 illuminate() const;
 	virtual IlluminationModel* interpolate(IlluminationModel* other, const float t) const;
 };
 

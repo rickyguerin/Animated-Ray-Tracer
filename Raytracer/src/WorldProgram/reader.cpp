@@ -50,20 +50,6 @@ glm::vec3 readVec3(std::ifstream& file, const char* attribute) {
 	return vec;
 }
 
-// Consume the attribute token, and read the following tokens as an ivec4
-glm::ivec4 readIVec4(std::ifstream& file, const char* attribute) {
-	consumeToken(file, attribute);
-
-	glm::ivec4 vec = glm::ivec4();
-
-	for (int i = 0; i < 4; i++) {
-		file >> token;
-		vec[i] = std::stoi(token);
-	}
-
-	return vec;
-}
-
 std::string readIlluminationModelName(std::ifstream& file, const char* attribute) {
 	consumeToken(file, attribute);
 
@@ -90,14 +76,14 @@ IlluminationModel* readIlluminationModel(std::ifstream& file, const std::string&
 
 // Read the next color as a Flat Illumination Model
 IlluminationModel* readFlatModel(std::ifstream& file) {
-	return new FlatModel(readIVec4(file, "color:"));
+	return new FlatModel(readVec3(file, "color:"));
 }
 
 // Read the next lines as a Phong Illumination Model
 IlluminationModel* readPhongModel(std::ifstream& file) {
 	return new PhongModel(
-		readIVec4(file, "diffuseColor:"),
-		readIVec4(file, "diffuseColor:"),
+		readVec3(file, "diffuseColor:"),
+		readVec3(file, "specularColor:"),
 		readFloat(file, "ambientConst:"),
 		readFloat(file, "diffuseConst:"),
 		readFloat(file, "specularConst:"),

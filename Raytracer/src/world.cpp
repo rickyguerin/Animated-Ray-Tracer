@@ -4,7 +4,7 @@
 #include "../header/Shape/shape.h"
 #include "../header/Data/intersection.h"
 
-World::World(const glm::ivec4& color) {
+World::World(const glm::vec3& color) {
 	backgroundColor = color;
 }
 
@@ -52,7 +52,7 @@ void World::clearShapes() {
 	currentShapes.clear();
 }
 
-glm::ivec4 World::trace(const glm::vec3& ray, const float time) const {
+glm::vec3 World::trace(const glm::vec3& ray, const float time) const {
 
 	// Determine what Shape is intersected by ray first
 	Intersection closestIntersection = NULL_INTERSECTION;

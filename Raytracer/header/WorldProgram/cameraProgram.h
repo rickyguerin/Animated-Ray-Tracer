@@ -4,9 +4,7 @@
 
 #include <string>
 #include <vector>
-
-#include <glm/glm.hpp>
-
+#include <glm/vec3.hpp>
 #include "../camera.h"
 
 struct CameraFrame {
