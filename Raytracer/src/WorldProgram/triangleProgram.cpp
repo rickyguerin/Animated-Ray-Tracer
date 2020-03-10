@@ -9,28 +9,36 @@ TriangleProgram::TriangleProgram(const std::string& filename) {
 	std::ifstream progFile(filename);
 	std::string token;
 
+	// Read global values
+	consumeToken(progFile, "GLOBAL");
+	consumeToken(progFile, "{");
+	const std::string modelName = readIlluminationModelName(progFile, "illumination:");
+	consumeToken(progFile, "}");
+
 	while (progFile >> token) {
-		if (token.compare("FRAME") == 0) {
-			// Read one frame of data from the file
-			float timestamp = readFloat(progFile);
-			IlluminationModel* illumination = readFlatModel(progFile);
-			glm::vec3 vertexOne = readPosition(progFile);
-			glm::vec3 vertexTwo = readPosition(progFile);
-			glm::vec3 vertexThree = readPosition(progFile);
+		// Read one frame of data from the file
+		float timestamp = stof(token);
+		consumeToken(progFile, "{");
 
-			// Create frame from parsed data
-			TriangleFrame tf{
-				timestamp,
-				illumination,
-				std::vector<glm::vec3> {
-					vertexOne,
-					vertexTwo,
-					vertexThree
-				}
-			};
+		IlluminationModel* illumination = readIlluminationModel(progFile, modelName);
+		glm::vec3 vertex1 = readVec3(progFile, "vertex:");
+		glm::vec3 vertex2 = readVec3(progFile, "vertex:");
+		glm::vec3 vertex3 = readVec3(progFile, "vertex:");
 
-			frames.push_back(tf);
-		}
+		consumeToken(progFile, "}");
+
+		// Create frame from parsed data
+		TriangleFrame tf{
+			timestamp,
+			illumination,
+			std::vector<glm::vec3> {
+				vertex1,
+				vertex2,
+				vertex3
+			}
+		};
+
+		frames.push_back(tf);
 	}
 }
 
