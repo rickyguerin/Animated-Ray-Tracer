@@ -78,8 +78,13 @@ std::string readIlluminationModelName(std::ifstream& file, const char* attribute
 }
 
 IlluminationModel* readIlluminationModel(std::ifstream& file, const std::string& modelName) {
-	if (modelName.compare("FLAT") == 0) { return readFlatModel(file); }
-	//if (name.compare("PHONG") == 0) { return readPhongModel(file); }
+
+	if (modelName.compare("PHONG") == 0) {
+		//return readPhongModel(file);
+	}
+
+	// Return Flat by defualt
+	return readFlatModel(file);
 }
 
 // Read the next four tokens as a Flat Illumination Model
