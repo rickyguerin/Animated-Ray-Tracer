@@ -96,5 +96,5 @@ glm::vec3 World::trace(const glm::vec3& ray, const float time) const {
 	if (closestIntersection.isNull()) { return backgroundColor; }
 
 	// Illuminate the intersected Shape
-	else { return intersectedShape->illuminate(); }
+	else { return intersectedShape->illuminate(closestIntersection, currentLights); }
 }

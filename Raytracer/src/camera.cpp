@@ -36,7 +36,6 @@ glm::vec3 averageColor(const std::vector<glm::vec3>& colors) {
 }
 
 void Camera::render(World& world, const std::string& filename, const unsigned imageWidth, const unsigned imageHeight, const float time) const {
-
 	// Get World in Camera space for this image
 	world.loadCurrent(matrix, time);
 
