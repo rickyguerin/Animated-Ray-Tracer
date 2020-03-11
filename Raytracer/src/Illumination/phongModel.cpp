@@ -13,7 +13,7 @@ PhongModel::PhongModel(const glm::vec3& diffuseColor, const glm::vec3& specularC
 	this->specularExp = specularExp;
 }
 
-glm::vec3 PhongModel::illuminate() const {
+glm::vec3 PhongModel::illuminate(Intersection intersection, const std::vector<Light>& lights) const {
 	return diffuseColor;
 }
 

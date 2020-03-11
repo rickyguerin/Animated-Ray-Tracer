@@ -5,7 +5,7 @@ FlatModel::FlatModel(const glm::vec3& color) {
 	this->color = color;
 }
 
-glm::vec3 FlatModel::illuminate() const {
+glm::vec3 FlatModel::illuminate(Intersection intersection, const std::vector<Light>& lights) const {
 	return color;
 }
 
