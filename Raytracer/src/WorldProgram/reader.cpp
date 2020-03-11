@@ -81,12 +81,16 @@ IlluminationModel* readFlatModel(std::ifstream& file) {
 
 // Read the next lines as a Phong Illumination Model
 IlluminationModel* readPhongModel(std::ifstream& file) {
+
+	glm::vec3 diffuseColor = readVec3(file, "diffuseColor:");
+	glm::vec3 specularColor = readVec3(file, "specularColor:");
+	float ambientConst = readFloat(file, "ambientConst:");
+	float diffuseConst = readFloat(file, "diffuseConst:");
+	float specularConst = readFloat(file, "specularConst:");
+	float specularExp = readFloat(file, "specularExp:");
+
 	return new PhongModel(
-		readVec3(file, "diffuseColor:"),
-		readVec3(file, "specularColor:"),
-		readFloat(file, "ambientConst:"),
-		readFloat(file, "diffuseConst:"),
-		readFloat(file, "specularConst:"),
-		readFloat(file, "specularExp:")
+		diffuseColor, specularColor,
+		ambientConst, diffuseConst, specularConst, specularExp
 	);
 }
