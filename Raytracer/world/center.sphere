@@ -1,9 +1,14 @@
 GLOBAL {
-	illumination: FLAT
+	illumination: PHONG
 }
 
 0.0 {
-	color: 0 255 255
+	diffuseColor: 0.0 255.0 255.0
+	specularColor: 255.0 255.0 255.0
+	ambientConst: 1.0
+	diffuseConst: 0.2
+	specularConst: 0.2
+	specularExp: 50.0
 	center: 0.0 0.0 0.0
 	radius: 0.5
 }
