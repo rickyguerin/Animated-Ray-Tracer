@@ -29,6 +29,7 @@ int main() {
 	world.addProgram("world/center.sphere");
 	world.addProgram("world/leftFloor.triangle");
 	world.addProgram("world/rightFloor.triangle");
+	world.addProgram("world/main.light");
 
 	// Read the CameraProgram
 	CameraProgram camProg("world/main.camera");
