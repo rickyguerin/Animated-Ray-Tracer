@@ -3,7 +3,6 @@
 #include "../header/Data/image.h"
 
 Camera::Camera(const glm::vec3& eye, const glm::vec3& lookat, const glm::vec3& up, const float focalLength, const float canvasWidth, const float canvasHeight) {
-
 	this->eye = eye;
 	this->lookat = lookat;
 	this->up = up;
@@ -38,8 +37,8 @@ glm::vec3 averageColor(const std::vector<glm::vec3>& colors) {
 
 void Camera::render(World& world, const std::string& filename, const unsigned imageWidth, const unsigned imageHeight, const float time) const {
 
-	// Get Camera space Shapes for this image
-	world.loadShapes(matrix, time);
+	// Get World in Camera space for this image
+	world.loadCurrent(matrix, time);
 
 	// Create output Image
 	Image output(imageWidth, imageHeight);
@@ -85,5 +84,5 @@ void Camera::render(World& world, const std::string& filename, const unsigned im
 	output.write(filename);
 
 	// Delete Shapes
-	world.clearShapes();
+	world.deleteCurrent();
 }

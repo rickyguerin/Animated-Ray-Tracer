@@ -15,6 +15,16 @@ World::~World() {
 }
 
 void World::addProgram(const std::string& filename) {
+	// Position of dot in name.light
+	size_t lightExt = filename.length() - 6;
+	assert(lightExt > 0);
+
+	// File is .light
+	if (filename.substr(lightExt).compare(".light") == 0) {
+		lightPrograms.push_back(LightProgram(filename));
+		return;
+	}
+
 	// Position of dot in name.sphere
 	size_t sphereExt = filename.length() - 7;
 	assert(sphereExt > 0);
@@ -36,20 +46,29 @@ void World::addProgram(const std::string& filename) {
 	}
 }
 
-void World::loadShapes(const glm::mat4& cameraMatrix, const float time) {
+void World::loadCurrent(const glm::mat4& cameraMatrix, const float time) {
+	// Load Shapes
 	for (int i = 0; i < programs.size(); i++) {
 		Shape* shape = programs[i]->getShape(time);
 		shape->transformToCameraSpace(cameraMatrix);
 		currentShapes.push_back(shape);
 	}
+
+	// Load Lights
+	for (int i = 0; i < lightPrograms.size(); i++) {
+		Light light = lightPrograms[i].getLight(time);
+		light.transformToCameraSpace(cameraMatrix);
+		currentLights.push_back(light);
+	}
 }
 
-void World::clearShapes() {
+void World::deleteCurrent() {
 	for (int i = 0; i < programs.size(); i++) {
 		delete currentShapes[i];
 	}
 
 	currentShapes.clear();
+	currentLights.clear();
 }
 
 glm::vec3 World::trace(const glm::vec3& ray, const float time) const {
