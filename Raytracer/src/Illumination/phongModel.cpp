@@ -1,3 +1,4 @@
+#include <algorithm>
 #include <glm/common.hpp>
 #include "../../header/Illumination/phongModel.h"
 
