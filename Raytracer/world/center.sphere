@@ -6,7 +6,7 @@ GLOBAL {
 	diffuseColor: 0.0 255.0 255.0
 	specularColor: 255.0 255.0 255.0
 	ambientConst: 1.0
-	diffuseConst: 0.2
+	diffuseConst: 0.7
 	specularConst: 0.2
 	specularExp: 50.0
 	center: 0.0 0.0 0.0
