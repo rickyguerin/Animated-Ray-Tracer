@@ -14,7 +14,21 @@ PhongModel::PhongModel(const glm::vec3& diffuseColor, const glm::vec3& specularC
 }
 
 glm::vec3 PhongModel::illuminate(Intersection intersection, const std::vector<Light>& lights) const {
-	return diffuseColor;
+
+	glm::vec3 ambientPart = ambientConst * diffuseColor * glm::vec3(255, 255, 255);
+	glm::vec3 diffusePart;
+	glm::vec3 specularPart;
+
+	glm::vec3 src;
+
+	for (int i = 0; i < lights.size(); i++) {
+		src = glm::normalize(lights[i].position - intersection.point);
+
+		diffusePart += diffuseConst * lights[i].color * diffuseColor * std::max(0.0f, glm::dot(src, intersection.normal));
+		//specularPart += specularConst * lights[i].color * specularColor;
+	}
+
+	return ambientPart + diffusePart + specularPart;
 }
 
 IlluminationModel* PhongModel::interpolate(IlluminationModel* other, const float t) const {
