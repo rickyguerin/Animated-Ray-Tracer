@@ -12,8 +12,11 @@ private:
 	unsigned width;
 	unsigned height;
 
-	// Image pixel colors
-	std::vector<unsigned char> contents;
+	// Save highest value in Image for tone reproduction
+	float highest;
+
+	// Collects color
+	std::vector<float> filmPlane;
 
 public:
 	// Constructor
