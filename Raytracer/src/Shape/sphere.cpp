@@ -42,7 +42,8 @@ Intersection Sphere::collision(const glm::vec3& ray) const {
 		return Intersection {
 			omega,
 			point,
-			normal
+			normal,
+			ray
 		};
 	}
 }
