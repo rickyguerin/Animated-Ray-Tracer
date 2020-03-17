@@ -8,7 +8,7 @@ GLOBAL {
 	ambientConst: 1.0
 	diffuseConst: 0.8
 	specularConst: 0.2
-	specularExp: 50.0
+	specularExp: 10.0
 	center: 0.0 0.0 0.0
 	radius: 0.5
 }
