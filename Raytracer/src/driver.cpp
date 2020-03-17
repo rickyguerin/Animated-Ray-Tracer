@@ -24,9 +24,9 @@ std::string padInt(int i, int n) {
 
 int main() {
 	// Create the World
-	World world(glm::vec3(0, 0, 0));
+	World world(glm::vec3(0.0f, 0.0f, 0.0f));
 
-	world.addProgram("world/center.sphere");
+	world.addProgram("world/test.sphere");
 	world.addProgram("world/leftFloor.triangle");
 	world.addProgram("world/rightFloor.triangle");
 	world.addProgram("world/main.light");
