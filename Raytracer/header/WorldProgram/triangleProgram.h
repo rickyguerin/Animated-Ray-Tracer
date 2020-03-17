@@ -4,9 +4,7 @@
 
 #include <string>
 #include <vector>
-
-#include <glm/glm.hpp>
-
+#include <glm/vec3.hpp>
 #include "shapeProgram.h"
 
 // One keyframe from a Sphere input file

@@ -18,7 +18,6 @@ Intersection Triangle::collision(const glm::vec3& ray) const {
 	glm::vec3 P = glm::cross(ray, e2);
 	glm::vec3 Q = glm::cross(T, e1);
 
-	
 	float bottom = glm::dot(P, e1);
 
 	// Ray is parallel to Triangle
@@ -44,6 +43,7 @@ Intersection Triangle::collision(const glm::vec3& ray) const {
 	return Intersection{
 		bary.x,
 		ray * bary.x,
-		glm::cross(e1, e2)
+		-glm::normalize(glm::cross(e1, e2)),
+		ray
 	};
 }

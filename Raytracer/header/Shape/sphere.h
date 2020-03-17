@@ -2,9 +2,6 @@
 #ifndef SPHERE_H
 #define SPHERE_H
 
-#include <vector>
-#include <glm/glm.hpp>
-
 #include "shape.h"
 
 static const double EPSILON = 0.001;

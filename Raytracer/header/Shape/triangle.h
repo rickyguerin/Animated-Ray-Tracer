@@ -3,7 +3,6 @@
 #define TRIANGLE_H
 
 #include <vector>
-#include <glm/glm.hpp>
 
 #include "shape.h"
 

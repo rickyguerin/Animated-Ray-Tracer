@@ -4,6 +4,7 @@
 #include "../../header/WorldProgram/reader.h"
 #include "../../header/Illumination/illuminationModel.h"
 #include "../../header/Illumination/flatModel.h"
+#include "../../header/Illumination/phongModel.h"
 
 // A string that every method can read into
 std::string token;
@@ -49,20 +50,6 @@ glm::vec3 readVec3(std::ifstream& file, const char* attribute) {
 	return vec;
 }
 
-// Consume the attribute token, and read the following tokens as an ivec4
-glm::ivec4 readIVec4(std::ifstream& file, const char* attribute) {
-	consumeToken(file, attribute);
-
-	glm::ivec4 vec = glm::ivec4();
-
-	for (int i = 0; i < 4; i++) {
-		file >> token;
-		vec[i] = std::stoi(token);
-	}
-
-	return vec;
-}
-
 std::string readIlluminationModelName(std::ifstream& file, const char* attribute) {
 	consumeToken(file, attribute);
 
@@ -80,14 +67,30 @@ std::string readIlluminationModelName(std::ifstream& file, const char* attribute
 IlluminationModel* readIlluminationModel(std::ifstream& file, const std::string& modelName) {
 
 	if (modelName.compare("PHONG") == 0) {
-		//return readPhongModel(file);
+		return readPhongModel(file);
 	}
 
 	// Return Flat by defualt
 	return readFlatModel(file);
 }
 
-// Read the next four tokens as a Flat Illumination Model
+// Read the next color as a Flat Illumination Model
 IlluminationModel* readFlatModel(std::ifstream& file) {
-	return new FlatModel(readIVec4(file, "color:"));
+	return new FlatModel(readVec3(file, "color:"));
+}
+
+// Read the next lines as a Phong Illumination Model
+IlluminationModel* readPhongModel(std::ifstream& file) {
+
+	glm::vec3 diffuseColor = readVec3(file, "diffuseColor:");
+	glm::vec3 specularColor = readVec3(file, "specularColor:");
+	float ambientConst = readFloat(file, "ambientConst:");
+	float diffuseConst = readFloat(file, "diffuseConst:");
+	float specularConst = readFloat(file, "specularConst:");
+	float specularExp = readFloat(file, "specularExp:");
+
+	return new PhongModel(
+		diffuseColor, specularColor,
+		ambientConst, diffuseConst, specularConst, specularExp
+	);
 }

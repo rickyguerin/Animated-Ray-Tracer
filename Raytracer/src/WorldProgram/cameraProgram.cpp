@@ -1,6 +1,6 @@
 #include <iostream>
 #include <fstream>
-
+#include <glm/common.hpp>
 #include "../../header/WorldProgram/cameraProgram.h"
 #include "../../header/WorldProgram/reader.h"
 

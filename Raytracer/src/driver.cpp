@@ -24,11 +24,12 @@ std::string padInt(int i, int n) {
 
 int main() {
 	// Create the World
-	World world(glm::ivec4(0, 0, 0, 255));
+	World world(glm::vec3(0.0f, 0.0f, 0.0f));
 
-	world.addProgram("world/center.sphere");
+	world.addProgram("world/test.sphere");
 	world.addProgram("world/leftFloor.triangle");
 	world.addProgram("world/rightFloor.triangle");
+	world.addProgram("world/main.light");
 
 	// Read the CameraProgram
 	CameraProgram camProg("world/main.camera");
@@ -44,7 +45,7 @@ int main() {
 
 	// Render frames
 	for (int i = 0; i < frames; i++) {
-		camProg.getCamera(time).render(world, "../images/temp/output_" + padInt(i, 4) + ".png", 400, 400, time);
+		camProg.getCamera(time).render(world, "../images/temp/output_" + padInt(i, 4) + ".png", 1024, 1024, time);
 		time += spf;
 	}
 

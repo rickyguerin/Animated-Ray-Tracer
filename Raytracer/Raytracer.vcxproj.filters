@@ -78,6 +78,15 @@
     <ClCompile Include="src\Data\image.cpp">
       <Filter>Source Files\Data</Filter>
     </ClCompile>
+    <ClCompile Include="src\Illumination\phongModel.cpp">
+      <Filter>Source Files\Illumination</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Illumination\light.cpp">
+      <Filter>Source Files\Illumination</Filter>
+    </ClCompile>
+    <ClCompile Include="src\WorldProgram\lightProgram.cpp">
+      <Filter>Source Files\WorldProgram</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="header\camera.h">
@@ -121,6 +130,15 @@
     </ClInclude>
     <ClInclude Include="header\Data\intersection.h">
       <Filter>Header Files\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="header\Illumination\phongModel.h">
+      <Filter>Header Files\Illumination</Filter>
+    </ClInclude>
+    <ClInclude Include="header\Illumination\light.h">
+      <Filter>Header Files\Illumination</Filter>
+    </ClInclude>
+    <ClInclude Include="header\WorldProgram\lightProgram.h">
+      <Filter>Header Files\WorldProgram</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
