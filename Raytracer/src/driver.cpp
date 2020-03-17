@@ -45,7 +45,7 @@ int main() {
 
 	// Render frames
 	for (int i = 0; i < frames; i++) {
-		camProg.getCamera(time).render(world, "../images/temp/output_" + padInt(i, 4) + ".png", 400, 400, time);
+		camProg.getCamera(time).render(world, "../images/temp/output_" + padInt(i, 4) + ".png", 1024, 1024, time);
 		time += spf;
 	}
 
