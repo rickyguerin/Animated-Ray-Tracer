@@ -44,7 +44,7 @@ Intersection Triangle::collision(const glm::vec3& ray) const {
 	return Intersection{
 		bary.x,
 		ray * bary.x,
-		glm::cross(e1, e2),
+		-glm::normalize(glm::cross(e1, e2)),
 		ray
 	};
 }
