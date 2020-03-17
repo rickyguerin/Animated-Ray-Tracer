@@ -27,8 +27,6 @@ int main() {
 	World world(glm::vec3(0.0f, 0.0f, 0.0f));
 
 	world.addProgram("world/test.sphere");
-	world.addProgram("world/leftFloor.triangle");
-	world.addProgram("world/rightFloor.triangle");
 	world.addProgram("world/main.light");
 
 	// Read the CameraProgram
