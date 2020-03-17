@@ -6,10 +6,58 @@ GLOBAL {
 	diffuseColor: 0.0 1.0 0.0
 	specularColor: 1.0 1.0 1.0
 	ambientConst: 1.0
-	diffuseConst: 0.5
-	specularConst: 0.1
+	diffuseConst: 0.8
+	specularConst: 0.2
 	specularExp: 10.0
-	vertex: 2.0 0.0 0.0
+	vertex: 0.0 -1.0 1.0
+	vertex: 0.0 1.0 1.0
 	vertex: 1.0 0.0 1.0
-	vertex: 1.0 0.0 -1.0
+}
+
+0.5 {
+	diffuseColor: 0.0 1.0 0.0
+	specularColor: 1.0 1.0 1.0
+	ambientConst: 1.0
+	diffuseConst: 0.8
+	specularConst: 0.2
+	specularExp: 10.0
+	vertex: 0.0 -1.0 1.0
+	vertex: 0.0 1.0 1.0
+	vertex: 1.0 0.0 1.0
+}
+
+3.0 {
+	diffuseColor: 0.0 1.0 0.0
+	specularColor: 1.0 1.0 1.0
+	ambientConst: 1.0
+	diffuseConst: 0.8
+	specularConst: 0.2
+	specularExp: 10.0
+	vertex: 1.0 -1.0 1.0
+	vertex: 1.0 1.0 1.0
+	vertex: 2.0 0.0 1.0
+}
+
+5.5 {
+	diffuseColor: 0.0 1.0 0.0
+	specularColor: 1.0 1.0 1.0
+	ambientConst: 1.0
+	diffuseConst: 0.8
+	specularConst: 0.2
+	specularExp: 10.0
+	vertex: 0.0 -1.0 1.0
+	vertex: 0.0 1.0 1.0
+	vertex: 1.0 0.0 1.0
+}
+
+6.0 {
+	diffuseColor: 0.0 1.0 0.0
+	specularColor: 1.0 1.0 1.0
+	ambientConst: 1.0
+	diffuseConst: 0.8
+	specularConst: 0.2
+	specularExp: 10.0
+	vertex: 0.0 -1.0 1.0
+	vertex: 0.0 1.0 1.0
+	vertex: 1.0 0.0 1.0
 }
