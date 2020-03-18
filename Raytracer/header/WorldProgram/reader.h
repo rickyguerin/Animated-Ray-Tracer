@@ -21,5 +21,6 @@ std::string readIlluminationModelName(std::ifstream& file, const char* attribute
 IlluminationModel* readIlluminationModel(std::ifstream& file, const std::string& modelName);
 IlluminationModel* readFlatModel(std::ifstream& file);
 IlluminationModel* readPhongModel(std::ifstream& file);
+IlluminationModel* readCheckerModel(std::ifstream& file);
 
 #endif
