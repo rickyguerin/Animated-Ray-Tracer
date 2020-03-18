@@ -142,6 +142,7 @@
     <ClCompile Include="src\camera.cpp" />
     <ClCompile Include="src\Data\image.cpp" />
     <ClCompile Include="src\driver.cpp" />
+    <ClCompile Include="src\Illumination\checkerModel.cpp" />
     <ClCompile Include="src\Illumination\flatModel.cpp" />
     <ClCompile Include="src\Illumination\light.cpp" />
     <ClCompile Include="src\Illumination\phongModel.cpp" />
@@ -161,6 +162,7 @@
     <ClInclude Include="header\camera.h" />
     <ClInclude Include="header\Data\image.h" />
     <ClInclude Include="header\Data\intersection.h" />
+    <ClInclude Include="header\Illumination\checkerModel.h" />
     <ClInclude Include="header\Illumination\flatModel.h" />
     <ClInclude Include="header\Illumination\illuminationModel.h" />
     <ClInclude Include="header\Illumination\light.h" />
