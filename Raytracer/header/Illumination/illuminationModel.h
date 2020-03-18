@@ -4,7 +4,7 @@
 
 #include <vector>
 #include <glm/vec3.hpp>
-#include "../Data/intersection.h"
+#include "../Math/intersection.h"
 #include "../Illumination/light.h"
 
 class IlluminationModel {

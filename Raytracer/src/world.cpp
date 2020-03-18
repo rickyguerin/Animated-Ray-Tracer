@@ -2,7 +2,7 @@
 #include "../header/WorldProgram/sphereProgram.h"
 #include "../header/WorldProgram/triangleProgram.h"
 #include "../header/Shape/shape.h"
-#include "../header/Data/intersection.h"
+#include "../header/Math/intersection.h"
 
 World::World(const glm::vec3& color) {
 	backgroundColor = color;
