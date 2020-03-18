@@ -5,6 +5,7 @@
 #include "../../header/Illumination/illuminationModel.h"
 #include "../../header/Illumination/flatModel.h"
 #include "../../header/Illumination/phongModel.h"
+#include "../../header/Illumination/checkerModel.h"
 
 // A string that every method can read into
 std::string token;
@@ -70,6 +71,10 @@ IlluminationModel* readIlluminationModel(std::ifstream& file, const std::string&
 		return readPhongModel(file);
 	}
 
+	else if (modelName.compare("CHECKER") == 0) {
+		return readCheckerModel(file);
+	}
+
 	// Return Flat by defualt
 	return readFlatModel(file);
 }
@@ -91,6 +96,23 @@ IlluminationModel* readPhongModel(std::ifstream& file) {
 
 	return new PhongModel(
 		diffuseColor, specularColor,
+		ambientConst, diffuseConst, specularConst, specularExp
+	);
+}
+
+// Read the next lines as a Checker Illumination Model
+IlluminationModel* readCheckerModel(std::ifstream& file) {
+	float checkSize = readFloat(file, "checkSize:");
+	glm::vec3 primaryColor = readVec3(file, "primaryColor:");
+	glm::vec3 secondaryColor = readVec3(file, "secondaryColor:");
+	glm::vec3 specularColor = readVec3(file, "specularColor:");
+	float ambientConst = readFloat(file, "ambientConst:");
+	float diffuseConst = readFloat(file, "diffuseConst:");
+	float specularConst = readFloat(file, "specularConst:");
+	float specularExp = readFloat(file, "specularExp:");
+
+	return new CheckerModel(
+		checkSize, primaryColor, secondaryColor, specularColor,
 		ambientConst, diffuseConst, specularConst, specularExp
 	);
 }
