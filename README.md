@@ -9,7 +9,6 @@ A ray tracer I'm building to learn C++ and to practice what I learned in CSCI-71
 + Can use keyframes to produce a series of images that can be turned into a gif/mp4
 
 ### Next Tasks
-+ Checkerboard material
 + KD Tree
 + Catmull-Rom interpolation
 
