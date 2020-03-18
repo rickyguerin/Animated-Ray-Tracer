@@ -1,8 +1,8 @@
 0.0 {
-	eye: 0.0 0.0 3.0
+	eye: 0.0 0.0 4.0
 	lookat: 0.0 0.0 0.0
 	up: 0.0 1.0 0.0
-	focalLength: 8.0
+	focalLength: 6.0
 	canvasWidth: 10.0
 	canvasHeight: 10.0
 }
