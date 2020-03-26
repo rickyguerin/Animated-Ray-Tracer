@@ -59,7 +59,8 @@ std::string readIlluminationModelName(std::ifstream& file, const char* attribute
 	// Check that token is a valid IlluminationModel name
 	assert(
 		token.compare("FLAT") == 0 ||
-		token.compare("PHONG") == 0
+		token.compare("PHONG") == 0 ||
+		token.compare("CHECKER") == 0
 	);
 
 	return token;
