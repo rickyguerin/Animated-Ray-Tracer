@@ -24,11 +24,12 @@ std::string padInt(int i, int n) {
 
 int main() {
 	// Create the World
-	World world(glm::vec3(0.0f, 0.8f, 1.0f));
+	World world(glm::vec3(0.0f, 0.0f, 0.0f));
 
-	world.addProgram("world/check.sphere");
+	world.addProgram("world/shell.sphere");
 	world.addProgram("world/sun.sphere");
 	world.addProgram("world/main.light");
+	world.addProgram("world/back.light");
 
 	// Read the CameraProgram
 	CameraProgram camProg("world/main.camera");
