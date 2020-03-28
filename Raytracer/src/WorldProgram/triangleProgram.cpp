@@ -4,6 +4,7 @@
 #include "../../header/WorldProgram/reader.h"
 #include "../../header/WorldProgram/triangleProgram.h"
 #include "../../header/Shape/triangle.h"
+#include "../../header/Math/catmullRom.h"
 
 TriangleProgram::TriangleProgram(const std::string& filename) {
 	std::ifstream progFile(filename);
@@ -43,12 +44,23 @@ TriangleProgram::TriangleProgram(const std::string& filename) {
 }
 
 // Interpolate between two sets of vertices
-std::vector<glm::vec3> interpolateVertices(const std::vector<glm::vec3>& before, const std::vector<glm::vec3>& after, const float t) {
+std::vector<glm::vec3> TriangleProgram::interpolateVertices(const int activeFrame, const float t, const std::vector<glm::vec3>& before, const std::vector<glm::vec3>& after) const {
 
 	std::vector<glm::vec3> vertices;
+	glm::vec3 p0, p3;
 
 	for (int i = 0; i < 3; i++) {
-		vertices.push_back(glm::mix(before[i], after[i], t));
+		p0 = NULL_POINT;
+		if (activeFrame > 0) {
+			p0 = frames[activeFrame - 1].vertices[i];
+		}
+
+		p3 = NULL_POINT;
+		if (activeFrame + 2 < frames.size()) {
+			p3 = frames[activeFrame + 2].vertices[i];
+		}
+
+		vertices.push_back(interpolate(t, p0, before[i], after[i], p3));
 	}
 
 	return vertices;
@@ -77,7 +89,7 @@ Shape* TriangleProgram::getShape(const float time) const {
 		double t = (time - now.timestamp) / (next.timestamp - now.timestamp);
 
 		IlluminationModel* illumination = now.illumination->interpolate(next.illumination, t);
-		std::vector<glm::vec3> vertices = interpolateVertices(now.vertices, next.vertices, t);
+		std::vector<glm::vec3> vertices = interpolateVertices(activeFrame, t, now.vertices, next.vertices);
 
 		return new Triangle(illumination, vertices);
 	}

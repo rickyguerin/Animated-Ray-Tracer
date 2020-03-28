@@ -31,11 +31,11 @@
     <Filter Include="Source Files\Illumination">
       <UniqueIdentifier>{502524ad-ab78-464e-a1f5-d418d9a87648}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Data">
-      <UniqueIdentifier>{bfbbd1a6-d97a-4259-a3e4-b309df08eec8}</UniqueIdentifier>
+    <Filter Include="Header Files\Math">
+      <UniqueIdentifier>{ec731aae-a96f-4170-a28c-17293416cc69}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Data">
-      <UniqueIdentifier>{95bdaeaf-057a-48d4-8aa4-20309280e643}</UniqueIdentifier>
+    <Filter Include="Source Files\Math">
+      <UniqueIdentifier>{2e748be0-3235-410a-b3ba-9bab6c7f7d43}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -75,9 +75,6 @@
     <ClCompile Include="src\Illumination\flatModel.cpp">
       <Filter>Source Files\Illumination</Filter>
     </ClCompile>
-    <ClCompile Include="src\Data\image.cpp">
-      <Filter>Source Files\Data</Filter>
-    </ClCompile>
     <ClCompile Include="src\Illumination\phongModel.cpp">
       <Filter>Source Files\Illumination</Filter>
     </ClCompile>
@@ -89,6 +86,12 @@
     </ClCompile>
     <ClCompile Include="src\Illumination\checkerModel.cpp">
       <Filter>Source Files\Illumination</Filter>
+    </ClCompile>
+    <ClCompile Include="src\image.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Math\catmullRom.cpp">
+      <Filter>Source Files\Math</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -128,12 +131,6 @@
     <ClInclude Include="header\Illumination\flatModel.h">
       <Filter>Header Files\Illumination</Filter>
     </ClInclude>
-    <ClInclude Include="header\Data\image.h">
-      <Filter>Header Files\Data</Filter>
-    </ClInclude>
-    <ClInclude Include="header\Data\intersection.h">
-      <Filter>Header Files\Data</Filter>
-    </ClInclude>
     <ClInclude Include="header\Illumination\phongModel.h">
       <Filter>Header Files\Illumination</Filter>
     </ClInclude>
@@ -145,6 +142,15 @@
     </ClInclude>
     <ClInclude Include="header\Illumination\checkerModel.h">
       <Filter>Header Files\Illumination</Filter>
+    </ClInclude>
+    <ClInclude Include="header\image.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="header\Math\catmullRom.h">
+      <Filter>Header Files\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="header\Math\intersection.h">
+      <Filter>Header Files\Math</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

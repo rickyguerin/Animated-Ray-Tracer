@@ -1,6 +1,6 @@
 #include <glm/glm.hpp>
 #include "../header/camera.h"
-#include "../header/Data/image.h"
+#include "../header/image.h"
 
 Camera::Camera(const glm::vec3& eye, const glm::vec3& lookat, const glm::vec3& up, const float focalLength, const float canvasWidth, const float canvasHeight) {
 	this->eye = eye;

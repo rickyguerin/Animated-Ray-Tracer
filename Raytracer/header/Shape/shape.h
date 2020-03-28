@@ -5,7 +5,7 @@
 #include <glm/mat4x4.hpp>
 #include <glm/vec3.hpp>
 #include "../Illumination/illuminationModel.h"
-#include "../Data/intersection.h"
+#include "../Math/intersection.h"
 
 class Shape {
 protected:
