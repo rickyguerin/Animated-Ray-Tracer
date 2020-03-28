@@ -4,8 +4,8 @@ GLOBAL {
 
 0.0 {
 	checkSize: 0.1
-	primaryColor: 0.6 0.5 0.4
-	secondaryColor: 0.4 0.5 0.6
+	primaryColor: 1.0 0.5 0.4
+	secondaryColor: 0.4 0.5 1.0
 	specularColor: 1.0 1.0 1.0
 	ambientConst: 1.0
 	diffuseConst: 0.8
@@ -18,8 +18,8 @@ GLOBAL {
 
 1.0 {
 	checkSize: 0.1
-	primaryColor: 0.6 0.5 0.4
-	secondaryColor: 0.4 0.5 0.6
+	primaryColor: 1.0 0.5 0.4
+	secondaryColor: 0.4 0.5 1.0
 	specularColor: 1.0 1.0 1.0
 	ambientConst: 1.0
 	diffuseConst: 0.8
@@ -28,4 +28,46 @@ GLOBAL {
 	vertex: 0.0 -0.1 0.0
 	vertex: 0.0 0.1 0.0
 	vertex: 1.0 0.0 0.0
+}
+
+2.0 {
+	checkSize: 0.1
+	primaryColor: 1.0 0.5 0.4
+	secondaryColor: 0.4 0.5 1.0
+	specularColor: 1.0 1.0 1.0
+	ambientConst: 1.0
+	diffuseConst: 0.8
+	specularConst: 0.2
+	specularExp: 10.0
+	vertex: -0.1 0.0 0.0
+	vertex: 0.1 0.0 0.0
+	vertex: 0.0 -1.0 0.0
+}
+
+3.0 {
+	checkSize: 0.1
+	primaryColor: 1.0 0.5 0.4
+	secondaryColor: 0.4 0.5 1.0
+	specularColor: 1.0 1.0 1.0
+	ambientConst: 1.0
+	diffuseConst: 0.8
+	specularConst: 0.2
+	specularExp: 10.0
+	vertex: 0.0 0.1 0.0
+	vertex: 0.0 -0.1 0.0
+	vertex: -1.0 0.0 0.0
+}
+
+4.0 {
+	checkSize: 0.1
+	primaryColor: 1.0 0.5 0.4
+	secondaryColor: 0.4 0.5 1.0
+	specularColor: 1.0 1.0 1.0
+	ambientConst: 1.0
+	diffuseConst: 0.8
+	specularConst: 0.2
+	specularExp: 10.0
+	vertex: 0.1 0.0 0.0
+	vertex: -0.1 0.0 0.0
+	vertex: 0.0 1.0 0.0
 }
