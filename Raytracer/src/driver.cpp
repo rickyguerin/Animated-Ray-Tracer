@@ -27,13 +27,13 @@ int main() {
 	World world(glm::vec3(0.2f, 0.1f, 0.2f));
 
 	world.addProgram("world/triangle/clock.triangle");
-	world.addProgram("world/main.light");
+	world.addProgram("world/light/main.light");
 
 	// Read the CameraProgram
-	CameraProgram camProg("world/main.camera");
+	CameraProgram camProg("world/camera/main.camera");
 
 	// Animation frame information
-	const float fps = 10;
+	const float fps = 1;
 	const float duration = 1.0;
 	const unsigned frames = fps * duration;
 
