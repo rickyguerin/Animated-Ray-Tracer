@@ -7,10 +7,10 @@ A ray tracer I'm building to learn C++ and to practice what I learned in CSCI-71
 + Can render spheres and triangles with phong or flat shading
 + Can parse input files like [this](Raytracer/world/test.sphere) that define keyframes for one object
 + Can use keyframes to produce a series of images that can be turned into a gif/mp4
++ Animates with Catmull-Rom interpolation
 
 ### Next Tasks
 + KD Tree
-+ Catmull-Rom interpolation
 
 ### Dependencies
 + Relies on the [LodePNG](https://github.com/lvandeve/lodepng) NuGet package for writing .png files.
