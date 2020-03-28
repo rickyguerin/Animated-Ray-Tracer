@@ -5,6 +5,7 @@
 #include "../../header/WorldProgram/sphereProgram.h"
 #include "../../header/Shape/sphere.h"
 #include "../../header/Illumination/illuminationModel.h"
+#include "../../header/Math/catmullRom.h"
 
 SphereProgram::SphereProgram(const std::string& filename) {
 	std::ifstream progFile(filename);
@@ -62,8 +63,19 @@ Shape* SphereProgram::getShape(const float time) const {
 		double t = (time - now.timestamp) / (next.timestamp - now.timestamp);
 
 		IlluminationModel* illumination = now.illumination->interpolate(next.illumination, t);
-		glm::vec3 position = glm::mix(now.position, next.position, t);
 		double radius = glm::mix(now.radius, next.radius, t);
+
+		glm::vec3 p0 = NULL_POINT;
+		if (activeFrame > 0) {
+			p0 = frames[activeFrame - 1].position;
+		}
+
+		glm::vec3 p3 = NULL_POINT;
+		if (activeFrame + 2 < frames.size()) {
+			p3 = frames[activeFrame + 2].position;
+		}
+
+		glm::vec3 position = interpolate(t, p0, now.position, next.position, p3);
 
 		return new Sphere(illumination, position, radius);
 	}
