@@ -28,6 +28,9 @@ public:
 	// Constructor
 	TriangleProgram(const std::string& filename);
 
+	// Get interpolated vertices using catmull-rom
+	std::vector<glm::vec3> interpolateVertices(const int activeFrame, const float t, const std::vector<glm::vec3>& before, const std::vector<glm::vec3>& after) const;
+
 	// Interpolate between frames to get the Sphere at the given time
 	virtual Shape* getShape(const float time) const;
 };
