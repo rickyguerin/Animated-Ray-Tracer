@@ -55,7 +55,7 @@ Shape* SphereProgram::getShape(const float time) const {
 		return new Sphere(frames[activeFrame].illumination, frames[activeFrame].position, frames[activeFrame].radius);
 	}
 
-	// Do linear interpolation
+	// Do interpolation
 	else {
 		SphereFrame now = frames[activeFrame];
 		SphereFrame next = frames[activeFrame + 1];
