@@ -1,0 +1,14 @@
+GLOBAL {
+	illumination: PHONG
+}
+
+0.0 {
+	diffuseColor: 0.5 0.5 0.5
+	specularColor: 1.0 1.0 1.0
+	ambientConst: 1.0
+	diffuseConst: 0.8
+	specularConst: 0.05
+	specularExp: 10.0
+	center: 0.6 0.08 0.12
+	radius: 0.02
+}
