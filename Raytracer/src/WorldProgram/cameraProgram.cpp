@@ -3,6 +3,7 @@
 #include <glm/common.hpp>
 #include "../../header/WorldProgram/cameraProgram.h"
 #include "../../header/WorldProgram/reader.h"
+#include "../../header/Math/catmullRom.h"
 
 CameraProgram::CameraProgram(const std::string& filename) {
 	std::ifstream progFile(filename);
@@ -49,17 +50,37 @@ Camera CameraProgram::getCamera(const float time) const {
 			frames[activeFrame].focalLength, frames[activeFrame].canvasWidth, frames[activeFrame].canvasHeight);
 	}
 
-	// Do linear interpolation
+	// Do interpolation
 	else {
 		CameraFrame now = frames[activeFrame];
 		CameraFrame next = frames[activeFrame + 1];
 
 		double t = (time - now.timestamp) / (next.timestamp - now.timestamp);
 
-		glm::vec3 eye = glm::mix(now.eye, next.eye, t);
-		glm::vec3 lookat = glm::mix(now.lookat, next.lookat, t);
-		glm::vec3 up = glm::mix(now.up, next.up, t);
+		glm::vec3 p0, p3;
 
+		// Interpolate eye
+		p0 = NULL_POINT; p3 = NULL_POINT;
+		if (activeFrame > 0) { p0 = frames[activeFrame - 1].eye; }
+		if (activeFrame + 2 < frames.size()) { p3 = frames[activeFrame + 2].eye; }
+
+		glm::vec3 eye = interpolate(t, p0, now.eye, next.eye, p3);
+
+		// Interpolate lookat
+		p0 = NULL_POINT; p3 = NULL_POINT;
+		if (activeFrame > 0) { p0 = frames[activeFrame - 1].lookat; }
+		if (activeFrame + 2 < frames.size()) { p3 = frames[activeFrame + 2].lookat; }
+
+		glm::vec3 lookat = interpolate(t, p0, now.lookat, next.lookat, p3);
+
+		// Interpolate up
+		p0 = NULL_POINT; p3 = NULL_POINT;
+		if (activeFrame > 0) { p0 = frames[activeFrame - 1].up; }
+		if (activeFrame + 2 < frames.size()) { p3 = frames[activeFrame + 2].up; }
+
+		glm::vec3 up = interpolate(t, p0, now.up, next.up, p3);
+
+		// Interpolate Camera settings
 		float focalLength = glm::mix(now.focalLength, next.focalLength, t);
 		float canvasWidth = glm::mix(now.canvasWidth, next.canvasWidth, t);
 		float canvasHeight = glm::mix(now.canvasHeight, next.canvasHeight, t);
