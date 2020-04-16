@@ -24,17 +24,22 @@ std::string padInt(int i, int n) {
 
 int main() {
 	// Create the World
-	World world(glm::vec3(0.2f, 0.1f, 0.2f));
+	World world(glm::vec3(0.6f, 0.9f, 1.0f));
 
-	world.addProgram("world/triangle/clock.triangle");
+	world.addProgram("world/triangle/waterLeft.triangle");
+	world.addProgram("world/triangle/waterRight.triangle");
+	world.addProgram("world/sphere/islandOne.sphere");
+	world.addProgram("world/sphere/islandTwo.sphere");
+	world.addProgram("world/sphere/islandThree.sphere");
+	world.addProgram("world/sphere/rock.sphere");
 	world.addProgram("world/light/main.light");
 
 	// Read the CameraProgram
 	CameraProgram camProg("world/camera/main.camera");
 
 	// Animation frame information
-	const float fps = 1;
-	const float duration = 1.0;
+	const float fps = 10.0;
+	const float duration = 12.0;
 	const unsigned frames = fps * duration;
 
 	// Animation timer
