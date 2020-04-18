@@ -27,16 +27,17 @@ int main() {
 	// Create the World
 	World world(glm::vec3(0.6f, 0.9f, 1.0f));
 
-	world.addProgram("world/triangle/waterLeft.triangle");
-	world.addProgram("world/triangle/waterRight.triangle");
-	world.addProgram("world/sphere/islandOne.sphere");
-	world.addProgram("world/sphere/islandTwo.sphere");
-	world.addProgram("world/sphere/islandThree.sphere");
-	world.addProgram("world/sphere/rock.sphere");
-	world.addProgram("world/light/main.light");
+	world.addProgram("world/island/waterLeft.triangle");
+	world.addProgram("world/island/waterRight.triangle");
+	world.addProgram("world/island/island1.sphere");
+	world.addProgram("world/island/island2.sphere");
+	world.addProgram("world/island/island3.sphere");
+	world.addProgram("world/island/island4.sphere");
+	world.addProgram("world/island/islandGrass.sphere");
+	world.addProgram("world/island/main.light");
 
 	// Read the CameraProgram
-	CameraProgram camProg("world/camera/main.camera");
+	CameraProgram camProg("world/island/main.camera");
 
 	// Animation frame information
 	const float fps = 10.0;
