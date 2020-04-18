@@ -9,6 +9,6 @@ GLOBAL {
 	diffuseConst: 0.8
 	specularConst: 0.05
 	specularExp: 10.0
-	center: -0.1 -2.9 0.0
+	center: -0.5 -2.9 0.1
 	radius: 3.0
 }
