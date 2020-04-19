@@ -45,6 +45,13 @@ int main() {
 	world.addProgram("world/island/rocks/pyramid/side2.triangle");
 	world.addProgram("world/island/rocks/pyramid/side3.triangle");
 
+	world.addProgram("world/island/rocks/flat/top.triangle");
+	world.addProgram("world/island/rocks/flat/side1.triangle");
+	world.addProgram("world/island/rocks/flat/side2.triangle");
+	world.addProgram("world/island/rocks/flat/side3.triangle");
+	world.addProgram("world/island/rocks/flat/connect12.triangle");
+	world.addProgram("world/island/rocks/flat/connect13.triangle");
+	world.addProgram("world/island/rocks/flat/connect23.triangle");
 
 	world.addProgram("world/island/main.light");
 
