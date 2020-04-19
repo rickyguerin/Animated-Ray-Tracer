@@ -25,38 +25,14 @@ std::string padInt(int i, int n) {
 
 int main() {
 	// Create the World
-	World world(glm::vec3(0.6f, 0.9f, 1.0f));
+	World world(glm::vec3(0.0f, 0.0f, 0.0f));
 
-	world.addProgram("world/island/waterLeft.triangle");
-	world.addProgram("world/island/waterRight.triangle");
+	world.addProgram("world/grid/0-0-0.sphere");
 
-	world.addProgram("world/island/island1.sphere");
-	world.addProgram("world/island/island2.sphere");
-	world.addProgram("world/island/island3.sphere");
-	world.addProgram("world/island/island4.sphere");
-	world.addProgram("world/island/islandGrass.sphere");
-
-	world.addProgram("world/island/rocks/mainSpire/top.triangle");
-	world.addProgram("world/island/rocks/mainSpire/side1.triangle");
-	world.addProgram("world/island/rocks/mainSpire/side2.triangle");
-	world.addProgram("world/island/rocks/mainSpire/side3.triangle");
-
-	world.addProgram("world/island/rocks/pyramid/side1.triangle");
-	world.addProgram("world/island/rocks/pyramid/side2.triangle");
-	world.addProgram("world/island/rocks/pyramid/side3.triangle");
-
-	world.addProgram("world/island/rocks/flat/top.triangle");
-	world.addProgram("world/island/rocks/flat/side1.triangle");
-	world.addProgram("world/island/rocks/flat/side2.triangle");
-	world.addProgram("world/island/rocks/flat/side3.triangle");
-	world.addProgram("world/island/rocks/flat/connect12.triangle");
-	world.addProgram("world/island/rocks/flat/connect13.triangle");
-	world.addProgram("world/island/rocks/flat/connect23.triangle");
-
-	world.addProgram("world/island/main.light");
+	world.addProgram("world/grid/main.light");
 
 	// Read the CameraProgram
-	CameraProgram camProg("world/island/main.camera");
+	CameraProgram camProg("world/grid/main.camera");
 
 	// Animation frame information
 	const float fps = 1.0;
