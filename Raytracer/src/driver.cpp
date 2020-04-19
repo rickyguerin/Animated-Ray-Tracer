@@ -28,6 +28,16 @@ int main() {
 	World world(glm::vec3(0.0f, 0.0f, 0.0f));
 
 	world.addProgram("world/grid/0-0-0.sphere");
+	world.addProgram("world/grid/1-0-0.sphere");
+	world.addProgram("world/grid/n1-0-0.sphere");
+
+	world.addProgram("world/grid/0-1-0.sphere");
+	world.addProgram("world/grid/1-1-0.sphere");
+	world.addProgram("world/grid/n1-1-0.sphere");
+
+	world.addProgram("world/grid/0-n1-0.sphere");
+	world.addProgram("world/grid/1-n1-0.sphere");
+	world.addProgram("world/grid/n1-n1-0.sphere");
 
 	world.addProgram("world/grid/main.light");
 
