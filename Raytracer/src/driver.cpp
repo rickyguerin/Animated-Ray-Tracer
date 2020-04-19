@@ -29,15 +29,23 @@ int main() {
 
 	world.addProgram("world/island/waterLeft.triangle");
 	world.addProgram("world/island/waterRight.triangle");
+
 	world.addProgram("world/island/island1.sphere");
 	world.addProgram("world/island/island2.sphere");
 	world.addProgram("world/island/island3.sphere");
 	world.addProgram("world/island/island4.sphere");
 	world.addProgram("world/island/islandGrass.sphere");
+
 	world.addProgram("world/island/rocks/mainSpire/top.triangle");
 	world.addProgram("world/island/rocks/mainSpire/side1.triangle");
 	world.addProgram("world/island/rocks/mainSpire/side2.triangle");
 	world.addProgram("world/island/rocks/mainSpire/side3.triangle");
+
+	world.addProgram("world/island/rocks/pyramid/side1.triangle");
+	world.addProgram("world/island/rocks/pyramid/side2.triangle");
+	world.addProgram("world/island/rocks/pyramid/side3.triangle");
+
+
 	world.addProgram("world/island/main.light");
 
 	// Read the CameraProgram
