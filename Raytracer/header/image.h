@@ -11,12 +11,10 @@ private:
 	// Image dimensions
 	unsigned width;
 	unsigned height;
-
-	// Save highest value in Image for tone reproduction
-	float highest;
-
-	// Collects color
-	std::vector<float> filmPlane;
+	
+	// Collect color
+	std::vector<float> rgbIlluminance;
+	float logAvgLuminance;
 
 public:
 	// Constructor
@@ -26,7 +24,7 @@ public:
 	void setPixel(const unsigned x, const unsigned y, const glm::vec3& color);
 
 	// Write the contents of this Image to a file
-	void write(const std::string& filename) const;
+	void write(const std::string& filename, const float ldmax);
 };
 
 #endif

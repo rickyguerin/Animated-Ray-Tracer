@@ -56,7 +56,7 @@ int main() {
 	// Render frames
 	for (int i = 0; i < frames; i++) {
 		std::cout << "Rendering frame " << padInt(i, 4) << " / " << padInt(frames - 1, 4) << "\n";
-		camProg.getCamera(time).render(world, "../images/temp/output_" + padInt(i, 4) + ".png", 1024, 1024, time);
+		camProg.getCamera(time).render(world, "../images/temp/output_" + padInt(i, 4), 2048, 2048, time);
 		time += spf;
 	}
 

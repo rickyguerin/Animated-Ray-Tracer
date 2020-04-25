@@ -75,13 +75,13 @@ void Camera::render(World& world, const std::string& filename, const unsigned im
 				colors.push_back(world.trace(ray, time));
 			}
 
-			output.setPixel(x, imageHeight - y - 1, averageColor(colors));
+			output.setPixel(x, imageHeight - y - 1, averageColor(colors) * ldmax);
 			colors.clear();
 		}
 	}
 
 	// Save Image to file
-	output.write(filename);
+	output.write(filename, ldmax);
 
 	// Delete Shapes
 	world.deleteCurrent();
