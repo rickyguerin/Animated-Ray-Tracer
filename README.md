@@ -10,9 +10,9 @@ A ray tracer I'm building to learn C++ and to practice what I learned in CSCI-71
 + Animates with Catmull-Rom interpolation
 
 ### Next Tasks
-+ KD Tree
 + Reflection
 + Refraction
++ KD Tree
 
 ### Dependencies
 + Relies on the [LodePNG](https://github.com/lvandeve/lodepng) NuGet package for writing .png files.
