@@ -28,17 +28,6 @@ int main() {
 	World world(glm::vec3(0.0f, 0.0f, 0.0f));
 
 	world.addProgram("world/grid/0-0-0.sphere");
-	world.addProgram("world/grid/1-0-0.sphere");
-	world.addProgram("world/grid/n1-0-0.sphere");
-
-	world.addProgram("world/grid/0-1-0.sphere");
-	world.addProgram("world/grid/1-1-0.sphere");
-	world.addProgram("world/grid/n1-1-0.sphere");
-
-	world.addProgram("world/grid/0-n1-0.sphere");
-	world.addProgram("world/grid/1-n1-0.sphere");
-	world.addProgram("world/grid/n1-n1-0.sphere");
-
 	world.addProgram("world/grid/main.light");
 
 	// Read the CameraProgram
@@ -56,7 +45,7 @@ int main() {
 	// Render frames
 	for (int i = 0; i < frames; i++) {
 		std::cout << "Rendering frame " << padInt(i, 4) << " / " << padInt(frames - 1, 4) << "\n";
-		camProg.getCamera(time).render(world, "../images/temp/output_" + padInt(i, 4) + ".png", 1024, 1024, time);
+		camProg.getCamera(time).render(world, "../images/temp/output_" + padInt(i, 4), 2048, 2048, time);
 		time += spf;
 	}
 
