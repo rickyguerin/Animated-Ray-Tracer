@@ -21,6 +21,7 @@ struct CameraFrame {
 	float canvasWidth;
 	float canvasHeight;
 	float ldmax;
+	unsigned sampleLevel;
 };
 
 class CameraProgram {

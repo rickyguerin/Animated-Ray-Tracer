@@ -6,4 +6,5 @@
 	canvasWidth: 3.0
 	canvasHeight: 3.0
 	ldmax: 1
+	sampleLevel: 2
 }
