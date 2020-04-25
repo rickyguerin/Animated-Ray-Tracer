@@ -22,6 +22,7 @@ CameraProgram::CameraProgram(const std::string& filename) {
 		float canvasWidth = readFloat(progFile, "canvasWidth:");
 		float canvasHeight = readFloat(progFile, "canvasHeight:");
 		float ldmax = readFloat(progFile, "ldmax:");
+		unsigned sampleLevel = readInt(progFile, "sampleLevel");
 
 		consumeToken(progFile, "}");
 
@@ -29,7 +30,8 @@ CameraProgram::CameraProgram(const std::string& filename) {
 		CameraFrame cf{
 			timestamp,
 			eye, lookat, up,
-			focalLength, canvasWidth, canvasHeight, ldmax
+			focalLength, canvasWidth, canvasHeight,
+			ldmax, sampleLevel
 		};
 
 		frames.push_back(cf);
@@ -48,7 +50,8 @@ Camera CameraProgram::getCamera(const float time) const {
 	// If the last frame is active, no need to interpolate
 	if (activeFrame == frames.size() - 1) {
 		return Camera(frames[activeFrame].eye, frames[activeFrame].lookat, frames[activeFrame].up,
-			frames[activeFrame].focalLength, frames[activeFrame].canvasWidth, frames[activeFrame].canvasHeight, frames[activeFrame].ldmax);
+			frames[activeFrame].focalLength, frames[activeFrame].canvasWidth, frames[activeFrame].canvasHeight,
+			frames[activeFrame].ldmax, frames[activeFrame].sampleLevel);
 	}
 
 	// Do interpolation
@@ -86,7 +89,8 @@ Camera CameraProgram::getCamera(const float time) const {
 		float canvasWidth = glm::mix(now.canvasWidth, next.canvasWidth, t);
 		float canvasHeight = glm::mix(now.canvasHeight, next.canvasHeight, t);
 		float ldmax = glm::mix(now.ldmax, next.ldmax, t);
+		unsigned sampleLevel = glm::mix(now.sampleLevel, next.sampleLevel, t);
 
-		return Camera(eye, lookat, up, focalLength, canvasWidth, canvasHeight, ldmax);
+		return Camera(eye, lookat, up, focalLength, canvasWidth, canvasHeight, ldmax, sampleLevel);
 	}
 }
