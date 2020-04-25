@@ -5,4 +5,5 @@
 	focalLength: 4.0
 	canvasWidth: 3.0
 	canvasHeight: 3.0
+	ldmax: 700
 }

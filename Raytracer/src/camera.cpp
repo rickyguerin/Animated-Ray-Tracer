@@ -2,7 +2,7 @@
 #include "../header/camera.h"
 #include "../header/image.h"
 
-Camera::Camera(const glm::vec3& eye, const glm::vec3& lookat, const glm::vec3& up, const float focalLength, const float canvasWidth, const float canvasHeight) {
+Camera::Camera(const glm::vec3& eye, const glm::vec3& lookat, const glm::vec3& up, const float focalLength, const float canvasWidth, const float canvasHeight, const float ldmax) {
 	this->eye = eye;
 	this->lookat = lookat;
 	this->up = up;
@@ -10,6 +10,7 @@ Camera::Camera(const glm::vec3& eye, const glm::vec3& lookat, const glm::vec3& u
 	this->focalLength = focalLength;
 	this->canvasWidth = canvasWidth;
 	this->canvasHeight = canvasHeight;
+	this->ldmax = ldmax;
 
 	// Build World -> Camera matrix
 	glm::vec3 n = glm::normalize(eye - lookat);

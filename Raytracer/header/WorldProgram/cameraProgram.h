@@ -20,6 +20,7 @@ struct CameraFrame {
 	float focalLength;
 	float canvasWidth;
 	float canvasHeight;
+	float ldmax;
 };
 
 class CameraProgram {
