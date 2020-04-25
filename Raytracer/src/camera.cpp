@@ -48,32 +48,38 @@ void Camera::render(World& world, const std::string& filename, const unsigned im
 	const float pixelWidth = canvasWidth / imageWidth;
 	const float pixelHeight = canvasHeight / imageHeight;
 
-	const float qpw = pixelWidth / 4;
-	const float qph = pixelHeight / 4;
+	// World space dimensions of one subPixel
+	const float subPixelWidth = pixelWidth / sampleLevel;
+	const float subPixelHeight = pixelHeight / sampleLevel;
+	
+	// Half dimensions of one subPixel
+	const float subPixelHalfWidth = subPixelWidth / 2;
+	const float subPixelHalfHeight = subPixelHeight / 2;
 
-	// Minimum X/Y value of a pixel in the Image
-	const float minX = (pixelWidth - canvasWidth) / 2;
-	const float minY = (pixelHeight - canvasHeight) / 2;
+	// Lowest X and Y values in the canvas
+	const float minX = -canvasWidth / 2;
+	const float minY = -canvasHeight / 2;
 
-	// Fire a ray through each pixel to render the Image
-	float px, py;
-
-	// Modifiers for supersampling
-	float ssx[4] = { -qpw, qpw, -qpw, qpw };
-	float ssy[4] = { -qph, -qph, qph, qph };
-
-	// Color vector for supersampling
+	// Colors from supersampling one pixel
 	std::vector<glm::vec3> colors;
 
+	// X and Y direction for the current ray
+	float rx, ry;
+
+	// Fire a ray through every subPixel
 	for (unsigned y = 0; y < imageHeight; y++) {
 		for (unsigned x = 0; x < imageWidth; x++) {
-			for (int i = 0; i < 4; i++) {
-				px = minX + (pixelWidth * x) + ssx[i];
-				py = minY + (pixelHeight * y) + ssy[i];
 
-				glm::vec3 ray = glm::normalize(glm::vec3(px, py, -focalLength));
+			// Divide each pixel into a grid of sampleLevel^2 subPixels and perform supersampling
+			for (int r = 0; r < sampleLevel; r++) {
+				for (int c = 0; c < sampleLevel; c++) {
+					rx = minX + (pixelWidth * x) + (subPixelWidth * c) + subPixelHalfWidth;
+					ry = minY + (pixelHeight * y) + (subPixelHeight * r) + subPixelHalfHeight;
 
-				colors.push_back(world.trace(ray, time));
+					glm::vec3 ray = glm::normalize(glm::vec3(rx, ry, -focalLength));
+
+					colors.push_back(world.trace(ray, time));
+				}
 			}
 
 			output.setPixel(x, imageHeight - y - 1, averageColor(colors) * ldmax);
