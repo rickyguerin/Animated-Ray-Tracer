@@ -20,7 +20,7 @@ public:
 		const float ambientConst, const float diffuseConst, const float SpecularConst, const float specularExp);
 
 	// Override from IlluminationModel
-	virtual glm::vec3 illuminate(Intersection intersection, const std::vector<Light>& lights) const;
+	virtual glm::vec3 illuminate(Intersection intersection, const std::vector<Light>& lights, const bool shadow) const;
 	virtual IlluminationModel* interpolate(IlluminationModel* other, const float t) const;
 };
 

@@ -96,6 +96,38 @@ glm::vec3 World::trace(const glm::vec3& ray, const float time) const {
 	// No intersection occurred at all
 	if (closestIntersection.isNull()) { return backgroundColor; }
 
-	// Illuminate the intersected Shape
-	else { return intersectedShape->illuminate(closestIntersection, currentLights); }
+	// Intersection occurred, test for shadow
+	else {
+		Intersection closestShadowIntersection = NULL_INTERSECTION;
+		const Shape* shadowIntersectionShape = currentShapes[0];
+
+		// Test if any light can reach intersection point
+		for (int i = 0; i < currentLights.size(); i++) {
+			glm::vec3 srd = glm::normalize(currentLights[i].position - closestIntersection.point);
+			glm::vec3 sro = closestIntersection.point + (0.01f * srd);
+			float lightOmega = (currentLights[i].position - closestIntersection.point).length();
+
+			for (int k = 0; k < currentShapes.size(); k++) {
+				currentIntersection = currentShapes[i]->collision(sro, srd);
+
+				// No intersection occured with this Shape
+				if (currentIntersection.isNull()) { continue; }
+
+				// If this intersection is closer than the previous closest, update
+				else if (closestShadowIntersection.isNull() || currentIntersection.omega < closestShadowIntersection.omega) {
+					closestShadowIntersection = currentIntersection;
+					shadowIntersectionShape = currentShapes[i];
+				}
+			}
+
+			// If no shadow ray Intersection, illuminate normally
+			if (closestShadowIntersection.isNull()) {
+				return intersectedShape->illuminate(closestIntersection, currentLights, false);
+			}
+		}
+
+		// If every light is blocked, return black
+		//return glm::vec3(0, 0, 0);
+		return intersectedShape->illuminate(closestIntersection, currentLights, true);
+	}
 }

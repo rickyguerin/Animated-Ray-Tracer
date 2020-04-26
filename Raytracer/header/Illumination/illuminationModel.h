@@ -13,7 +13,7 @@ public:
 	virtual ~IlluminationModel() {};
 
 	// Determine what color to return if a ray collision occurs
-	virtual glm::vec3 illuminate(Intersection intersection, const std::vector<Light>& lights) const = 0;
+	virtual glm::vec3 illuminate(Intersection intersection, const std::vector<Light>& lights, const bool shadow) const = 0;
 
 	// Interpolate between two IlluminationModels of the same type
 	virtual IlluminationModel* interpolate(IlluminationModel* other, const float t) const = 0;
