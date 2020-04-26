@@ -108,7 +108,7 @@ glm::vec3 World::trace(const glm::vec3& ray, const float time) const {
 			float lightOmega = (currentLights[i].position - closestIntersection.point).length();
 
 			for (int k = 0; k < currentShapes.size(); k++) {
-				currentIntersection = currentShapes[i]->collision(sro, srd);
+				currentIntersection = currentShapes[k]->collision(sro, srd);
 
 				// No intersection occured with this Shape
 				if (currentIntersection.isNull()) { continue; }
@@ -116,7 +116,7 @@ glm::vec3 World::trace(const glm::vec3& ray, const float time) const {
 				// If this intersection is closer than the previous closest, update
 				else if (closestShadowIntersection.isNull() || currentIntersection.omega < closestShadowIntersection.omega) {
 					closestShadowIntersection = currentIntersection;
-					shadowIntersectionShape = currentShapes[i];
+					shadowIntersectionShape = currentShapes[k];
 				}
 			}
 
