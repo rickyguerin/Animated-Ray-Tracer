@@ -27,7 +27,15 @@ int main() {
 	// Create the World
 	World world(glm::vec3(0.0f, 0.0f, 0.0f));
 
-	world.addProgram("world/grid/0-0-0.sphere");
+	world.addProgram("world/grid/center.sphere");
+	world.addProgram("world/grid/top.sphere");
+	world.addProgram("world/grid/topLeft.sphere");
+	world.addProgram("world/grid/topRight.sphere");
+
+	world.addProgram("world/grid/bottom.sphere");
+	world.addProgram("world/grid/bottomLeft.sphere");
+	world.addProgram("world/grid/bottomRight.sphere");
+
 	world.addProgram("world/grid/main.light");
 
 	// Read the CameraProgram
