@@ -77,10 +77,11 @@ glm::vec3 World::trace(const glm::vec3& ray, const float time) const {
 	Intersection closestIntersection = NULL_INTERSECTION;
 	const Shape* intersectedShape = currentShapes[0];
 
+	glm::vec3 origin = glm::vec3(0, 0, 0);
 	Intersection currentIntersection;
 	for (int i = 0; i < currentShapes.size(); i++) {
 
-		currentIntersection = currentShapes[i]->collision(ray);
+		currentIntersection = currentShapes[i]->collision(origin, ray);
 
 		// No intersection occured with this Shape
 		if (currentIntersection.isNull()) { continue; }
