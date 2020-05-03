@@ -25,11 +25,11 @@ public:
 	virtual void transformToCameraSpace(const glm::mat4& cameraMatrix) = 0;
 
 	// Determine if a ray collides with this Shape
-	virtual Intersection collision(const glm::vec3& ray) const = 0;
+	virtual Intersection collision(const glm::vec3& rayOrigin, const glm::vec3& rayDirection) const = 0;
 
 	// Determine what color to return if a ray collision occurs
-	glm::vec3 illuminate(Intersection intersection, const std::vector<Light>& lights) const {
-		return illumination->illuminate(intersection, lights);
+	glm::vec3 illuminate(Intersection intersection, const std::vector<Light>& lights, const bool shadow) const {
+		return illumination->illuminate(intersection, lights, shadow);
 	}
 };
 

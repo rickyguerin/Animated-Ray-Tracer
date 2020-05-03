@@ -16,7 +16,7 @@ CheckerModel::CheckerModel(const float checkSize, const glm::vec3& primaryColor,
 	this->specularExp = specularExp;
 }
 
-glm::vec3 CheckerModel::illuminate(Intersection intersection, const std::vector<Light>& lights) const {
+glm::vec3 CheckerModel::illuminate(Intersection intersection, const std::vector<Light>& lights, const bool shadow) const {
 
 	int u = std::abs((intersection.point.x) / checkSize);
 	int v = std::abs((intersection.point.z) / checkSize);
@@ -37,12 +37,14 @@ glm::vec3 CheckerModel::illuminate(Intersection intersection, const std::vector<
 
 	glm::vec3 src, r;
 
-	for (int i = 0; i < lights.size(); i++) {
-		src = glm::normalize(lights[i].position - intersection.point);
-		r = glm::reflect(src, intersection.normal);
+	if (!shadow) {
+		for (int i = 0; i < lights.size(); i++) {
+			src = glm::normalize(lights[i].position - intersection.point);
+			r = glm::reflect(src, intersection.normal);
 
-		diffusePart += lights[i].color * checkColor * std::max(0.0f, glm::dot(src, intersection.normal));
-		specularPart += lights[i].color * specularColor * std::pow(std::max(0.0f, glm::dot(r, intersection.ray)), specularExp);
+			diffusePart += lights[i].color * checkColor * std::max(0.0f, glm::dot(src, intersection.normal));
+			specularPart += lights[i].color * specularColor * std::pow(std::max(0.0f, glm::dot(r, intersection.ray)), specularExp);
+		}
 	}
 
 	return ambientConst * ambientPart + diffuseConst * diffusePart + specularConst * specularPart;
