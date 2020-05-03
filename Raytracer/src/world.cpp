@@ -126,8 +126,7 @@ glm::vec3 World::trace(const glm::vec3& ray, const float time) const {
 			}
 		}
 
-		// If every light is blocked, return black
-		//return glm::vec3(0, 0, 0);
+		// If every light is blocked, return illumination with shadow
 		return intersectedShape->illuminate(closestIntersection, currentLights, true);
 	}
 }
