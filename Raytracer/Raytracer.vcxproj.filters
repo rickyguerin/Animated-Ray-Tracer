@@ -102,6 +102,9 @@
     <ClCompile Include="src\FastNoise\FastNoise.cpp">
       <Filter>Source Files\FastNoise</Filter>
     </ClCompile>
+    <ClCompile Include="src\Illumination\noiseModel.cpp">
+      <Filter>Source Files\Illumination</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="header\camera.h">
@@ -163,6 +166,9 @@
     </ClInclude>
     <ClInclude Include="header\FastNoise\FastNoise.h">
       <Filter>Header Files\FastNoise</Filter>
+    </ClInclude>
+    <ClInclude Include="header\Illumination\noiseModel.h">
+      <Filter>Header Files\Illumination</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
