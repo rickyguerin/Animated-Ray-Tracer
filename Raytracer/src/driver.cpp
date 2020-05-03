@@ -25,7 +25,7 @@ std::string padInt(int i, int n) {
 
 int main() {
 	// Create the World
-	World world(glm::vec3(0.3f, 0.5f, 0.8f));
+	World world(glm::vec3(0.3f, 0.7f, 0.4f));
 
 	world.addProgram("world/whitted/center.sphere");
 	world.addProgram("world/whitted/leftWing.triangle");
@@ -40,8 +40,8 @@ int main() {
 	CameraProgram camProg("world/whitted/main.camera");
 
 	// Animation frame information
-	const float fps = 4.0;
-	const float duration = 4.0;
+	const float fps = 1.0;
+	const float duration = 1.0;
 	const unsigned frames = fps * duration;
 
 	// Animation timer
