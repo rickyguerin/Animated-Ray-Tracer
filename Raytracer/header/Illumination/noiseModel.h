@@ -3,9 +3,12 @@
 #define NOISE_MODEL_H
 
 #include "illuminationModel.h"
+#include "../../header/FastNoise/FastNoise.h"
 
 class NoiseModel : public IlluminationModel {
 private:
+	FastNoise noiseGenerator;
+
 	glm::vec3 diffuseColor;
 	glm::vec3 specularColor;
 
