@@ -1,0 +1,10 @@
+0.0 {
+	eye: 0.0 0.0 2.0
+	lookat: 0.0 0.0 -1.0
+	up: 0.0 1.0 0.0
+	focalLength: 4.0
+	canvasWidth: 3.0
+	canvasHeight: 3.0
+	ldmax: 1
+	sampleLevel: 1
+}

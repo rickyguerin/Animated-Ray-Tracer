@@ -25,19 +25,15 @@ std::string padInt(int i, int n) {
 
 int main() {
 	// Create the World
-	World world(glm::vec3(0.3f, 0.7f, 0.4f));
+	World world(glm::vec3(0.0f, 0.0f, 0.0f));
 
-	world.addProgram("world/whitted/center.sphere");
-	world.addProgram("world/whitted/leftWing.triangle");
-	world.addProgram("world/whitted/rightWing.triangle");
-	
-	world.addProgram("world/whitted/leftFloor.triangle");
-	world.addProgram("world/whitted/rightFloor.triangle");
-
-	world.addProgram("world/whitted/main.light");
+	world.addProgram("world/noise/shell.sphere");
+	world.addProgram("world/noise/center.sphere");
+	world.addProgram("world/noise/main.light");
+	//world.addProgram("world/noise/back.light");
 
 	// Read the CameraProgram
-	CameraProgram camProg("world/whitted/main.camera");
+	CameraProgram camProg("world/noise/main.camera");
 
 	// Animation frame information
 	const float fps = 1.0;
