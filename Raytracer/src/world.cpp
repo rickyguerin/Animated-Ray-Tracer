@@ -121,7 +121,7 @@ glm::vec3 World::trace(const glm::vec3& ray, const float time) const {
 			}
 
 			// If no shadow ray Intersection, illuminate normally
-			if (closestShadowIntersection.isNull()) {
+			if (closestShadowIntersection.isNull() || closestShadowIntersection.omega > lightOmega) {
 				return intersectedShape->illuminate(closestIntersection, currentLights, false);
 			}
 		}
