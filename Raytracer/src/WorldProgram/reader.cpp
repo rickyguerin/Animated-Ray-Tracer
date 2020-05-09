@@ -109,7 +109,8 @@ IlluminationModel* readPhongModel(std::ifstream& file) {
 // Read the next lines as a Phong Illumination Model
 IlluminationModel* readNoiseModel(std::ifstream& file) {
 
-	glm::vec3 diffuseColor = readVec3(file, "diffuseColor:");
+	glm::vec3 primaryColor = readVec3(file, "primaryColor:");
+	glm::vec3 secondaryColor = readVec3(file, "secondaryColor:");
 	glm::vec3 specularColor = readVec3(file, "specularColor:");
 	float ambientConst = readFloat(file, "ambientConst:");
 	float diffuseConst = readFloat(file, "diffuseConst:");
@@ -117,7 +118,7 @@ IlluminationModel* readNoiseModel(std::ifstream& file) {
 	float specularExp = readFloat(file, "specularExp:");
 
 	return new NoiseModel(
-		diffuseColor, specularColor,
+		primaryColor, specularColor, secondaryColor,
 		ambientConst, diffuseConst, specularConst, specularExp
 	);
 }

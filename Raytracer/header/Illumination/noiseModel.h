@@ -9,7 +9,8 @@ class NoiseModel : public IlluminationModel {
 private:
 	FastNoise noiseGenerator;
 
-	glm::vec3 diffuseColor;
+	glm::vec3 primaryColor;
+	glm::vec3 secondaryColor;
 	glm::vec3 specularColor;
 
 	float ambientConst;
@@ -19,7 +20,7 @@ private:
 
 public:
 	// Constructor
-	NoiseModel(const glm::vec3& diffuseColor, const glm::vec3& specularColor,
+	NoiseModel(const glm::vec3& primaryColor, const glm::vec3& specularColor, const glm::vec3& secondaryColor,
 		const float ambientConst, const float diffuseConst, const float SpecularConst, const float specularExp);
 
 	// Override from IlluminationModel
