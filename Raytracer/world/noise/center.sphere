@@ -1,5 +1,5 @@
 GLOBAL {
-	illumination: PHONG
+	illumination: NOISE
 }
 
 0.0 {
