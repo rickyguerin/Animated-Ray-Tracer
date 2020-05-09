@@ -34,6 +34,7 @@ int main() {
 	CameraProgram camProg("world/noise/main.camera");
 
 	// Animation frame information
+	const float fps = 1.0;
 	const float duration = 1.0;
 	const unsigned frames = fps * duration;
 
