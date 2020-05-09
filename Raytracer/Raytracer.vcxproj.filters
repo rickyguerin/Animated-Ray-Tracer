@@ -37,6 +37,12 @@
     <Filter Include="Source Files\Math">
       <UniqueIdentifier>{2e748be0-3235-410a-b3ba-9bab6c7f7d43}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\FastNoise">
+      <UniqueIdentifier>{59cf9c01-efc5-4596-85b6-9a1fe9389f47}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\FastNoise">
+      <UniqueIdentifier>{918a26ce-5b70-4137-8ab9-e73f147f6a76}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -92,6 +98,12 @@
     </ClCompile>
     <ClCompile Include="src\Math\catmullRom.cpp">
       <Filter>Source Files\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FastNoise\FastNoise.cpp">
+      <Filter>Source Files\FastNoise</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Illumination\noiseModel.cpp">
+      <Filter>Source Files\Illumination</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -151,6 +163,12 @@
     </ClInclude>
     <ClInclude Include="header\Math\intersection.h">
       <Filter>Header Files\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="header\FastNoise\FastNoise.h">
+      <Filter>Header Files\FastNoise</Filter>
+    </ClInclude>
+    <ClInclude Include="header\Illumination\noiseModel.h">
+      <Filter>Header Files\Illumination</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

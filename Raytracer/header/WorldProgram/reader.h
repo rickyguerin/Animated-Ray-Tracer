@@ -22,5 +22,6 @@ IlluminationModel* readIlluminationModel(std::ifstream& file, const std::string&
 IlluminationModel* readFlatModel(std::ifstream& file);
 IlluminationModel* readPhongModel(std::ifstream& file);
 IlluminationModel* readCheckerModel(std::ifstream& file);
+IlluminationModel* readNoiseModel(std::ifstream& file);
 
 #endif

@@ -6,6 +6,7 @@
 #include "../../header/Illumination/flatModel.h"
 #include "../../header/Illumination/phongModel.h"
 #include "../../header/Illumination/checkerModel.h"
+#include "../../header/Illumination/noiseModel.h"
 
 // A string that every method can read into
 std::string token;
@@ -76,6 +77,10 @@ IlluminationModel* readIlluminationModel(std::ifstream& file, const std::string&
 		return readCheckerModel(file);
 	}
 
+	else if (modelName.compare("NOISE") == 0) {
+		return readNoiseModel(file);
+	}
+
 	// Return Flat by defualt
 	return readFlatModel(file);
 }
@@ -97,6 +102,23 @@ IlluminationModel* readPhongModel(std::ifstream& file) {
 
 	return new PhongModel(
 		diffuseColor, specularColor,
+		ambientConst, diffuseConst, specularConst, specularExp
+	);
+}
+
+// Read the next lines as a Phong Illumination Model
+IlluminationModel* readNoiseModel(std::ifstream& file) {
+
+	glm::vec3 primaryColor = readVec3(file, "primaryColor:");
+	glm::vec3 secondaryColor = readVec3(file, "secondaryColor:");
+	glm::vec3 specularColor = readVec3(file, "specularColor:");
+	float ambientConst = readFloat(file, "ambientConst:");
+	float diffuseConst = readFloat(file, "diffuseConst:");
+	float specularConst = readFloat(file, "specularConst:");
+	float specularExp = readFloat(file, "specularExp:");
+
+	return new NoiseModel(
+		primaryColor, specularColor, secondaryColor,
 		ambientConst, diffuseConst, specularConst, specularExp
 	);
 }
