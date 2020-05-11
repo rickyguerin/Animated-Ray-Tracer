@@ -3,7 +3,6 @@
 
 #include "../../header/WorldProgram/reader.h"
 #include "../../header/Illumination/illuminationModel.h"
-#include "../../header/Illumination/flatModel.h"
 #include "../../header/Illumination/phongModel.h"
 #include "../../header/Illumination/checkerModel.h"
 #include "../../header/Illumination/noiseModel.h"
@@ -59,9 +58,9 @@ std::string readIlluminationModelName(std::ifstream& file, const char* attribute
 
 	// Check that token is a valid IlluminationModel name
 	assert(
-		token.compare("FLAT") == 0 ||
 		token.compare("PHONG") == 0 ||
-		token.compare("CHECKER") == 0
+		token.compare("CHECKER") == 0 ||
+		token.compare("NOISE") == 0
 	);
 
 	return token;
@@ -69,11 +68,7 @@ std::string readIlluminationModelName(std::ifstream& file, const char* attribute
 
 IlluminationModel* readIlluminationModel(std::ifstream& file, const std::string& modelName) {
 
-	if (modelName.compare("PHONG") == 0) {
-		return readPhongModel(file);
-	}
-
-	else if (modelName.compare("CHECKER") == 0) {
+	if (modelName.compare("CHECKER") == 0) {
 		return readCheckerModel(file);
 	}
 
@@ -81,13 +76,8 @@ IlluminationModel* readIlluminationModel(std::ifstream& file, const std::string&
 		return readNoiseModel(file);
 	}
 
-	// Return Flat by defualt
-	return readFlatModel(file);
-}
-
-// Read the next color as a Flat Illumination Model
-IlluminationModel* readFlatModel(std::ifstream& file) {
-	return new FlatModel(readVec3(file, "color:"));
+	// Return Phong by defualt
+	return readPhongModel(file);
 }
 
 // Read the next lines as a Phong Illumination Model
