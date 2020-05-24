@@ -1,0 +1,16 @@
+GLOBAL {
+	illumination: NOISE
+}
+
+0.0 {
+	primaryColor: 0.8 0.4 0.8
+	secondaryColor: 0.4 0.2 0.4
+	specularColor: 1.0 1.0 1.0
+	ambientConst: 1.0
+	diffuseConst: 0.8
+	specularConst: 0.0
+	specularExp: 10.0
+	vertex: -0.1 0.45 0.0
+	vertex: -0.5 1.0 0.0
+	vertex: -0.2 2.1 0.0
+}
