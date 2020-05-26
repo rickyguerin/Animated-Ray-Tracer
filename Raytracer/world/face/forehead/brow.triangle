@@ -3,14 +3,15 @@ GLOBAL {
 }
 
 0.0 {
-	primaryColor: 0.2 0.2 0.2
-	secondaryColor: 0.8 0.8 0.8
+	primaryColor: 1.0 0.7 0.7
+	secondaryColor: 1.0 0.5 0.3
 	specularColor: 1.0 1.0 1.0
 	ambientConst: 1.0
 	diffuseConst: 0.8
 	specularConst: 0.0
 	specularExp: 10.0
-	vertex: -4.0 -4.0 -0.01
-	vertex: -4.0 4.0 -0.01
-	vertex: 4.0 4.0 -0.01
+
+	vertex: -0.8 1.45 0.0
+	vertex: 0.8 1.45 0.0
+	vertex: 0.0 1.25 0.0
 }
