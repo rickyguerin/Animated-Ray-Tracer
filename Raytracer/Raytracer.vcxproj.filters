@@ -78,9 +78,6 @@
     <ClCompile Include="src\WorldProgram\triangleProgram.cpp">
       <Filter>Source Files\WorldProgram</Filter>
     </ClCompile>
-    <ClCompile Include="src\Illumination\flatModel.cpp">
-      <Filter>Source Files\Illumination</Filter>
-    </ClCompile>
     <ClCompile Include="src\Illumination\phongModel.cpp">
       <Filter>Source Files\Illumination</Filter>
     </ClCompile>
@@ -138,9 +135,6 @@
       <Filter>Header Files\WorldProgram</Filter>
     </ClInclude>
     <ClInclude Include="header\Illumination\illuminationModel.h">
-      <Filter>Header Files\Illumination</Filter>
-    </ClInclude>
-    <ClInclude Include="header\Illumination\flatModel.h">
       <Filter>Header Files\Illumination</Filter>
     </ClInclude>
     <ClInclude Include="header\Illumination\phongModel.h">

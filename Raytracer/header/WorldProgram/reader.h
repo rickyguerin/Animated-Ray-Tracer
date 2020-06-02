@@ -19,7 +19,6 @@ glm::vec3 readVec3(std::ifstream& file, const char* attribute);
 // Read illumination models
 std::string readIlluminationModelName(std::ifstream& file, const char* attribute);
 IlluminationModel* readIlluminationModel(std::ifstream& file, const std::string& modelName);
-IlluminationModel* readFlatModel(std::ifstream& file);
 IlluminationModel* readPhongModel(std::ifstream& file);
 IlluminationModel* readCheckerModel(std::ifstream& file);
 IlluminationModel* readNoiseModel(std::ifstream& file);
