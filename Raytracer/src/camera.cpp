@@ -78,7 +78,7 @@ void Camera::render(World& world, const std::string& filename, const unsigned im
 
 					glm::vec3 ray = glm::normalize(glm::vec3(rx, ry, -focalLength));
 
-					colors.push_back(world.trace(ray, time));
+					colors.push_back(world.trace(ray, time, 0));
 				}
 			}
 

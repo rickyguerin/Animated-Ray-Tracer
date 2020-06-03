@@ -71,7 +71,7 @@ void World::deleteCurrent() {
 	currentLights.clear();
 }
 
-glm::vec3 World::trace(const glm::vec3& ray, const float time) const {
+glm::vec3 World::trace(const glm::vec3& ray, const float time, const int depth) const {
 
 	// Determine what Shape is intersected by ray first
 	Intersection closestIntersection = NULL_INTERSECTION;
