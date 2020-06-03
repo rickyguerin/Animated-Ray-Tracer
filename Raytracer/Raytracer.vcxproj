@@ -171,6 +171,7 @@
     <ClInclude Include="header\image.h" />
     <ClInclude Include="header\Math\catmullRom.h" />
     <ClInclude Include="header\Math\intersection.h" />
+    <ClInclude Include="header\Math\ray.h" />
     <ClInclude Include="header\Shape\shape.h" />
     <ClInclude Include="header\Shape\sphere.h" />
     <ClInclude Include="header\Shape\triangle.h" />
