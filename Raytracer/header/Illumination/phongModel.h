@@ -17,7 +17,7 @@ private:
 public:
 	// Constructor
 	PhongModel(const glm::vec3& diffuseColor, const glm::vec3& specularColor,
-		const float ambientConst, const float diffuseConst, const float SpecularConst, const float specularExp);
+		const float ambientConst, const float diffuseConst, const float SpecularConst, const float specularExp, const float kReflect);
 
 	// Override from IlluminationModel
 	virtual glm::vec3 illuminate(Intersection intersection, const std::vector<Light>& lights, const bool shadow) const;

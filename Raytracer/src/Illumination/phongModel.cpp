@@ -3,7 +3,8 @@
 #include "../../header/Illumination/phongModel.h"
 
 PhongModel::PhongModel(const glm::vec3& diffuseColor, const glm::vec3& specularColor,
-	const float ambientConst, const float diffuseConst, const float specularConst, const float specularExp) {
+	const float ambientConst, const float diffuseConst, const float specularConst, const float specularExp,
+	const float kReflect) : IlluminationModel(kReflect) {
 
 	this->diffuseColor = diffuseColor;
 	this->specularColor = specularColor;
