@@ -101,6 +101,9 @@ glm::vec3 World::trace(const glm::vec3& ray, const float time, const int depth) 
 		Intersection closestShadowIntersection = NULL_INTERSECTION;
 		const Shape* shadowIntersectionShape = currentShapes[0];
 
+		bool shadow = true;
+		glm::vec3 pixelColor = glm::vec3(0, 0, 0);
+
 		// Test if any light can reach intersection point
 		for (int i = 0; i < currentLights.size(); i++) {
 			glm::vec3 srd = glm::normalize(currentLights[i].position - closestIntersection.point);
@@ -122,11 +125,12 @@ glm::vec3 World::trace(const glm::vec3& ray, const float time, const int depth) 
 
 			// If no shadow ray Intersection, illuminate normally
 			if (closestShadowIntersection.isNull() || closestShadowIntersection.omega > lightOmega) {
-				return intersectedShape->illuminate(closestIntersection, currentLights, false);
+				shadow = false;
+				break;
 			}
 		}
 
 		// If every light is blocked, return illumination with shadow
-		return intersectedShape->illuminate(closestIntersection, currentLights, true);
+		pixelColor += intersectedShape->illuminate(closestIntersection, currentLights, shadow);
 	}
 }
