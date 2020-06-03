@@ -28,6 +28,8 @@ int main() {
 	World world(glm::vec3(0.1f, 0.1f, 0.4f));
 
 	world.addProgram("world/whitted/center.sphere");
+	world.addProgram("world/whitted/red.sphere");
+
 	world.addProgram("world/whitted/leftFloor.triangle");
 	world.addProgram("world/whitted/rightFloor.triangle");
 
