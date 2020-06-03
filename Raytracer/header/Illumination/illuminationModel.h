@@ -9,6 +9,9 @@
 
 class IlluminationModel {
 public:
+	// Reflection coefficient
+	float kReflect;
+
 	// Destructor
 	virtual ~IlluminationModel() {};
 
