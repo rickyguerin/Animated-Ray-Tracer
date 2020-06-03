@@ -8,6 +8,12 @@
 #include "../Illumination/light.h"
 
 class IlluminationModel {
+protected:
+	// Constructor
+	IlluminationModel(float kReflect) {
+		this->kReflect = kReflect;
+	}
+
 public:
 	// Reflection coefficient
 	float kReflect;
