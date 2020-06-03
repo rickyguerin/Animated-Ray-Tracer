@@ -27,11 +27,16 @@ int main() {
 	// Create the World
 	World world(glm::vec3(0.1f, 0.1f, 0.4f));
 
-	world.addProgram("world/noise/center.sphere");
-	world.addProgram("world/noise/main.light");
+	world.addProgram("world/whitted/center.sphere");
+	world.addProgram("world/whitted/red.sphere");
+
+	world.addProgram("world/whitted/leftFloor.triangle");
+	world.addProgram("world/whitted/rightFloor.triangle");
+
+	world.addProgram("world/whitted/main.light");
 
 	// Read the CameraProgram
-	CameraProgram camProg("world/noise/main.camera");
+	CameraProgram camProg("world/whitted/main.camera");
 
 	// Animation frame information
 	const float fps = 1.0;

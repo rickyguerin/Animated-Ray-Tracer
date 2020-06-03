@@ -164,5 +164,8 @@
     <ClInclude Include="header\Illumination\noiseModel.h">
       <Filter>Header Files\Illumination</Filter>
     </ClInclude>
+    <ClInclude Include="header\Math\ray.h">
+      <Filter>Header Files\Math</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

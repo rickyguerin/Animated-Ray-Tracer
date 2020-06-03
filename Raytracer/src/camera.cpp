@@ -76,9 +76,9 @@ void Camera::render(World& world, const std::string& filename, const unsigned im
 					rx = minX + (pixelWidth * x) + (subPixelWidth * c) + subPixelHalfWidth;
 					ry = minY + (pixelHeight * y) + (subPixelHeight * r) + subPixelHalfHeight;
 
-					glm::vec3 ray = glm::normalize(glm::vec3(rx, ry, -focalLength));
+					glm::vec3 rayDir = glm::normalize(glm::vec3(rx, ry, -focalLength));
 
-					colors.push_back(world.trace(ray, time));
+					colors.push_back(world.trace(Ray{glm::vec3(0, 0, 0), rayDir}, time, 0));
 				}
 			}
 
