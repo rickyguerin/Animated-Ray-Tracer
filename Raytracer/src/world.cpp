@@ -133,5 +133,16 @@ glm::vec3 World::trace(const Ray& ray, const float time, const int depth) const 
 
 		// If every light is blocked, return illumination with shadow
 		pixelColor += intersectedShape->illuminate(closestIntersection, currentLights, shadow);
+
+		if (depth < MAX_DEPTH) {
+			float kref = intersectedShape->illumination->kReflect;
+
+			if (kref > 0) {
+				glm::vec3 refDir = glm::reflect(ray.direction, closestIntersection.normal);
+				pixelColor += kref * trace(Ray{closestIntersection.point + (refDir * 0.001f), refDir}, time, depth + 1);
+			}
+		}
+
+		return pixelColor;
 	}
 }
