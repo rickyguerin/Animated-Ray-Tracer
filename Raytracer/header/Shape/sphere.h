@@ -20,7 +20,7 @@ public:
 
 	// Override from Shape
 	virtual void transformToCameraSpace(const glm::mat4& cameraMatrix);
-	virtual Intersection collision(const glm::vec3& rayOrigin, const glm::vec3& rayDirection) const;
+	virtual Intersection collision(const Ray& ray) const;
 };
 
 #endif

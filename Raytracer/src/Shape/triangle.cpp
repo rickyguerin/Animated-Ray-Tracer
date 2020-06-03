@@ -10,12 +10,12 @@ void Triangle::transformToCameraSpace(const glm::mat4& cameraMatrix) {
 	}
 }
 
-Intersection Triangle::collision(const glm::vec3& rayOrigin, const glm::vec3& rayDirection) const {
+Intersection Triangle::collision(const Ray& ray) const {
 
 	glm::vec3 e1 = vertices[1] - vertices[0];
 	glm::vec3 e2 = vertices[2] - vertices[0];
-	glm::vec3 T = rayOrigin - vertices[0];
-	glm::vec3 P = glm::cross(rayDirection, e2);
+	glm::vec3 T = ray.origin - vertices[0];
+	glm::vec3 P = glm::cross(ray.direction, e2);
 	glm::vec3 Q = glm::cross(T, e1);
 
 	float bottom = glm::dot(P, e1);
@@ -26,7 +26,7 @@ Intersection Triangle::collision(const glm::vec3& rayOrigin, const glm::vec3& ra
 	glm::vec3 top {
 		glm::dot(Q, e2),
 		glm::dot(P, T),
-		glm::dot(Q, rayDirection)
+		glm::dot(Q, ray.direction)
 	};
 
 	glm::vec3 bary = top / bottom;
@@ -42,8 +42,8 @@ Intersection Triangle::collision(const glm::vec3& rayOrigin, const glm::vec3& ra
 	// Intersection is inside Triangle
 	return Intersection{
 		bary.x,
-		rayDirection * bary.x,
+		ray.direction * bary.x,
 		-glm::normalize(glm::cross(e1, e2)),
-		rayDirection
+		ray.direction
 	};
 }

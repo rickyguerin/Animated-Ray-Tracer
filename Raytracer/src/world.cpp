@@ -71,7 +71,7 @@ void World::deleteCurrent() {
 	currentLights.clear();
 }
 
-glm::vec3 World::trace(const glm::vec3& ray, const float time, const int depth) const {
+glm::vec3 World::trace(const Ray& ray, const float time, const int depth) const {
 
 	// Determine what Shape is intersected by ray first
 	Intersection closestIntersection = NULL_INTERSECTION;
@@ -81,7 +81,7 @@ glm::vec3 World::trace(const glm::vec3& ray, const float time, const int depth) 
 	Intersection currentIntersection;
 	for (int i = 0; i < currentShapes.size(); i++) {
 
-		currentIntersection = currentShapes[i]->collision(origin, ray);
+		currentIntersection = currentShapes[i]->collision(ray);
 
 		// No intersection occured with this Shape
 		if (currentIntersection.isNull()) { continue; }
@@ -108,10 +108,9 @@ glm::vec3 World::trace(const glm::vec3& ray, const float time, const int depth) 
 		for (int i = 0; i < currentLights.size(); i++) {
 			glm::vec3 srd = glm::normalize(currentLights[i].position - closestIntersection.point);
 			glm::vec3 sro = closestIntersection.point + (0.01f * srd);
-			float lightOmega = (currentLights[i].position - closestIntersection.point).length();
-
+			
 			for (int k = 0; k < currentShapes.size(); k++) {
-				currentIntersection = currentShapes[k]->collision(sro, srd);
+				currentIntersection = currentShapes[k]->collision(Ray{ sro, srd });
 
 				// No intersection occured with this Shape
 				if (currentIntersection.isNull()) { continue; }
@@ -122,6 +121,8 @@ glm::vec3 World::trace(const glm::vec3& ray, const float time, const int depth) 
 					shadowIntersectionShape = currentShapes[k];
 				}
 			}
+
+			float lightOmega = (currentLights[i].position - closestIntersection.point).length();
 
 			// If no shadow ray Intersection, illuminate normally
 			if (closestShadowIntersection.isNull() || closestShadowIntersection.omega > lightOmega) {

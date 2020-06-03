@@ -11,11 +11,11 @@ void Sphere::transformToCameraSpace(const glm::mat4& cameraMatrix) {
 	center = cameraMatrix * glm::vec4(center, 1.0f);
 }
 
-Intersection Sphere::collision(const glm::vec3& rayOrigin, const glm::vec3& rayDirection) const {
+Intersection Sphere::collision(const Ray& ray) const {
 
-	glm::vec3 toCenter = rayOrigin - center;
+	glm::vec3 toCenter = ray.origin - center;
 
-	double b = glm::dot(rayDirection, toCenter) * 2.0;
+	double b = glm::dot(ray.direction, toCenter) * 2.0;
 	double c = glm::dot(toCenter, toCenter) - pow(radius, 2);
 	double disc = (b * b) - (4.0 * c);
 
@@ -36,14 +36,14 @@ Intersection Sphere::collision(const glm::vec3& rayOrigin, const glm::vec3& rayD
 	if (omega < 0) { return NULL_INTERSECTION; }
 
 	else {
-		glm::vec3 point = rayDirection * omega;
+		glm::vec3 point = ray.direction * omega;
 		glm::vec3 normal = glm::normalize(point - center);
 
 		return Intersection {
 			omega,
 			point,
 			normal,
-			rayDirection
+			ray.direction
 		};
 	}
 }
