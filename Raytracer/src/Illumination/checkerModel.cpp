@@ -3,7 +3,7 @@
 #include "../../header/Illumination/checkerModel.h"
 
 CheckerModel::CheckerModel(const float checkSize, const glm::vec3& primaryColor, const glm::vec3& secondaryColor, const glm::vec3& specularColor,
-	const float ambientConst, const float diffuseConst, const float specularConst, const float specularExp) {
+	const float ambientConst, const float diffuseConst, const float specularConst, const float specularExp, const float kReflect) : IlluminationModel(kReflect) {
 
 	this->checkSize = checkSize;
 	this->primaryColor = primaryColor;
