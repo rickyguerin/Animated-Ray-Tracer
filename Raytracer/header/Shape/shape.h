@@ -10,15 +10,15 @@
 
 class Shape {
 protected:
-	// How this shape is shaded
-	IlluminationModel* illumination;
-
 	// Constructor
 	Shape(IlluminationModel* illumination) {
 		this->illumination = illumination;
 	}
 
 public:
+	// How this shape is shaded
+	IlluminationModel* illumination;
+
 	// Destructor
 	virtual ~Shape() {};
 
