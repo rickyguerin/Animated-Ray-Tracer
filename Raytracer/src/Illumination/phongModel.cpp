@@ -44,6 +44,7 @@ IlluminationModel* PhongModel::interpolate(IlluminationModel* other, const float
 		glm::mix(this->ambientConst, ((PhongModel*)other)->ambientConst, t),
 		glm::mix(this->diffuseConst, ((PhongModel*)other)->diffuseConst, t),
 		glm::mix(this->specularConst, ((PhongModel*)other)->specularConst, t),
-		glm::mix(this->specularExp, ((PhongModel*)other)->specularExp, t)
+		glm::mix(this->specularExp, ((PhongModel*)other)->specularExp, t),
+		glm::mix(this->kReflect, ((PhongModel*)other)->kReflect, t)
 	);
 }

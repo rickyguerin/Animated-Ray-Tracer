@@ -60,6 +60,7 @@ IlluminationModel* CheckerModel::interpolate(IlluminationModel* other, const flo
 		glm::mix(this->ambientConst, ((CheckerModel*)other)->ambientConst, t),
 		glm::mix(this->diffuseConst, ((CheckerModel*)other)->diffuseConst, t),
 		glm::mix(this->specularConst, ((CheckerModel*)other)->specularConst, t),
-		glm::mix(this->specularExp, ((CheckerModel*)other)->specularExp, t)
+		glm::mix(this->specularExp, ((CheckerModel*)other)->specularExp, t),
+		glm::mix(this->kReflect, ((CheckerModel*)other)->kReflect, t)
 	);
 }

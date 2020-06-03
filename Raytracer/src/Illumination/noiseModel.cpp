@@ -56,6 +56,7 @@ IlluminationModel* NoiseModel::interpolate(IlluminationModel* other, const float
 		glm::mix(this->ambientConst, ((NoiseModel*)other)->ambientConst, t),
 		glm::mix(this->diffuseConst, ((NoiseModel*)other)->diffuseConst, t),
 		glm::mix(this->specularConst, ((NoiseModel*)other)->specularConst, t),
-		glm::mix(this->specularExp, ((NoiseModel*)other)->specularExp, t)
+		glm::mix(this->specularExp, ((NoiseModel*)other)->specularExp, t),
+		glm::mix(this->kReflect, ((NoiseModel*)other)->kReflect, t)
 	);
 }
