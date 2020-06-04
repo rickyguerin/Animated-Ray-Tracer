@@ -4,7 +4,7 @@
 
 NoiseModel::NoiseModel(const glm::vec3& primaryColor, const glm::vec3& specularColor, const glm::vec3& secondaryColor,
 	const float ambientConst, const float diffuseConst, const float specularConst, const float specularExp,
-	const float kReflect) : IlluminationModel(kReflect) {
+	const float kReflect, const float kRefract) : IlluminationModel(kReflect, kRefract) {
 
 	this->noiseGenerator = FastNoise();
 	this->noiseGenerator.SetFrequency(10.0);
@@ -57,6 +57,7 @@ IlluminationModel* NoiseModel::interpolate(IlluminationModel* other, const float
 		glm::mix(this->diffuseConst, ((NoiseModel*)other)->diffuseConst, t),
 		glm::mix(this->specularConst, ((NoiseModel*)other)->specularConst, t),
 		glm::mix(this->specularExp, ((NoiseModel*)other)->specularExp, t),
-		glm::mix(this->kReflect, ((NoiseModel*)other)->kReflect, t)
+		glm::mix(this->kReflect, other->kReflect, t),
+		glm::mix(this->kRefract, other->kRefract, t)
 	);
 }
