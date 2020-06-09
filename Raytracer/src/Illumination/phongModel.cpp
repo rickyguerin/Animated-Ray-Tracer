@@ -4,7 +4,7 @@
 
 PhongModel::PhongModel(const glm::vec3& diffuseColor, const glm::vec3& specularColor,
 	const float ambientConst, const float diffuseConst, const float specularConst, const float specularExp,
-	const float kReflect, const float kRefract) : IlluminationModel(kReflect, kRefract) {
+	const float kReflect, const float kRefract, const float refIndex) : IlluminationModel(kReflect, kRefract, refIndex) {
 
 	this->diffuseColor = diffuseColor;
 	this->specularColor = specularColor;
@@ -46,6 +46,7 @@ IlluminationModel* PhongModel::interpolate(IlluminationModel* other, const float
 		glm::mix(this->specularConst, ((PhongModel*)other)->specularConst, t),
 		glm::mix(this->specularExp, ((PhongModel*)other)->specularExp, t),
 		glm::mix(this->kReflect, other->kReflect, t),
-		glm::mix(this->kRefract, other->kRefract, t)
+		glm::mix(this->kRefract, other->kRefract, t),
+		glm::mix(this->refIndex, other->refIndex, t)
 	);
 }
