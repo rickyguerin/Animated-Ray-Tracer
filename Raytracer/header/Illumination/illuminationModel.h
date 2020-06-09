@@ -10,15 +10,17 @@
 class IlluminationModel {
 protected:
 	// Constructor
-	IlluminationModel(float kReflect, float kRefract) {
+	IlluminationModel(float kReflect, float kRefract, float refIndex) {
 		this->kReflect = kReflect;
 		this->kRefract = kRefract;
+		this->refIndex = refIndex;
 	}
 
 public:
 	// coefficients
 	float kReflect;
 	float kRefract;
+	float refIndex;
 
 	// Destructor
 	virtual ~IlluminationModel() {};
