@@ -13,6 +13,7 @@ GLOBAL {
 	specularExp: 10.0
 	kReflect: 0.0
 	kRefract: 0.0
+	refIndex: 1.0
 	vertex: -100.0 0.0 100.0
 	vertex: -100.0 0.0 -100.0
 	vertex: 100.0 0.0 100.0

@@ -11,6 +11,7 @@ GLOBAL {
 	specularExp: 10.0
 	kReflect: 0.0
 	kRefract: 0.0
+	refIndex: 1.0
 	center: 0.1 0.5 -0.3
 	radius: 0.25
 }
