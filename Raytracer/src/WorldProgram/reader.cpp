@@ -91,11 +91,12 @@ IlluminationModel* readPhongModel(std::ifstream& file) {
 	float specularExp = readFloat(file, "specularExp:");
 	float kReflect = readFloat(file, "kReflect:");
 	float kRefract = readFloat(file, "kRefract:");
+	float refIndex = readFloat(file, "refIndex:");
 
 	return new PhongModel(
 		diffuseColor, specularColor,
 		ambientConst, diffuseConst, specularConst, specularExp,
-		kReflect, kRefract
+		kReflect, kRefract, refIndex
 	);
 }
 
@@ -111,11 +112,12 @@ IlluminationModel* readNoiseModel(std::ifstream& file) {
 	float specularExp = readFloat(file, "specularExp:");
 	float kReflect = readFloat(file, "kReflect:");
 	float kRefract = readFloat(file, "kRefract:");
+	float refIndex = readFloat(file, "refIndex:");
 
 	return new NoiseModel(
 		primaryColor, specularColor, secondaryColor,
 		ambientConst, diffuseConst, specularConst, specularExp,
-		kReflect, kRefract
+		kReflect, kRefract, refIndex
 	);
 }
 
@@ -131,10 +133,11 @@ IlluminationModel* readCheckerModel(std::ifstream& file) {
 	float specularExp = readFloat(file, "specularExp:");
 	float kReflect = readFloat(file, "kReflect:");
 	float kRefract = readFloat(file, "kRefract:");
+	float refIndex = readFloat(file, "refIndex:");
 
 	return new CheckerModel(
 		checkSize, primaryColor, secondaryColor, specularColor,
 		ambientConst, diffuseConst, specularConst, specularExp,
-		kReflect, kRefract
+		kReflect, kRefract, refIndex
 	);
 }
