@@ -138,10 +138,9 @@ glm::vec3 World::trace(const Ray& ray, const float time, const int depth) const 
 			float kReflect = intersectedShape->illumination->kReflect;
 			float kRefract = intersectedShape->illumination->kRefract;
 
-			glm::vec3 reflectDir;
+			glm::vec3 reflectDir = glm::reflect(ray.direction, closestIntersection.normal);
 
 			if (kReflect > 0) {
-				reflectDir = glm::reflect(ray.direction, closestIntersection.normal);
 				pixelColor += kReflect * trace(Ray{closestIntersection.point + (reflectDir * 0.001f), reflectDir}, time, depth + 1);
 			}
 
