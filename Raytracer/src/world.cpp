@@ -71,7 +71,7 @@ void World::deleteCurrent() {
 	currentLights.clear();
 }
 
-glm::vec3 World::trace(const Ray& ray, const float time, const int depth) const {
+glm::vec3 World::trace(const Ray& ray, const float time, const int depth, const bool inside) const {
 
 	// Determine what Shape is intersected by ray first
 	Intersection closestIntersection = NULL_INTERSECTION;
@@ -141,12 +141,12 @@ glm::vec3 World::trace(const Ray& ray, const float time, const int depth) const 
 			glm::vec3 reflectDir = glm::reflect(ray.direction, closestIntersection.normal);
 
 			if (kReflect > 0) {
-				pixelColor += kReflect * trace(Ray{closestIntersection.point + (reflectDir * 0.001f), reflectDir}, time, depth + 1);
+				pixelColor += kReflect * trace(Ray{closestIntersection.point + (reflectDir * 0.001f), reflectDir}, time, depth + 1, inside);
 			}
 
 			if (kRefract > 0) {
 				glm::vec3 refractDir = glm::refract(ray.direction, closestIntersection.normal, 0.95f);
-				pixelColor += kRefract * trace(Ray{ closestIntersection.point + (refractDir * 0.001f), refractDir }, time, depth + 1);
+				pixelColor += kRefract * trace(Ray{ closestIntersection.point + (refractDir * 0.001f), refractDir }, time, depth + 1, !inside);
 			}
 		}
 
