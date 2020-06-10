@@ -25,13 +25,24 @@ std::string padInt(int i, int n) {
 
 int main() {
 	// Create the World
-	World world(glm::vec3(0.1f, 0.1f, 0.4f));
+	World world(glm::vec3(0.05f, 0.0f, 0.05f));
 
 	world.addProgram("world/whitted/center.sphere");
 	world.addProgram("world/whitted/red.sphere");
 
-	world.addProgram("world/whitted/leftFloor.triangle");
-	world.addProgram("world/whitted/rightFloor.triangle");
+	world.addProgram("world/whitted/walls/bottomSquareLeft.triangle");
+	world.addProgram("world/whitted/walls/bottomSquareRight.triangle");
+
+	world.addProgram("world/whitted/walls/topSquareLeft.triangle");
+	world.addProgram("world/whitted/walls/topSquareRight.triangle");
+
+	world.addProgram("world/whitted/walls/leftSquareBottom.triangle");
+	world.addProgram("world/whitted/walls/leftSquareTop.triangle");
+
+	world.addProgram("world/whitted/walls/rightSquareBottom.triangle");
+	world.addProgram("world/whitted/walls/rightSquareTop.triangle");
+
+	world.addProgram("world/whitted/walls/back.triangle");
 
 	world.addProgram("world/whitted/main.light");
 

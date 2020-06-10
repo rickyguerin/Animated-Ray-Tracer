@@ -3,7 +3,7 @@ GLOBAL {
 }
 
 0.0 {
-	checkSize: 0.4
+	checkSize: 3.14
 	primaryColor: 0.3 0.4 0.2
 	secondaryColor: 0.2 0.3 0.4
 	specularColor: 1.0 1.0 1.0
@@ -14,7 +14,7 @@ GLOBAL {
 	kReflect: 0.0
 	kRefract: 0.0
 	refIndex: 1.0
-	vertex: 100.0 0.0 100.0
-	vertex: -100.0 0.0 -100.0
-	vertex: 100.0 0.0 -100.0
+	vertex: -3.0 -3.0 -100.0
+	vertex: -3.0 3.0 0.0
+	vertex: -3.0 3.0 -100.0
 }

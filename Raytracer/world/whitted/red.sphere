@@ -3,15 +3,15 @@ GLOBAL {
 }
 
 0.0 {
-	diffuseColor: 0.8 0.0 0.0
+	diffuseColor: 0.4 0.4 0.4
 	specularColor: 1.0 1.0 1.0
 	ambientConst: 0.6
 	diffuseConst: 0.5
 	specularConst: 0.2
 	specularExp: 10.0
-	kReflect: 0.0
+	kReflect: 0.5
 	kRefract: 0.0
 	refIndex: 1.0
-	center: 0.0 0.5 -1.0
-	radius: 0.5
+	center: 0.5 0.5 -1.0
+	radius: 0.25
 }
