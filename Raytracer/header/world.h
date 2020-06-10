@@ -11,7 +11,7 @@
 #include "WorldProgram/lightProgram.h"
 #include "../header/Math/ray.h"
 
-static const int MAX_DEPTH = 2;
+static const int MAX_DEPTH = 5;
 
 class World {
 private:
