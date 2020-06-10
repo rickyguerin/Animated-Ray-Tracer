@@ -42,7 +42,7 @@ Intersection Triangle::collision(const Ray& ray) const {
 	// Intersection is inside Triangle
 	return Intersection{
 		bary.x,
-		ray.direction * bary.x,
+		ray.origin + ray.direction * bary.x,
 		-glm::normalize(glm::cross(e1, e2)),
 		ray.direction
 	};
