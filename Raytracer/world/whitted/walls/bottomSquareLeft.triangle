@@ -4,8 +4,8 @@ GLOBAL {
 
 0.0 {
 	checkSize: 1.0
-	primaryColor: 0.3 0.4 0.2
-	secondaryColor: 0.2 0.3 0.4
+	primaryColor: 0.27 0.78 1.0
+	secondaryColor: 0.13 0.13 0.13
 	specularColor: 1.0 1.0 1.0
 	ambientConst: 1.0
 	diffuseConst: 0.8

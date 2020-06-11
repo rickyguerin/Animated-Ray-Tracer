@@ -3,8 +3,8 @@ GLOBAL {
 }
 
 0.0 {
-	primaryColor: 1.0 1.0 1.0
-	secondaryColor: 0.0 0.0 0.0
+	primaryColor: 0.1 0.1 0.4
+	secondaryColor: 0.1 0.1 0.1
 	specularColor: 1.0 1.0 1.0
 	ambientConst: 1.0
 	diffuseConst: 0.0
