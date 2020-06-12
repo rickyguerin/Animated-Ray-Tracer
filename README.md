@@ -10,7 +10,6 @@ A ray tracer I'm building to learn C++ and to practice what I learned in CSCI-71
 + Animates with Catmull-Rom interpolation
 
 ### Next Tasks
-+ Refraction
 + KD Tree
 
 ### Dependencies
