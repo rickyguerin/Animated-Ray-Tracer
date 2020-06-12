@@ -27,8 +27,8 @@ int main() {
 	// Create the World
 	World world(glm::vec3(0.05f, 0.0f, 0.05f));
 
-	world.addProgram("world/whitted/center.sphere");
-	world.addProgram("world/whitted/red.sphere");
+	world.addProgram("world/whitted/first.sphere");
+	//world.addProgram("world/whitted/second.sphere");
 
 	world.addProgram("world/whitted/walls/bottomSquareLeft.triangle");
 	world.addProgram("world/whitted/walls/bottomSquareRight.triangle");
