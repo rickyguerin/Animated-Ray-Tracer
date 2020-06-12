@@ -1,0 +1,213 @@
+GLOBAL {
+	illumination: PHONG
+}
+
+0.0 {
+	diffuseColor: 1.0 0.0 0.0
+	specularColor: 1.0 1.0 1.0
+	ambientConst: 0.6
+	diffuseConst: 0.5
+	specularConst: 0.2
+	specularExp: 10.0
+	kReflect: 0.0
+	kRefract: 0.0
+	refIndex: 0.99
+	center: 0.0 -4.0 -4.0
+	radius: 0.5
+}
+
+1.0 {
+	diffuseColor: 1.0 0.0 0.0
+	specularColor: 1.0 1.0 1.0
+	ambientConst: 0.6
+	diffuseConst: 0.5
+	specularConst: 0.2
+	specularExp: 10.0
+	kReflect: 0.0
+	kRefract: 0.0
+	refIndex: 0.99
+	center: 0.0 0.0 -4.0
+	radius: 0.5
+}
+
+2.0 {
+	diffuseColor: 0.2 0.2 0.2
+	specularColor: 1.0 1.0 1.0
+	ambientConst: 0.6
+	diffuseConst: 0.5
+	specularConst: 0.2
+	specularExp: 10.0
+	kReflect: 0.0
+	kRefract: 0.8
+	refIndex: 0.99
+	center: 0.0 0.0 -4.0
+	radius: 0.5
+}
+
+2.5 {
+	diffuseColor: 0.2 0.2 0.2
+	specularColor: 1.0 1.0 1.0
+	ambientConst: 0.6
+	diffuseConst: 0.5
+	specularConst: 0.2
+	specularExp: 10.0
+	kReflect: 0.0
+	kRefract: 0.8
+	refIndex: 0.99
+	center: 0.0 -0.1 -4.0
+	radius: 0.5
+}
+
+3.0 {
+	diffuseColor: 0.2 0.2 0.2
+	specularColor: 1.0 1.0 1.0
+	ambientConst: 0.6
+	diffuseConst: 0.5
+	specularConst: 0.2
+	specularExp: 10.0
+	kReflect: 0.8
+	kRefract: 0.0
+	refIndex: 0.99
+	center: 0.0 0.0 -4.0
+	radius: 0.5
+}
+
+3.5 {
+	diffuseColor: 0.2 0.2 0.2
+	specularColor: 1.0 1.0 1.0
+	ambientConst: 0.6
+	diffuseConst: 0.5
+	specularConst: 0.2
+	specularExp: 10.0
+	kReflect: 0.8
+	kRefract: 0.0
+	refIndex: 0.99
+	center: 0.0 -2.5 -4.0
+	radius: 0.5
+}
+
+4.0 {
+	diffuseColor: 0.2 0.2 0.2
+	specularColor: 1.0 1.0 1.0
+	ambientConst: 0.6
+	diffuseConst: 0.5
+	specularConst: 0.2
+	specularExp: 10.0
+	kReflect: 0.8
+	kRefract: 0.0
+	refIndex: 0.99
+	center: -2.5 -2.5 -4.2
+	radius: 0.5
+}
+
+4.1 {
+	diffuseColor: 0.2 0.2 0.2
+	specularColor: 1.0 1.0 1.0
+	ambientConst: 0.6
+	diffuseConst: 0.5
+	specularConst: 0.2
+	specularExp: 10.0
+	kReflect: 0.8
+	kRefract: 0.0
+	refIndex: 0.99
+	center: -2.5 -2.5 -4.2
+	radius: 0.5
+}
+
+5.0 {
+	diffuseColor: 0.2 0.2 0.2
+	specularColor: 1.0 1.0 1.0
+	ambientConst: 0.6
+	diffuseConst: 0.5
+	specularConst: 0.2
+	specularExp: 10.0
+	kReflect: 0.8
+	kRefract: 0.0
+	refIndex: 0.99
+	center: -2.5 -2.5 -20.0
+	radius: 0.5
+}
+
+6.0 {
+	diffuseColor: 0.2 0.2 0.2
+	specularColor: 1.0 1.0 1.0
+	ambientConst: 0.6
+	diffuseConst: 0.5
+	specularConst: 0.2
+	specularExp: 10.0
+	kReflect: 0.8
+	kRefract: 0.0
+	refIndex: 0.99
+	center: -2.5 -2.5 -50.0
+	radius: 0.5
+}
+
+7.0 {
+	diffuseColor: 0.2 0.2 0.2
+	specularColor: 1.0 1.0 1.0
+	ambientConst: 0.6
+	diffuseConst: 0.5
+	specularConst: 0.2
+	specularExp: 10.0
+	kReflect: 0.8
+	kRefract: 0.0
+	refIndex: 0.99
+	center: -2.5 -2.5 -102.0
+	radius: 0.5
+}
+
+7.5 {
+	diffuseColor: 0.2 0.2 0.2
+	specularColor: 1.0 1.0 1.0
+	ambientConst: 0.6
+	diffuseConst: 0.5
+	specularConst: 0.2
+	specularExp: 10.0
+	kReflect: 0.8
+	kRefract: 0.0
+	refIndex: 0.99
+	center: 0.0 0.0 -102.0
+	radius: 0.5
+}
+
+8.0 {
+	diffuseColor: 0.2 0.2 0.2
+	specularColor: 1.0 1.0 1.0
+	ambientConst: 0.6
+	diffuseConst: 0.5
+	specularConst: 0.2
+	specularExp: 10.0
+	kReflect: 0.8
+	kRefract: 0.0
+	refIndex: 0.99
+	center: 0.0 0.0 -99.0
+	radius: 0.5
+}
+
+8.5 {
+	diffuseColor: 0.2 0.2 0.2
+	specularColor: 1.0 1.0 1.0
+	ambientConst: 0.6
+	diffuseConst: 0.5
+	specularConst: 0.2
+	specularExp: 10.0
+	kReflect: 0.8
+	kRefract: 0.0
+	refIndex: 0.99
+	center: 0.0 0.0 -99.0
+	radius: 1.25
+}
+
+10.0 {
+	diffuseColor: 0.2 0.2 0.2
+	specularColor: 1.0 1.0 1.0
+	ambientConst: 0.6
+	diffuseConst: 0.5
+	specularConst: 0.2
+	specularExp: 10.0
+	kReflect: 0.8
+	kRefract: 0.0
+	refIndex: 0.99
+	center: 0.0 0.0 5.0
+	radius: 1.5
+}

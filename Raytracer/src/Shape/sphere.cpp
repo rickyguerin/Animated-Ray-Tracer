@@ -36,7 +36,7 @@ Intersection Sphere::collision(const Ray& ray) const {
 	if (omega < 0) { return NULL_INTERSECTION; }
 
 	else {
-		glm::vec3 point = ray.direction * omega;
+		glm::vec3 point = ray.origin + ray.direction * omega;
 		glm::vec3 normal = glm::normalize(point - center);
 
 		return Intersection {

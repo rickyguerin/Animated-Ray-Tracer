@@ -71,8 +71,7 @@ void World::deleteCurrent() {
 	currentLights.clear();
 }
 
-glm::vec3 World::trace(const Ray& ray, const float time, const int depth) const {
-
+glm::vec3 World::trace(const Ray& ray, const float time, const int depth, const bool inside) const {
 	// Determine what Shape is intersected by ray first
 	Intersection closestIntersection = NULL_INTERSECTION;
 	const Shape* intersectedShape = currentShapes[0];
@@ -135,11 +134,38 @@ glm::vec3 World::trace(const Ray& ray, const float time, const int depth) const 
 		pixelColor += intersectedShape->illuminate(closestIntersection, currentLights, shadow);
 
 		if (depth < MAX_DEPTH) {
-			float kref = intersectedShape->illumination->kReflect;
+			float kReflect = intersectedShape->illumination->kReflect;
+			float kRefract = intersectedShape->illumination->kRefract;
+			float refIndex = intersectedShape->illumination->refIndex;
 
-			if (kref > 0) {
-				glm::vec3 refDir = glm::reflect(ray.direction, closestIntersection.normal);
-				pixelColor += kref * trace(Ray{closestIntersection.point + (refDir * 0.001f), refDir}, time, depth + 1);
+			glm::vec3 reflectDir = glm::reflect(ray.direction, closestIntersection.normal);
+
+			if (kReflect > 0) {
+				pixelColor += kReflect * trace(Ray{closestIntersection.point + (reflectDir * 0.001f), reflectDir}, time, depth + 1, inside);
+			}
+
+			if (kRefract > 0) {
+				float ni, nt;
+				glm::vec3 refNorm = glm::vec3(closestIntersection.normal);
+
+				if (inside) {
+					ni = refIndex;
+					nt = 1.0f;
+					refNorm = -refNorm;
+				} else {
+					ni = 1.0f;
+					nt = refIndex;
+				}
+
+				float test = 1 - ((pow(ni, 2) * (1 - pow(glm::dot(ray.direction, refNorm), 2))) / pow(nt, 2));
+
+				glm::vec3 refractDir = glm::refract(ray.direction, refNorm, ni / nt);
+
+				if (test < 0) {
+					refractDir = glm::vec3(reflectDir);
+				}
+
+				pixelColor += kRefract * trace(Ray{ closestIntersection.point + (refractDir * 0.001f), refractDir }, time, depth + 1, !inside);
 			}
 		}
 

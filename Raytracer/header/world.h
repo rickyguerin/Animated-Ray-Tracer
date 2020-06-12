@@ -11,7 +11,7 @@
 #include "WorldProgram/lightProgram.h"
 #include "../header/Math/ray.h"
 
-static const int MAX_DEPTH = 2;
+static const int MAX_DEPTH = 5;
 
 class World {
 private:
@@ -43,7 +43,7 @@ public:
 	void deleteCurrent();
 
 	// Fire a ray into the world and get its color
-	glm::vec3 trace(const Ray& ray, const float time, const int depth) const;
+	glm::vec3 trace(const Ray& ray, const float time, const int depth, const bool inside) const;
 };
 
 #endif
