@@ -1,7 +1,7 @@
 # Animated Ray Tracer
 <img src="images/hallway.gif" height="400px">
 
-A ray tracer implemented in C++. Instead of generating a static image, however, this program takes input files that define animation keyframes for each of the objects in the scene and uses them to generate a series of frames which can be strung together as an animation, like the gif above.
+A ray tracer implemented in C++. Instead of generating one static image, however, this program takes input files that define animation keyframes for each of the objects in the scene and uses them to generate a series of images which can be strung together as an animation, like the gif above.
 
 ### Current Functionality
 + Can render spheres and triangles
