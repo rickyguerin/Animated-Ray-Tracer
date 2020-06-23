@@ -16,3 +16,6 @@ A ray tracer implemented in C++. Instead of generating one static image, however
 + Relies on the [LodePNG](https://github.com/lvandeve/lodepng) NuGet package for writing .png files.
 + Relies on the [GLMathematics](https://www.nuget.org/packages/glm/0.9.9.600) NuGet package for matrix/vector math
 + Relies on [FastNoise](https://github.com/Auburns/FastNoise) for noise functions
+
+### Results
+All of the artwork I have produced with this has been posted to [this Instagram](https://www.instagram.com/oofy.doodle/).
