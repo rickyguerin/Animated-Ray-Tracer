@@ -5,7 +5,7 @@ A ray tracer implemented in C++. Instead of generating one static image, however
 
 ### Current Functionality
 + Can render spheres and triangles
-+ Can parse input files like [this](Raytracer/world/island/islandGrass.sphere) that define keyframes for one object
++ Can parse input files like [this](Raytracer/world/whitted/first.sphere) that define keyframes for one object
 + Can use keyframes to produce a series of images that can be turned into a gif/mp4
 + Animates with Catmull-Rom interpolation
 
