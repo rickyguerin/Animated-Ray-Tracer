@@ -1,0 +1,20 @@
+GLOBAL {
+	illumination: CHECKER
+}
+
+0.0 {
+	checkSize: 0.2
+	primaryColor: 0.3 0.2 0.1
+	secondaryColor: 0.35 0.25 0.15
+	specularColor: 1.0 1.0 1.0
+	ambientConst: 1.0
+	diffuseConst: 0.8
+	specularConst: 0.0
+	specularExp: 10.0
+	kReflect: 0.0
+	kRefract: 0.0
+	refIndex: 1.0
+	vertex: -2.0 0.0 1.0
+	vertex: -2.0 0.0 -1.0
+	vertex: 2.0 0.0 1.0
+}

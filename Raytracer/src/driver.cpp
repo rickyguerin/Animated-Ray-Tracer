@@ -25,29 +25,35 @@ std::string padInt(int i, int n) {
 
 int main() {
 	// Create the World
-	World world(glm::vec3(0.05f, 0.0f, 0.05f));
+	World world(glm::vec3(0.0f, 0.3f, 0.5f));
 
-	world.addProgram("world/whitted/first.sphere");
-	//world.addProgram("world/whitted/second.sphere");
+	world.addProgram("world/hextree/ground/middleLeft.triangle");
+	world.addProgram("world/hextree/ground/middleRight.triangle");
+	world.addProgram("world/hextree/ground/front.triangle");
+	world.addProgram("world/hextree/ground/back.triangle");
 
-	world.addProgram("world/whitted/walls/bottomSquareLeft.triangle");
-	world.addProgram("world/whitted/walls/bottomSquareRight.triangle");
+	world.addProgram("world/hextree/ground/walls/backLeftUp.triangle");
+	world.addProgram("world/hextree/ground/walls/backLeftDown.triangle");
 
-	world.addProgram("world/whitted/walls/topSquareLeft.triangle");
-	world.addProgram("world/whitted/walls/topSquareRight.triangle");
+	world.addProgram("world/hextree/ground/walls/frontLeftUp.triangle");
+	world.addProgram("world/hextree/ground/walls/frontLeftDown.triangle");
 
-	world.addProgram("world/whitted/walls/leftSquareBottom.triangle");
-	world.addProgram("world/whitted/walls/leftSquareTop.triangle");
+	world.addProgram("world/hextree/ground/walls/backRightUp.triangle");
+	world.addProgram("world/hextree/ground/walls/backRightDown.triangle");
 
-	world.addProgram("world/whitted/walls/rightSquareBottom.triangle");
-	world.addProgram("world/whitted/walls/rightSquareTop.triangle");
+	world.addProgram("world/hextree/ground/walls/frontRightUp.triangle");
+	world.addProgram("world/hextree/ground/walls/frontRightDown.triangle");
 
-	world.addProgram("world/whitted/walls/back.triangle");
+	world.addProgram("world/hextree/ground/walls/rightUp.triangle");
+	world.addProgram("world/hextree/ground/walls/rightDown.triangle");
 
-	world.addProgram("world/whitted/main.light");
+	world.addProgram("world/hextree/ground/walls/leftUp.triangle");
+	world.addProgram("world/hextree/ground/walls/leftDown.triangle");
+
+	world.addProgram("world/hextree/main.light");
 
 	// Read the CameraProgram
-	CameraProgram camProg("world/whitted/main.camera");
+	CameraProgram camProg("world/hextree/main.camera");
 
 	// Animation frame information
 	const float fps = 1.0;
