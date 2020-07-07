@@ -19,12 +19,12 @@ CheckerModel::CheckerModel(const float checkSize, const glm::vec3& primaryColor,
 
 glm::vec3 CheckerModel::illuminate(Intersection intersection, const std::vector<Light>& lights, const bool shadow) const {
 
-	int u = std::abs((intersection.point.x) / checkSize);
-	int v = std::abs((intersection.point.z) / checkSize);
+	int u = std::abs((intersection.pointInWorld.x) / checkSize);
+	int v = std::abs((intersection.pointInWorld.z) / checkSize);
 
 	glm::vec3 checkColor;
 
-	if ((intersection.point.x > 0) == (intersection.point.z > 0)) {
+	if ((intersection.pointInWorld.x > 0) == (intersection.pointInWorld.z > 0)) {
 		checkColor = (u % 2 == v % 2) ? primaryColor : secondaryColor;
 	}
 
