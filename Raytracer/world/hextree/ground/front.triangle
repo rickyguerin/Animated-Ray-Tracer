@@ -16,5 +16,5 @@ GLOBAL {
 	refIndex: 1.0
 	vertex: -2.0 0.0 1.0
 	vertex: 2.0 0.0 1.0
-	vertex: 0.0 0.0 2.8
+	vertex: 0.0 0.0 2.4
 }
