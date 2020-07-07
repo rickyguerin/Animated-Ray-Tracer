@@ -9,6 +9,7 @@ Sphere::Sphere(IlluminationModel* illumination, const glm::vec3& position, const
 
 void Sphere::transformToCameraSpace(const glm::mat4& cameraMatrix) {
 	center = cameraMatrix * glm::vec4(center, 1.0f);
+	cameraToWorldMatrix = glm::inverse(cameraMatrix);
 }
 
 Intersection Sphere::collision(const Ray& ray) const {
