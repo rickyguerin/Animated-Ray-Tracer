@@ -32,23 +32,12 @@ int main() {
 	world.addProgram("world/hextree/ground/front.triangle");
 	world.addProgram("world/hextree/ground/back.triangle");
 
-	world.addProgram("world/hextree/ground/walls/backLeftUp.triangle");
-	world.addProgram("world/hextree/ground/walls/backLeftDown.triangle");
-
-	world.addProgram("world/hextree/ground/walls/frontLeftUp.triangle");
-	world.addProgram("world/hextree/ground/walls/frontLeftDown.triangle");
-
-	world.addProgram("world/hextree/ground/walls/backRightUp.triangle");
-	world.addProgram("world/hextree/ground/walls/backRightDown.triangle");
-
-	world.addProgram("world/hextree/ground/walls/frontRightUp.triangle");
-	world.addProgram("world/hextree/ground/walls/frontRightDown.triangle");
-
-	world.addProgram("world/hextree/ground/walls/rightUp.triangle");
-	world.addProgram("world/hextree/ground/walls/rightDown.triangle");
-
-	world.addProgram("world/hextree/ground/walls/leftUp.triangle");
-	world.addProgram("world/hextree/ground/walls/leftDown.triangle");
+	world.addProgram("world/hextree/ground/walls/backLeft.triangle");
+	world.addProgram("world/hextree/ground/walls/frontLeft.triangle");
+	world.addProgram("world/hextree/ground/walls/backRight.triangle");
+	world.addProgram("world/hextree/ground/walls/frontRight.triangle");
+	world.addProgram("world/hextree/ground/walls/right.triangle");
+	world.addProgram("world/hextree/ground/walls/left.triangle");
 
 	world.addProgram("world/hextree/main.light");
 
