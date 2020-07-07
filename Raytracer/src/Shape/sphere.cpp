@@ -43,6 +43,7 @@ Intersection Sphere::collision(const Ray& ray) const {
 		return Intersection {
 			omega,
 			point,
+			cameraToWorldMatrix * glm::vec4(point, 1.0f),
 			normal,
 			ray.direction
 		};

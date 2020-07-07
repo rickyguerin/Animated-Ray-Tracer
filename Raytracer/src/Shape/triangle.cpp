@@ -44,6 +44,7 @@ Intersection Triangle::collision(const Ray& ray) const {
 	return Intersection{
 		bary.x,
 		ray.origin + ray.direction * bary.x,
+		cameraToWorldMatrix * glm::vec4(ray.origin + ray.direction * bary.x, 1.0f),
 		-glm::normalize(glm::cross(e1, e2)),
 		ray.direction
 	};
