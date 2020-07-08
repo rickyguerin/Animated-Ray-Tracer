@@ -1,10 +1,142 @@
 0.0 {
-	eye: 0.0 0.5 -6.0
-	lookat: 0.0 0.0 0.0
+	eye: -7.0 0.7 0.0
+	lookat: 0.0 0.5 0.0
 	up: 0.0 1.0 0.0
 	focalLength: 4.0
 	canvasWidth: 3.0
 	canvasHeight: 3.0
 	ldmax: 1000
-	sampleLevel: 2
+	sampleLevel: 1
+}
+
+1.5 {
+	eye: -5.0 0.7 5.0
+	lookat: 0.0 0.4 0.0
+	up: 0.0 1.0 0.0
+	focalLength: 4.0
+	canvasWidth: 3.0
+	canvasHeight: 3.0
+	ldmax: 1000
+	sampleLevel: 1
+}
+
+3.0 {
+	eye: 0.0 0.7 7.0
+	lookat: 0.0 0.3 0.0
+	up: 0.0 1.0 0.0
+	focalLength: 4.0
+	canvasWidth: 3.0
+	canvasHeight: 3.0
+	ldmax: 1000
+	sampleLevel: 1
+}
+
+4.5 {
+	eye: 5.0 0.7 5.0
+	lookat: 0.0 0.4 0.0
+	up: 0.0 1.0 0.0
+	focalLength: 4.0
+	canvasWidth: 3.0
+	canvasHeight: 3.0
+	ldmax: 1000
+	sampleLevel: 1
+}
+
+6.0 {
+	eye: 7.0 0.7 0.0
+	lookat: 0.0 0.5 0.0
+	up: 0.0 1.0 0.0
+	focalLength: 4.0
+	canvasWidth: 3.0
+	canvasHeight: 3.0
+	ldmax: 1000
+	sampleLevel: 1
+}
+
+7.5 {
+	eye: 5.0 0.7 -5.0
+	lookat: 0.0 0.4 0.0
+	up: 0.0 1.0 0.0
+	focalLength: 4.0
+	canvasWidth: 3.0
+	canvasHeight: 3.0
+	ldmax: 1000
+	sampleLevel: 1
+}
+
+9.0 {
+	eye: 0.0 0.7 -7.0
+	lookat: 0.0 0.3 0.0
+	up: 0.0 1.0 0.0
+	focalLength: 4.0
+	canvasWidth: 3.0
+	canvasHeight: 3.0
+	ldmax: 1000
+	sampleLevel: 1
+}
+
+10.5 {
+	eye: -5.0 0.7 -5.0
+	lookat: 0.0 0.4 0.0
+	up: 0.0 1.0 0.0
+	focalLength: 4.0
+	canvasWidth: 3.0
+	canvasHeight: 3.0
+	ldmax: 1000
+	sampleLevel: 1
+}
+
+12.0 {
+	eye: -7.0 0.7 0.0
+	lookat: 0.0 0.5 0.0
+	up: 0.0 1.0 0.0
+	focalLength: 4.0
+	canvasWidth: 3.0
+	canvasHeight: 3.0
+	ldmax: 1000
+	sampleLevel: 1
+}
+
+13.5 {
+	eye: -5.0 0.7 5.0
+	lookat: 0.0 0.4 0.0
+	up: 0.0 1.0 0.0
+	focalLength: 4.0
+	canvasWidth: 3.0
+	canvasHeight: 3.0
+	ldmax: 1000
+	sampleLevel: 1
+}
+
+15.0 {
+	eye: 0.0 0.7 7.0
+	lookat: 0.0 0.3 0.0
+	up: 0.0 1.0 0.0
+	focalLength: 4.0
+	canvasWidth: 3.0
+	canvasHeight: 3.0
+	ldmax: 1000
+	sampleLevel: 1
+}
+
+16.5 {
+	eye: 5.0 0.7 5.0
+	lookat: 0.0 0.4 0.0
+	up: 0.0 1.0 0.0
+	focalLength: 4.0
+	canvasWidth: 3.0
+	canvasHeight: 3.0
+	ldmax: 1000
+	sampleLevel: 1
+}
+
+18.0 {
+	eye: 7.0 0.7 0.0
+	lookat: 0.0 0.5 0.0
+	up: 0.0 1.0 0.0
+	focalLength: 4.0
+	canvasWidth: 3.0
+	canvasHeight: 3.0
+	ldmax: 1000
+	sampleLevel: 1
 }

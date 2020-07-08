@@ -27,17 +27,25 @@ int main() {
 	// Create the World
 	World world(glm::vec3(0.0f, 0.3f, 0.5f));
 
-	world.addProgram("world/hextree/ground/middleLeft.triangle");
-	world.addProgram("world/hextree/ground/middleRight.triangle");
-	world.addProgram("world/hextree/ground/front.triangle");
-	world.addProgram("world/hextree/ground/back.triangle");
+	world.addProgram("world/hextree/ground/bottom/backLeft.triangle");
+	world.addProgram("world/hextree/ground/bottom/frontLeft.triangle");
+	world.addProgram("world/hextree/ground/bottom/backRight.triangle");
+	world.addProgram("world/hextree/ground/bottom/frontRight.triangle");
+	world.addProgram("world/hextree/ground/bottom/right.triangle");
+	world.addProgram("world/hextree/ground/bottom/left.triangle");
 
-	world.addProgram("world/hextree/ground/walls/backLeft.triangle");
-	world.addProgram("world/hextree/ground/walls/frontLeft.triangle");
-	world.addProgram("world/hextree/ground/walls/backRight.triangle");
+	world.addProgram("world/hextree/ground/top/backLeft.triangle");
+	world.addProgram("world/hextree/ground/top/frontLeft.triangle");
+	world.addProgram("world/hextree/ground/top/backRight.triangle");
+	world.addProgram("world/hextree/ground/top/frontRight.triangle");
+	world.addProgram("world/hextree/ground/top/right.triangle");
+	world.addProgram("world/hextree/ground/top/left.triangle");
+
+	world.addProgram("world/hextree/ground/walls/front.triangle");
 	world.addProgram("world/hextree/ground/walls/frontRight.triangle");
 	world.addProgram("world/hextree/ground/walls/right.triangle");
-	world.addProgram("world/hextree/ground/walls/left.triangle");
+
+	world.addProgram("world/hextree/br.sphere");
 
 	world.addProgram("world/hextree/main.light");
 
@@ -45,12 +53,12 @@ int main() {
 	CameraProgram camProg("world/hextree/main.camera");
 
 	// Animation frame information
-	const float fps = 1.0;
-	const float duration = 1.0;
+	const float fps = 60.0;
+	const float duration = 12.0;
 	const unsigned frames = fps * duration;
 
 	// Animation timer
-	float time = 0.0;
+	float time = 3.0;
 	const float spf = duration / frames;
 
 	// Render frames
