@@ -25,37 +25,40 @@ std::string padInt(int i, int n) {
 
 int main() {
 	// Create the World
-	World world(glm::vec3(0.05f, 0.0f, 0.05f));
+	World world(glm::vec3(0.0f, 0.3f, 0.5f));
 
-	world.addProgram("world/whitted/first.sphere");
-	//world.addProgram("world/whitted/second.sphere");
+	world.addProgram("world/hextree/ground/bottom/backLeft.triangle");
+	world.addProgram("world/hextree/ground/bottom/frontLeft.triangle");
+	world.addProgram("world/hextree/ground/bottom/backRight.triangle");
+	world.addProgram("world/hextree/ground/bottom/frontRight.triangle");
+	world.addProgram("world/hextree/ground/bottom/right.triangle");
+	world.addProgram("world/hextree/ground/bottom/left.triangle");
 
-	world.addProgram("world/whitted/walls/bottomSquareLeft.triangle");
-	world.addProgram("world/whitted/walls/bottomSquareRight.triangle");
+	world.addProgram("world/hextree/ground/top/backLeft.triangle");
+	world.addProgram("world/hextree/ground/top/frontLeft.triangle");
+	world.addProgram("world/hextree/ground/top/backRight.triangle");
+	world.addProgram("world/hextree/ground/top/frontRight.triangle");
+	world.addProgram("world/hextree/ground/top/right.triangle");
+	world.addProgram("world/hextree/ground/top/left.triangle");
 
-	world.addProgram("world/whitted/walls/topSquareLeft.triangle");
-	world.addProgram("world/whitted/walls/topSquareRight.triangle");
+	world.addProgram("world/hextree/ground/walls/front.triangle");
+	world.addProgram("world/hextree/ground/walls/frontRight.triangle");
+	world.addProgram("world/hextree/ground/walls/right.triangle");
 
-	world.addProgram("world/whitted/walls/leftSquareBottom.triangle");
-	world.addProgram("world/whitted/walls/leftSquareTop.triangle");
+	world.addProgram("world/hextree/br.sphere");
 
-	world.addProgram("world/whitted/walls/rightSquareBottom.triangle");
-	world.addProgram("world/whitted/walls/rightSquareTop.triangle");
-
-	world.addProgram("world/whitted/walls/back.triangle");
-
-	world.addProgram("world/whitted/main.light");
+	world.addProgram("world/hextree/main.light");
 
 	// Read the CameraProgram
-	CameraProgram camProg("world/whitted/main.camera");
+	CameraProgram camProg("world/hextree/main.camera");
 
 	// Animation frame information
-	const float fps = 1.0;
-	const float duration = 1.0;
+	const float fps = 60.0;
+	const float duration = 12.0;
 	const unsigned frames = fps * duration;
 
 	// Animation timer
-	float time = 0.0;
+	float time = 3.0;
 	const float spf = duration / frames;
 
 	// Render frames

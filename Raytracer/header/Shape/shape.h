@@ -13,11 +13,15 @@ protected:
 	// Constructor
 	Shape(IlluminationModel* illumination) {
 		this->illumination = illumination;
+		this->cameraToWorldMatrix = glm::mat4();
 	}
 
 public:
 	// How this shape is shaded
 	IlluminationModel* illumination;
+
+	// Matrix to transform a point back to world space
+	glm::mat4 cameraToWorldMatrix;
 
 	// Destructor
 	virtual ~Shape() {};

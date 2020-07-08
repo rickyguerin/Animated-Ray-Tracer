@@ -3,6 +3,10 @@
 
 glm::vec3 interpolate(const float u, const glm::vec3& p0, const glm::vec3& p1, const glm::vec3& p2, const glm::vec3& p3) {
 
+	if (p1 == p2) {
+		return p1;
+	}
+
 	// Deal with initial/final point not existing
 	glm::vec3 first = p0;
 	glm::vec3 last = p3;

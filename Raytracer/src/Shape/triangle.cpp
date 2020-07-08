@@ -8,6 +8,7 @@ void Triangle::transformToCameraSpace(const glm::mat4& cameraMatrix) {
 	for (int i = 0; i < 3; i++) {
 		vertices[i] = cameraMatrix * glm::vec4(vertices[i], 1.0f);
 	}
+	cameraToWorldMatrix = glm::inverse(cameraMatrix);
 }
 
 Intersection Triangle::collision(const Ray& ray) const {
@@ -43,6 +44,7 @@ Intersection Triangle::collision(const Ray& ray) const {
 	return Intersection{
 		bary.x,
 		ray.origin + ray.direction * bary.x,
+		cameraToWorldMatrix * glm::vec4(ray.origin + ray.direction * bary.x, 1.0f),
 		-glm::normalize(glm::cross(e1, e2)),
 		ray.direction
 	};
